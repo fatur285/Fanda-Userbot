@@ -9,7 +9,7 @@ FROM kyyex/kyy-userbot:buster
 
 #Diapus gua santet online
 
-RUN git clone -b main https://github.com/DIORrios285/DIOR-UBOT /root/userbot
+RUN git clone -b main https://github.com/DIORrios285/Fanda-Userbot /root/userbot
 RUN mkdir /root/userbot/.bin
 RUN pip install --upgrade pip setuptools
 WORKDIR /root/userbot
