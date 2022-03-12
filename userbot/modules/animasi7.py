@@ -1,10 +1,10 @@
 from time import sleep
 
 from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import edit_or_reply, kyy_cmd
+from userbot.utils import edit_or_reply, fanda_cmd
 
 
-@kyy_cmd(pattern="sange$")
+@fanda_cmd(pattern="sange$")
 async def koc(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         e = await edit_or_reply(e, "SAYANGGGGGGGGG 💕")
@@ -53,7 +53,7 @@ async def koc(e):
         await e.edit("AKU SANGE SAYANG💞")
 
 
-@kyy_cmd(pattern="orgil(?: |$)(.*)")
+@fanda_cmd(pattern="orgil(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     typew = await edit_or_reply(typew, "`ANJING ADA ORANG GILA.....`")
@@ -86,7 +86,7 @@ async def typewriter(typew):
     await typew.edit("`🏃                   🤸`")
     await typew.edit("`🏃                    🤸`")
     await typew.edit("`🏃                     ⛹️`")
-    await typew.edit("`🏃  Huh-Huh           🏃`")
+    await typew.edit("`🏃  Ahhh Ahhhh          🏃`")
     await typew.edit("`🏃                   🤑`")
     await typew.edit("`🏃                  🙈`")
     await typew.edit("`🏃                 ⛹️`")
@@ -111,7 +111,7 @@ async def typewriter(typew):
     await typew.edit("`-TAMAT-`")
 
 
-@kyy_cmd(pattern="ass(?: |$)(.*)")
+@fanda_cmd(pattern="ass(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     typew = await edit_or_reply(typew, "`Salam dulu biar sopan....`")
@@ -132,7 +132,7 @@ async def typewriter(typew):
     await typew.edit("`Assalamu'alaiku`")
     await typew.edit("`Assalamu'alaikum`")
     sleep(3)
-    await typew.edit("**YANG GA JAWAB, FIX ATHEISS!!**")
+    await typew.edit("**YANG GA JAWAB ANAK ASMODEUS!!**")
 
 
 CMD_HELP.update({
