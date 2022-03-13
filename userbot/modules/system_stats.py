@@ -19,7 +19,7 @@ import time
 from datetime import datetime
 import psutil
 from userbot import ALIVE_LOGO, ALIVE_NAME, BOT_VER, CMD_HELP, KYY_TEKS_KUSTOM, StartTime, UPSTREAM_REPO_BRANCH, bot, CMD_HANDLER as cmd
-from userbot.utils import edit_or_reply, kyy_cmd
+from userbot.utils import edit_or_reply, fanda_cmd
 
 
 # ================= CONSTANT =================
@@ -58,7 +58,7 @@ async def get_readable_time(seconds: int) -> str:
     return up_time
 
 
-@kyy_cmd(pattern="spc")
+@fanda_cmd(pattern="spc")
 async def psu(event):
     uname = platform.uname()
     softw = "**Informasi Sistem**\n"
@@ -116,7 +116,7 @@ def get_size(bytes, suffix="B"):
         bytes /= factor
 
 
-@kyy_cmd(pattern="sysd$")
+@fanda_cmd(pattern="sysd$")
 async def sysdetails(sysd):
     if not sysd.text[0].isalpha() and sysd.text[0] not in ("/", "#", "@", "!"):
         try:
@@ -136,7 +136,7 @@ async def sysdetails(sysd):
             await sysd.edit("`Install neofetch first !!`")
 
 
-@kyy_cmd(pattern="botver$")
+@fanda_cmd(pattern="botver$")
 async def bot_ver(event):
     if event.text[0].isalpha() or event.text[0] in ("/", "#", "@", "!"):
         return
@@ -164,8 +164,8 @@ async def bot_ver(event):
         revout = str(stdout.decode().strip()) + str(stderr.decode().strip())
 
         await event.edit(
-            "**⚜-**✨Kyy-Userbot✨ Versi:** \n "
-            f"heads/Kyy-Userbot-0-x634i7u1"
+            "**⚜-**Fanda-Userbot Versi:** \n "
+            f"heads/Fanda-Userbot-0-x634i7u1"
             "\n**⚜-**Revisi:**\n "
             f"{revout}"
         )
@@ -175,7 +175,7 @@ async def bot_ver(event):
         )
 
 
-@kyy_cmd(pattern="pip(?: |$)(.*)")
+@fanda_cmd(pattern="pip(?: |$)(.*)")
 async def pipcheck(pip):
     if pip.text[0].isalpha() or pip.text[0] in ("/", "#", "@", "!"):
         return
@@ -223,13 +223,13 @@ async def pipcheck(pip):
         await pip.edit("Gunakan `.help pip` Untuk Melihat Contoh")
 
 
-@kyy_cmd(pattern="(?:kyyalive)\\s?(.)?")
+@fanda_cmd(pattern="(?:alive)\\s?(.)?")
 async def amireallyalive(alive):
     user = await bot.get_me()
     await get_readable_time((time.time() - StartTime))
     output = (
-        f" **✨ҡʏʏ-υѕєявσт✨** \n\n"
-        f"\n__**{KYY_TEKS_KUSTOM}**__\n\n\n"
+        f" **Fanda-Userbot** \n\n"
+        f"\n__**{FANDA_TEKS_KUSTOM}**__\n\n\n"
         f"╭✠╼━━━━━━━━━━━━━━━✠╮\n"
         f"◙ `Name       :` {DEFAULTUSER} \n"
         f"◙ `Username   :` @{user.username} \n"
@@ -238,7 +238,7 @@ async def amireallyalive(alive):
         f"◙ `Bot Ver    :` {BOT_VER} \n"
         f"◙ `Modules    :` {len(modules)} \n"
         f"╰✠╼━━━━━━━━━━━━━━━✠╯\n"
-        f"[ɢʀᴏᴜᴘꜱ](https://t.me/NastySupportt) | [ᴄʜᴀɴɴᴇʟ](https://t.me/NastyProject) | [ᴏᴡɴᴇʀ](https://t.me/IDnyaKosong) | [ɢɪᴛʜᴜʙ](https://github.com/muhammadrizky16/Kyy-Userbot)")
+        f"[ɢʀᴏᴜᴘꜱ](https://t.me/fandasupport) | [ᴄʜᴀɴɴᴇʟ](https://t.me/FandaProject) | [ᴏᴡɴᴇʀ](https://t.me/uurfavboys) | [ɢɪᴛʜᴜʙ](https://github.com/DIORrios285/Fanda-Userbot)")
     if ALIVE_LOGO:
         try:
             logo = ALIVE_LOGO
@@ -259,7 +259,7 @@ async def amireallyalive(alive):
         await alive.delete()
 
 
-@kyy_cmd(pattern="(?:kyyon)\\s?(.)?")
+@fanda_cmd(pattern="(?:ralive)\\s?(.)?")
 async def amireallyalive(alive):
     await bot.get_me()
     await get_readable_time((time.time() - StartTime))
@@ -292,53 +292,7 @@ async def amireallyalive(alive):
         await alive.delete()
 
 
-@kyy_cmd(pattern="(?:alive|on)\\s?(.)?")
-async def redis(alive):
-    user = await bot.get_me()
-    await get_readable_time((time.time() - StartTime))
-    xx = await edit_or_reply(alive, "__Sedang Memuat.__")
-    await xx.edit("__Sedang Memuat..__")
-    await xx.edit("__Sedang Memuat.__")
-    await xx.edit("__Sedang Memuat..__")
-    await xx.edit("__Sedang Memuat...__")
-    await xx.edit("__Sedang Memuat..__")
-    await xx.edit("__Sedang Memuat...__")
-    await xx.edit("✨")
-    await asyncio.sleep(2)
-    output = (
-        f"┏━━━━✨ҡʏʏ-υѕєявσт✨━━━━ \n"
-        f"┣  **Name     :** {DEFAULTUSER} \n"
-        f"┣  **Username :** @{user.username} \n"
-        f"┣  **Telethon :** Ver {version.__version__} \n"
-        f"┣  **Python   :** Ver {python_version()} \n"
-        f"┣  **Branch   :** {UPSTREAM_REPO_BRANCH} \n"
-        f"┣  **Bot Ver  :** {BOT_VER} \n"
-        f"┣  **Modules  :** {len(modules)} Modules \n"
-        f"┣  **GitHub   :** [Kyy](https://github.com/muhammadrizky16/Kyy-Userbot) \n"
-        f"┣  **Support  :** [Groups](https://t.me/NastySupportt) \n"
-        f"┣  **Owner    :** [Kyy](https://t.me/IDnyaKosong) \n"
-        f"┗━━━━━━━━━━━━━━━━━━━━━")
-    if ALIVE_LOGO:
-        try:
-            logo = ALIVE_LOGO
-            await xx.delete()
-            msg = await bot.send_file(alive.chat_id, logo, caption=output)
-            await asyncio.sleep(500)
-            await msg.delete()
-        except BaseException:
-            await alive.edit(
-                output + "\n\n *`Logo Yang Disediakan Tidak Valid."
-                "\nPastikan Tautan Yang Anda Gunakan Valid`"
-            )
-            await asyncio.sleep(100)
-            await xx.delete()
-    else:
-        await xx.edit(output)
-        await asyncio.sleep(100)
-        await xx.delete()
-
-
-@kyy_cmd(pattern="aliveu")
+@fanda_cmd(pattern="aliveu")
 async def amireallyaliveuser(username):
     """ For .aliveu command, change the username in the .alive command. """
     message = username.text
@@ -351,7 +305,7 @@ async def amireallyaliveuser(username):
     await username.edit("`" f"{output}" "`")
 
 
-@kyy_cmd(pattern="resetalive$")
+@fanda_cmd(pattern="resetalive$")
 async def amireallyalivereset(ureset):
     global DEFAULTUSER  # global statement
     DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
@@ -369,11 +323,11 @@ CMD_HELP.update({
 })
 CMD_HELP.update({
     "alive":
-    f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}alive` or `utilson`"
+    f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}alive` or `ralive`"
     "\n↳ : To see whether your bot is working or not."
     f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}aliveu` <text>"
     "\n↳ : Changes the 'user' in alive to the text you want."
-    f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}restalive`"
+    f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}resetalive`"
     "\n↳ : Resets the user to default."
 })
 CMD_HELP.update(
