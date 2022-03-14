@@ -1,4 +1,4 @@
-# Port By @IDnyaKosong From Kyy-Userbot
+# Port By @uurfavboys From Kyy-Userbot
 # # Copyright (C) 2021 Kyy-Userbot
 
 from userbot.utils import edit_or_reply, edit_delete, fanda_cmd
@@ -24,7 +24,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@kyy_cmd(pattern="faudio(?: |$)(.*)")
+@fanda_cmd(pattern="faudio(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -42,7 +42,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@kyy_cmd(pattern="fvideo(?: |$)(.*)")
+@fanda_cmd(pattern="fvideo(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
