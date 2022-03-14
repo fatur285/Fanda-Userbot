@@ -1,6 +1,6 @@
 {
   "name": "Fanda-Userbot",
-  "description": "USERBOT KHUSUS YANG DIGUNAKAN UNTUK BERSENANG-SENANG DI TELEGRAM.",
+  "description": "A SPECIAL USERBOT USED FOR FUN ON TELEGRAM.",
   "logo": "",
   "keywords": [
     "telegram",
@@ -32,24 +32,18 @@
     },
     "HEROKU_API_KEY": {
       "description": "Heroku API KEY mu, dapatkan dari web 'https://dashboard.heroku.com/account'",
-      "value": "Check Di Heroku Dashboard Mu",
       "required": true
     },
     "BOTLOG_CHATID": {
-      "description": "Buatlah Sebuah Grup Publik Lalu Tambahkan @MissRose_Bot Sebagai Admin di Grup Mu, Lalu Ketik /id. Nanti akan muncul ID seperti ini Contoh : -1001234567890",
+      "description": "Buatlah Sebuah Grup Publik Lalu Tambahkan @MissRose_Bot Sebagai Admin di Grup Mu, Lalu Ketik /id. Nanti akan muncul ID seperti ini Contohnya : -1001234567890",
       "required": true
     },
     "G_BAN_LOGGER_GROUP": {
-      "description": "Buatlah Sebuah Grup Publik Lalu Tambahkan @MissRose_Bot Sebagai Admin di Grup Mu, Lalu Ketik /id. Nanti akan muncul ID seperti ini Contoh : -1001234567890",
-      "required": true
-    },
-    "PM_AUTO_BAN": {
-      "description": "PM Auto-Ban Feature Switch. Also known as the 'bleep blop, this is a bot...' module. or click /skip",
-      "value": "False",
+      "description": "Buatlah Sebuah Grup Publik Lalu Tambahkan @MissRose_Bot Sebagai Admin di Grup Mu, Lalu Ketik /id. Nanti akan muncul ID seperti ini Contohnya : -1001234567890",
       "required": true
     },
     "ALIVE_NAME": {
-      "description": "Nama untuk menunjukan pesan .alive",
+      "description": "Nama userbot mu dan juga nama untuk menunjukan pesan .alive",
       "required": true
     }
   },
