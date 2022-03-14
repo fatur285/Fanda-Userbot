@@ -26,10 +26,10 @@ from userbot.utils import fanda_cmd
 
 # ========================= CONSTANTS ============================
 AFKSTR = [
-    f"🔥𝙋𝙀𝙎𝘼𝙉 𝙊𝙏𝙊𝙈𝘼𝙏𝙄𝙎\n╭╼════════════╾ \n┣ {ALIVE_NAME} ꜱᴇᴅᴀɴɢ ᴀꜰᴋ\n╰╼═════════╾",
-    f"🔥𝙋𝙀𝙎𝘼𝙉 𝙊𝙏𝙊𝙈𝘼𝙏𝙄𝙎\n╭╼════════════╾ \n┣ {ALIVE_NAME} ꜱᴇᴅᴀɴɢ ᴀꜰᴋ\n╰╼═════════╾",
-    f"🔥𝙋𝙀𝙎𝘼𝙉 𝙊𝙏𝙊𝙈𝘼𝙏𝙄𝙎\n╭╼════════════╾ \n┣ {ALIVE_NAME} ꜱᴇᴅᴀɴɢ ᴀꜰᴋ\n╰╼═════════╾",
-    f"🔥𝙋𝙀𝙎𝘼𝙉 𝙊𝙏𝙊𝙈𝘼𝙏𝙄𝙎\n╭╼════════════╾ \n┣ {ALIVE_NAME} ꜱᴇᴅᴀɴɢ ᴀꜰᴋ\n╰╼═════════╾",
+    f"╭╼════════════╾ \n┣ {ALIVE_NAME} ꜱᴇᴅᴀɴɢ ᴀꜰᴋ\n╰╼═════════╾",
+    f"╭╼════════════╾ \n┣ {ALIVE_NAME} ꜱᴇᴅᴀɴɢ ᴀꜰᴋ\n╰╼═════════╾",
+    f"╭╼════════════╾ \n┣ {ALIVE_NAME} ꜱᴇᴅᴀɴɢ ᴀꜰᴋ\n╰╼═════════╾",
+    f"╭╼════════════╾ \n┣ {ALIVE_NAME} ꜱᴇᴅᴀɴɢ ᴀꜰᴋ\n╰╼═════════╾",
 ]
 
 
@@ -64,15 +64,15 @@ async def set_afk(afk_e):
     afk_start = start_1.replace(microsecond=0)
     if string:
         AFKREASON = string
-        await afk_e.edit(f"🔥𝙋𝙀𝙎𝘼𝙉 𝙊𝙏𝙊𝙈𝘼𝙏𝙄𝙎\n╭╼═══╾╼═══╾╼═══╾╼═══╾ \n┣ {ALIVE_NAME} ᴀꜰᴋ ᴅᴜʟᴜ\n┣ ᴀʟᴀꜱᴀɴ : {AFKREASON}\n╰╼═══╾╼═══╾╼═══╾")
+        await afk_e.edit(f"➱ {ALIVE_NAME} ꜱᴇᴅᴀɴɢ ᴀꜰᴋ \n➱ ᴀʟᴀꜱᴀɴ : {AFKREASON}")
     else:
-        await afk_e.edit("🔥 𝘼 𝙁 𝙆\n╭╼═══╾╼═══╾╼═══╾ \n┣ ᴊᴀɴɢᴀɴ ᴅɪᴄᴀʀɪ ✨\n╰╼═══╾╼═══╾")
+        await afk_e.edit("")
     if user.last_name:
         await afk_e.client(UpdateProfileRequest(first_name=user.first_name, last_name=user.last_name))
     else:
         await afk_e.client(UpdateProfileRequest(first_name=user.first_name, last_name=user.last_name))
     if BOTLOG:
-        await afk_e.client.send_message(BOTLOG_CHATID, "#AFK\n**ʟᴀɢɪ ᴀꜰᴋ ɢᴜʏꜱ**")
+        await afk_e.client.send_message(BOTLOG_CHATID, "#AFK\n**Gi AFK nih**")
     ISAFK = True
     afk_time = datetime.now()  # pylint:disable=E0602
     raise StopPropagation
@@ -91,7 +91,7 @@ async def type_afk_is_not_true(notafk):
     global afk_end
     user = await bot.get_me()  # pylint:disable=E0602
     last = user.last_name
-    if last and last.endswith("🔥 𝘼 𝙁 𝙆"):
+    if last and last.endswith("𝘼𝙁𝙆"):
         last1 = last[:-12]
     else:
         last1 = ""
@@ -99,7 +99,7 @@ async def type_afk_is_not_true(notafk):
     afk_end = back_alive.replace(microsecond=0)
     if ISAFK:
         ISAFK = False
-        msg = await notafk.respond("🔥𝙊𝙉𝙇𝙄𝙉𝙀")
+        msg = await notafk.respond("𝙊𝙉𝙇𝙄𝙉𝙀")
         time.sleep(3)
         await msg.delete()
         await notafk.client(UpdateProfileRequest(first_name=user.first_name, last_name=last1))

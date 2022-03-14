@@ -2,10 +2,10 @@ from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 import io
 from userbot import bot, CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import edit_or_reply, edit_delete, kyy_cmd
+from userbot.utils import edit_or_reply, edit_delete, fanda_cmd
 
 
-@kyy_cmd(pattern="itos$")
+@fanda_cmd(pattern="itos$")
 async def _(event):
     if event.fwd_from:
         return
@@ -38,7 +38,7 @@ async def _(event):
             await event.client.delete_message(event.chat_id, [msg.id, response.id])
 
 
-@kyy_cmd(pattern="get$")
+@fanda_cmd(pattern="get$")
 async def _(event):
     if event.fwd_from:
         return
@@ -84,7 +84,7 @@ async def _(event):
         await bot.send_read_acknowledge(conv.chat_id)
 
 
-@kyy_cmd(pattern="stoi$")
+@fanda_cmd(pattern="stoi$")
 async def sticker_to_png(sticker):
     if not sticker.is_reply:
         await edit_delete(sticker, "`NULL information to feftch...`")

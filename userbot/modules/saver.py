@@ -1,7 +1,7 @@
 
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
-from userbot.utils import edit_or_reply, edit_delete, kyy_cmd
+from userbot.utils import edit_or_reply, edit_delete, fanda_cmd
 from userbot import bot, CMD_HELP, ALIVE_NAME, CMD_HANDLER as cmd
 from platform import uname
 
@@ -11,7 +11,7 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 # ============================================
 
 
-@kyy_cmd(pattern="igsaver ?(.*)")
+@fanda_cmd(pattern="igsaver ?(.*)")
 async def igsaver(event):
     if event.fwd_from:
         return

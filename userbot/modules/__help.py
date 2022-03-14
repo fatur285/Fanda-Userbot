@@ -24,7 +24,7 @@ from userbot.utils import edit_or_reply, edit_delete, fanda_cmd
 
 user = bot.get_me()
 DEFAULTUSER = user.first_name
-CUSTOM_HELP_EMOJI = "⚡"
+CUSTOM_HELP_EMOJI = "✪"
 
 
 @fanda_cmd(pattern="help ?(.*)")

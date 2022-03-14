@@ -14,7 +14,7 @@ from userbot.modules.vcg import vcmention
 from userbot.utils import _format, edit_delete, edit_or_reply
 from userbot.utils.tools import media_type
 
-from userbot.utils import kyy_cmd
+from userbot.utils import fanda_cmd
 
 
 class LOG_CHATS:
@@ -28,23 +28,23 @@ LOG_CHATS_ = LOG_CHATS()
 
 
 @bot.on(events.ChatAction)
-async def logaddjoin(kyy):
-    user = await kyy.get_user()
-    chat = await kyy.get_chat()
+async def logaddjoin(tur):
+    user = await tur.get_user()
+    chat = await tur.get_chat()
     if not (user and user.is_self):
         return
     if hasattr(chat, "username") and chat.username:
-        chat = f"[{chat.title}](https://t.me/{chat.username}/{kyy.action_message.id})"
+        chat = f"[{chat.title}](https://t.me/{chat.username}/{tur.action_message.id})"
     else:
-        chat = f"[{chat.title}](https://t.me/c/{chat.id}/{kyy.action_message.id})"
+        chat = f"[{chat.title}](https://t.me/c/{chat.id}/{tur.action_message.id})"
     if kyy.user_added:
-        tmp = kyy.added_by
+        tmp = tur.added_by
         text = f"u📩 **#TAMBAH_LOG\n •** {vcmention(tmp)} **Menambahkan** {vcmention(user)}\n **• Ke Group** {chat}"
     elif kyy.user_joined:
         text = f"📨 **#LOG_GABUNG\n •** [{user.first_name}](tg://user?id={user.id}) **Bergabung\n • Ke Group** {chat}"
     else:
         return
-    await kyy.client.send_message(BOTLOG_CHATID, text)
+    await tur.client.send_message(BOTLOG_CHATID, text)
 
 
 @bot.on(events.NewMessage(incoming=True, func=lambda e: e.is_private))
@@ -144,7 +144,7 @@ async def log(log_text):
         )
 
 
-@kyy_cmd(pattern="log$")
+@fanda_cmd(pattern="log$")
 async def set_no_log_p_m(event):
     if BOTLOG_CHATID != -100:
         chat = await event.get_chat()
@@ -155,7 +155,7 @@ async def set_no_log_p_m(event):
             )
 
 
-@kyy_cmd(pattern="nolog$")
+@fanda_cmd(pattern="nolog$")
 async def set_no_log_p_m(event):
     if BOTLOG_CHATID != -100:
         chat = await event.get_chat()
@@ -166,7 +166,7 @@ async def set_no_log_p_m(event):
             )
 
 
-@kyy_cmd(pattern="pmlog (on|off)$")
+@fanda_cmd(pattern="pmlog (on|off)$")
 async def set_pmlog(event):
     if BOTLOG_CHATID == -100:
         return await edit_delete(
@@ -196,7 +196,7 @@ async def set_pmlog(event):
         await edit_or_reply(event, "**PM LOG Sudah Dimatikan**")
 
 
-@kyy_cmd(pattern="gruplog (on|off)$")
+@fanda_cmd(pattern="gruplog (on|off)$")
 async def set_gruplog(event):
     if BOTLOG_CHATID == -100:
         return await edit_delete(

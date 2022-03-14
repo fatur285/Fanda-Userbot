@@ -6,10 +6,10 @@ from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from userbot import bot, CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import kyy_cmd
+from userbot.utils import fanda_cmd
 
 
-@kyy_cmd(pattern="limit(?: |$)(.*)")
+@fanda_cmd(pattern="limit(?: |$)(.*)")
 async def _(event):
     await event.edit("`Checking If You Are Limited...`")
     async with bot.conversation("@SpamBot") as conv:

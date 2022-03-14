@@ -38,16 +38,16 @@ from userbot import CMD_HELP
 from userbot import S_PACK_NAME as custompack
 from userbot import tgbot
 from userbot.modules.sql_helper.globals import addgvar, gvarstatus
-from userbot.utils import edit_delete, edit_or_reply, kyy_cmd
+from userbot.utils import edit_delete, edit_or_reply, kang_cmd
 from userbot.utils.misc import animator
 
 KANGING_STR = [
     "Sedang Mengambil Sticker Ini Ke Pack Anda",
-    "Sedang Mengambil Sticker Ini Ke Pack Anda",
+    "Tikel capa ciii aku colong ya",
 ]
 
 
-@kyy_cmd(pattern="(?:tikel|kang)\\s?(.)?")
+@fanda_cmd(pattern="(?:tikel|kang)\\s?(.)?")
 async def kang(args):
     user = await args.client.get_me()
     if not user.username:
@@ -219,7 +219,7 @@ async def kang(args):
                         return await xx.edit(
                             "`Sticker telah dibuat ke pack baru !"
                             "\nIni Pack Yang Baru Saja Anda Buat !"
-                            f"\nTekan [✨Klik Disini✨](t.me/addstickers/{packname}) Untuk Melihat Sticker Anda",
+                            f"\nTekan [Disini](t.me/addstickers/{packname}) Untuk Melihat Sticker Anda",
                             parse_mode="md",
                         )
                 if is_anim:
@@ -316,7 +316,7 @@ async def resize_photo(photo):
     return image
 
 
-@kyy_cmd(pattern="pkang(?:\\s|$)([\\s\\S]*)")
+@fanda_cmd(pattern="pkang(?:\\s|$)([\\s\\S]*)")
 async def _(event):
     xnxx = await edit_or_reply(event, f"`{random.choice(KANGING_STR)}`")
     reply = await event.get_reply_message()
@@ -390,7 +390,7 @@ async def _(event):
         await xnxx.edit("**Berkas Tidak Didukung. Harap Balas ke stiker saja.**")
 
 
-@kyy_cmd(pattern="stickerinfo$")
+@fanda_cmd(pattern="stickerinfo$")
 async def get_pack_info(event):
     if not event.is_reply:
         return await edit_delete(event, "**Mohon Balas Ke Sticker**")
@@ -434,7 +434,7 @@ async def get_pack_info(event):
     await xx.edit(OUTPUT)
 
 
-@kyy_cmd(pattern="delsticker ?(.*)")
+@fanda_cmd(pattern="delsticker ?(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -480,7 +480,7 @@ async def _(event):
             await xx.edit("**Berhasil Menghapus Stiker.**")
 
 
-@kyy_cmd(pattern="editsticker ?(.*)")
+@fanda_cmd(pattern="editsticker ?(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -534,7 +534,7 @@ async def _(event):
                 )
 
 
-@kyy_cmd(pattern="getsticker$")
+@fanda_cmd(pattern="getsticker$")
 async def sticker_to_png(sticker):
     if not sticker.is_reply:
         await edit_delete(sticker, "**Harap balas ke stiker**")
@@ -554,7 +554,7 @@ async def sticker_to_png(sticker):
     await xx.delete()
 
 
-@kyy_cmd(pattern="stickers ?([\\s\\S]*)")
+@fanda_cmd(pattern="stickers ?([\\s\\S]*)")
 async def cb_sticker(event):
     query = event.pattern_match.group(1)
     if not query:
@@ -564,7 +564,7 @@ async def cb_sticker(event):
     soup = bs(text, "lxml")
     results = soup.find_all("div", {"class": "sticker-pack__header"})
     if not results:
-        return await edit_delete(xx, "**Tidak Dapat Menemukan Sticker Pack 🥺**")
+        return await edit_delete(xx, "**Tidak Dapat Menemukan Sticker Pack anda...**")
     reply = f"**Keyword Sticker Pack:**\n {query}\n\n**Hasil:**\n"
     for pack in results:
         if pack.button:
@@ -574,7 +574,7 @@ async def cb_sticker(event):
     await xx.edit(reply)
 
 
-@kyy_cmd(pattern="itos$")
+@fanda_cmd(pattern="itos$")
 async def _(event):
     if event.fwd_from:
         return
@@ -611,7 +611,7 @@ async def _(event):
             await event.client.delete_message(event.chat_id, [msg.id, response.id])
 
 
-@kyy_cmd(pattern="get$")
+@fanda_cmd(pattern="get$")
 async def _(event):
     rep_msg = await event.get_reply_message()
     if not event.is_reply or not rep_msg.sticker:

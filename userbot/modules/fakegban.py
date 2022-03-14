@@ -4,7 +4,7 @@ import asyncio
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import ChannelParticipantsAdmins
 #from userbot.utils import admin_cmd
-from userbot.utils import kyy_cmd
+from userbot.utils import fanda_cmd
 from userbot import ALIVE_NAME, CMD_HELP, bot, CMD_HANDLER as cmd
 
 # ================= CONSTANT =================
@@ -12,7 +12,7 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 # ============================================
 
 
-@kyy_cmd(pattern="fgban(?: |$)(.*)")
+@fanda_cmd(pattern="fgban(?: |$)(.*)")
 async def gbun(event):
     if event.fwd_from:
         return

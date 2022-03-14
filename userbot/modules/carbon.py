@@ -164,7 +164,7 @@ all_col = [
 ]
 
 
-@kyy_cmd(pattern="(rc|c)arbon")
+@fanda_cmd(pattern="(rc|c)arbon")
 async def crbn(event):
     from_user = vcmention(event.sender)
     xxxx = await edit_or_reply(event, "`Processing...`")
@@ -194,7 +194,7 @@ async def crbn(event):
     )
 
 
-@kyy_cmd(pattern="ccarbon ?(.*)")
+@fanda_cmd(pattern="ccarbon ?(.*)")
 async def crbn(event):
     from_user = vcmention(event.sender)
     match = event.pattern_match.group(1).strip()

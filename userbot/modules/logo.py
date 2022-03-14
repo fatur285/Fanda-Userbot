@@ -5,10 +5,10 @@ import asyncio
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from userbot import ALIVE_NAME, CMD_HELP
-from userbot.utils import edit_or_reply, kyy_cmd
+from userbot.utils import edit_or_reply, fanda_cmd
 
 
-@kyy_cmd(pattern="logo(?: |$)(.*)")
+@fanda_cmd(pattern="logo(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return

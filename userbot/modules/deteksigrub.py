@@ -1,9 +1,9 @@
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from userbot import CMD_HELP, bot, CMD_HANDLER as cmd
-from userbot.utils import edit_or_reply, edit_delete, kyy_cmd
+from userbot.utils import edit_or_reply, edit_delete, fanda_cmd
 
 
-@kyy_cmd(pattern="(?:dgrup|dg)\\s?(.*)?")
+@fanda_cmd(pattern="(?:dgrup|dg)\\s?(.*)?")
 async def _(event):
     if event.fwd_from:
         return

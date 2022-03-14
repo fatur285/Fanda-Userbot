@@ -56,7 +56,7 @@ async def gcast(event):
     )
 
 
-@kyy_cmd(pattern="gucast(?: |$)(.*)")
+@fanda_cmd(pattern="gucast(?: |$)(.*)")
 async def gucast(event):
     xx = event.pattern_match.group(1)
     if xx:

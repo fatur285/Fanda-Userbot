@@ -22,7 +22,7 @@ from userbot import (  # noqa pylint: disable=unused-import isort:skip
     bot,
 )
 from userbot import CMD_HANDLER as cmd
-from userbot.utils import kyy_cmd
+from userbot.utils import fanda_cmd
 
 global USER_AFK
 global afk_time
@@ -136,7 +136,7 @@ async def on_afk(event):
             pass
 
 
-@kyy_cmd(pattern="off(?: |$)(.*)")  # pylint:disable=E0602
+@fanda_cmd(pattern="off(?: |$)(.*)")  # pylint:disable=E0602
 async def _(event):
     if event.fwd_from:
         return
@@ -177,18 +177,18 @@ async def _(event):
                     )
                 else:
                     await bot.send_message(
-                        event.chat_id, f"✨ᴏꜰꜰʟɪɴᴇ\n\n╭┈──────────────┈\n**▸ {ALIVE_NAME} ꜱᴇᴅᴀɴɢ ᴏꜰꜰʟɪɴᴇ**\n**▸ ᴋᴀʀᴇɴᴀ :** `{reason}`\n╰┈──────────┈", file=pic
+                        event.chat_id, f"ꜰꜰʟɪ                 \n\n╭┈──────────────┈\n**▸ {ALIVE_NAME} ꜱᴇᴅᴀɴɢ ᴏꜰꜰʟɪɴᴇ**\n**▸ ᴋᴀʀᴇɴᴀ :** `{reason}`\n╰┈──────────┈", file=pic
                     )
             except BaseException:
                 await bot.send_message(
-                    event.chat_id, f"✨ᴏꜰꜰʟɪɴᴇ\n\n╭┈──────────────┈\n**▸ {ALIVE_NAME} ꜱᴇᴅᴀɴɢ ᴏꜰꜰʟɪɴᴇ**\n**▸ ᴋᴀʀᴇɴᴀ :** `{reason}`\n╰┈──────────┈"
+                    event.chat_id, f"ᴏꜰꜰʟɪɴᴇ\n\n╭┈──────────────┈\n**▸ {ALIVE_NAME} ꜱᴇᴅᴀɴɢ ᴏꜰꜰʟɪɴᴇ**\n**▸ ᴋᴀʀᴇɴᴀ :** `{reason}`\n╰┈──────────┈"
                 )
         else:
             try:
                 if pic.endswith((".tgs", ".webp")):
                     await bot.send_message(event.chat_id, file=pic)
                     await bot.send_message(
-                        event.chat_id, f"**✨ᴏꜰꜰʟɪɴᴇ**\n╭┈──────────────┈\n**▸ {ALIVE_NAME} ꜱᴇᴅᴀɴɢ ᴏꜰꜰʟɪɴᴇ**\n╰┈──────────┈"
+                        event.chat_id, f"**ᴏꜰꜰʟɪɴᴇ**\n╭┈──────────────┈\n**▸ {ALIVE_NAME} ꜱᴇᴅᴀɴɢ ᴏꜰꜰʟɪɴᴇ**\n╰┈──────────┈"
                     )
                 else:
                     await bot.send_message(

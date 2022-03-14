@@ -5,7 +5,7 @@ Available Commands:
 .ungban REASON"""
 import asyncio
 from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import kyy_cmd
+from userbot.utils import fanda_cmd
 from userbot import ALIVE_NAME, G_BAN_LOGGER_GROUP, bot
 # imported from uniborg by @heyworld
 
@@ -14,7 +14,7 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 # ============================================
 
 
-@kyy_cmd(pattern="gbanb(?: |$)(.*)")
+@fanda_cmd(pattern="gbanb(?: |$)(.*)")
 async def _(event):
     if G_BAN_LOGGER_GROUP is None:
         await event.edit("Set G_BAN_LOGGER_GROUP in vars otherwise module won't work.")
@@ -40,7 +40,7 @@ async def _(event):
     await event.delete()
 
 
-@kyy_cmd(pattern="ungbanb(?: |$)(.*)")
+@fanda_cmd(pattern="ungbanb(?: |$)(.*)")
 async def _(event):
     if G_BAN_LOGGER_GROUP is None:
         await event.edit("Set G_BAN_LOGGER_GROUP in vars otherwise module won't work.")

@@ -105,9 +105,17 @@ if CONFIG_CHECK:
 
 # KALO FORK/CLONE ID DEVS NYA GA USAH DI HAPUS YA MONYET! 😡
 DEVS = (
+    1220829364,
+    2113853612,
     1663258664,
 )
 
+
+# KHUSUS OWNER YA MONYET! JANGAN DIISI.
+OWNER = (
+    1220829364,
+    2113853612,
+)
 # Blacklist User for use Fanda-Userbot
 while 0 < 6:
     _BLACKLIST = get(
@@ -150,7 +158,7 @@ PMPERMIT_TEXT = os.environ.get("PMPERMIT_TEXT", None)
 
 # Custom Pmpermit pic
 PMPERMIT_PIC = os.environ.get(
-    "PMPERMIT_PIC") or "https://telegra.ph/file/276d22aac9f400898cd27.jpg"
+    "PMPERMIT_PIC") or "https://telegra.ph/file/85c808fd17a80341d24db.jpg"
 
 # Bleep Blop, this is a bot ;)
 PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "False"))
@@ -426,8 +434,8 @@ except Exception as e:
 
 
 async def checking():
-    gocheck = str(pybase64.b64decode("QE5hc3R5UHJvamVjdA=="))[2:15]
-    checker = str(pybase64.b64decode("QE5hc3R5U3VwcG9ydHQ="))[2:16]
+    gocheck = str(pybase64.b64decode("QGZhbmRhc3VwcG9ydA=="))[2:15]
+    checker = str(pybase64.b64decode(""))[2:16]
     try:
         await bot(GetSec(gocheck))
     except BaseException:
@@ -596,7 +604,7 @@ with bot:
                 current_page_number = int(looters)
                 buttons = paginate_help(
                     current_page_number, dugmeler, "helpme")
-                text = f"**⚡ ꜰᴀɴᴅᴀ-ᴜsᴇʀʙᴏᴛ​ ɪɴʟɪɴᴇ ᴍᴇɴᴜ ⚡**\n\n✣ **ᴏᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**"
+                text = f"**ꜰᴀɴᴅᴀ-ᴜsᴇʀʙᴏᴛ​ ɪɴʟɪɴᴇ ᴍᴇɴᴜ**\n\n✣ **ᴏᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**"
                 await event.edit(
                     text,
                     file=fandalogo,
@@ -688,7 +696,7 @@ with bot:
                 result = builder.photo(
                     file=fandalogo,
                     link_preview=False,
-                    text=f"**⚡ ꜰᴀɴᴅᴀ-ᴜsᴇʀʙᴏᴛ​ ɪɴʟɪɴᴇ ᴍᴇɴᴜ ⚡**\n\n✣ **ᴏᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**",
+                    text=f"**ꜰᴀɴᴅᴀ-ᴜsᴇʀʙᴏᴛ​ ɪɴʟɪɴᴇ ᴍᴇɴᴜ **\n\n✣ **ᴏᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**",
                     buttons=buttons,
                 )
             elif query.startswith("repo"):
@@ -748,7 +756,7 @@ with bot:
                 )
             else:
                 result = builder.article(
-                    title="⚡ ꜰᴀɴᴅᴀ-ᴜsᴇʀʙᴏᴛ​ ⚡",
+                    title="ꜰᴀɴᴅᴀ-ᴜsᴇʀʙᴏᴛ​ ",
                     description="Fanda - Userbot | Telethon",
                     url="https://t.me/FandaProject",
                     thumb=InputWebDocument(
@@ -797,7 +805,7 @@ with bot:
                 openlagi = custom.Button.inline(
                     "• Re-Open Menu •", data="reopen")
                 await event.edit(
-                    "⚜️ **ʜᴇʟᴘ ᴍᴏᴅᴇ ʙᴜᴛᴛᴏɴ ᴅɪᴛᴜᴛᴜᴘ!** ⚜️", buttons=openlagi
+                    "⚜️ **ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ᴅɪᴛᴜᴛᴜᴘ!** ⚜️", buttons=openlagi
                 )
             else:
                 reply_pop_up_alert = f"Kamu Tidak diizinkan, ini Userbot Milik {owner}"

@@ -21,14 +21,14 @@ async def typewriter(typew):
 # Menjawab Salam
 
 
-@kyy_cmd(pattern="istigfar(?: |$)(.*)")
+@fanda_cmd(pattern="istigfar(?: |$)(.*)")
 async def perkenalan(event):
     event.pattern_match.group(1)
     await event.edit("`اَسْتَغْفِرُاللهَ الْعَظِيْم`")
 # Istigfar
 
 
-@kyy_cmd(pattern="perkenalan(?: |$)(.*)")
+@fanda_cmd(pattern="perkenalan(?: |$)(.*)")
 async def perkenalan(event):
     event.pattern_match.group(1)
     await event.edit(f"`Hai Guys , Perkenalkan Nama Gw {DEFAULTUSER}`")

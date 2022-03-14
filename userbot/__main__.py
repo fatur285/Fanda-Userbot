@@ -53,7 +53,7 @@ LOGS.info(
 async def check_alive():
     try:
         if BOTLOG_CHATID != 0:
-            await bot.send_message(BOTLOG_CHATID, "✨ **Kyy Userbot Berhasil Diaktifkan**!!\n━━━━━━━━━━━━━━━\n➠ **Userbot Version** - 3.1.0@Fanda-Userbot\n➠ **Ketik** `.ping` **Untuk Mengecek Bot**\n━━━━━━━━━━━━━━━\n➠ **Powered By:** @Fandasupport ")
+            await bot.send_message(BOTLOG_CHATID, "**Fanda-Userbot Berhasil Diaktifkan**!!\n━━━━━━━━━━━━━━━\n➠ **Userbot Version** - 3.1.0@Fanda-Userbot\n➠ **Ketik** `.ping` **Untuk Mengecek Bot**\n━━━━━━━━━━━━━━━\n➠ **Powered By:** @Fandasupport ")
     except Exception as e:
         LOGS.info(str(e))
     try:

@@ -1,12 +1,12 @@
 # Port By @IDnyaKosong From Kyy-Userbot
 # # Copyright (C) 2021 Kyy-Userbot
 
-from userbot.utils import edit_or_reply, edit_delete, kyy_cmd
+from userbot.utils import edit_or_reply, edit_delete, fanda_cmd
 from userbot import CMD_HELP, CMD_HANDLER as cmd
 import asyncio
 
 
-@kyy_cmd(pattern="ftyping(?: |$)(.*)")
+@fanda_cmd(pattern="ftyping(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -60,7 +60,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@kyy_cmd(pattern="fgame(?: |$)(.*)")
+@fanda_cmd(pattern="fgame(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -78,7 +78,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@kyy_cmd(pattern="fround(?: |$)(.*)")
+@fanda_cmd(pattern="fround(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -98,7 +98,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@kyy_cmd(pattern="fphoto(?: |$)(.*)")
+@fanda_cmd(pattern="fphoto(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -118,7 +118,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@kyy_cmd(pattern="fdocument(?: |$)(.*)")
+@fanda_cmd(pattern="fdocument(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -139,7 +139,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@kyy_cmd(pattern="flocation(?: |$)(.*)")
+@fanda_cmd(pattern="flocation(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -159,7 +159,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@kyy_cmd(pattern="fcontact(?: |$)(.*)")
+@fanda_cmd(pattern="fcontact(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):

@@ -1,21 +1,21 @@
 from time import sleep
 from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import kyy_cmd
+from userbot.utils import fanda_cmd
 
 
-@kyy_cmd(pattern='Kyy(?: |$)(.*)')
+@fanda_cmd(pattern='fatur(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(3)
-    await typew.edit("`Hai Perkenalkan Namaku Kyy`")
+    await typew.edit("`Hai perkenalkan namaku fatur`")
     sleep(3)
-    await typew.edit("`19 Tahun`")
+    await typew.edit("`17 Tahun`")
     sleep(1)
-    await typew.edit("`Tinggal Di Batam, Salam Kenal:)`")
+    await typew.edit("`Tinggal di kalimantan, salam kenal:)`")
 # Create by myself @localheart
 
 
-@kyy_cmd(pattern='sayang(?: |$)(.*)')
+@fanda_cmd(pattern='sayang(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(3)
@@ -27,7 +27,7 @@ async def typewriter(typew):
 # Create by myself @localheart
 
 
-@kyy_cmd(pattern='semangat(?: |$)(.*)')
+@fanda_cmd(pattern='semangat(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(3)
@@ -40,8 +40,8 @@ async def typewriter(typew):
 
 
 CMD_HELP.update({
-    "oi": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}Kyy`\
-    \n↳ : perkenalan Kyy\
+    "oi": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}fatur`\
+    \n↳ : perkenalan ownintro\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sayang`\
     \n↳ : Gombalan maut`\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}semangat`\

@@ -12,7 +12,7 @@ from telethon.tl import types
 from telethon.utils import get_display_name
 
 from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import edit_delete, edit_or_reply, kyy_cmd
+from userbot.utils import edit_delete, edit_or_reply, fanda_cmd
 from userbot.events import register
 
 NO_ADMIN = "`Maaf Kamu Bukan Admin 👮`"
@@ -36,7 +36,7 @@ def user_list(l, n):
         yield l[i: i + n]
 
 
-@kyy_cmd(pattern="startvc$")
+@fanda_cmd(pattern="startvc$")
 @register(pattern=r"^\.startvcs$", sudo=True)
 async def start_voice(c):
     chat = await c.get_chat()
@@ -53,7 +53,7 @@ async def start_voice(c):
         await edit_or_reply(c, f"**ERROR:** `{ex}`")
 
 
-@kyy_cmd(pattern="stopvc$")
+@fanda_cmd(pattern="stopvc$")
 @register(pattern=r"^\.stopvcs$", sudo=True)
 async def stop_voice(c):
     chat = await c.get_chat()
@@ -70,25 +70,25 @@ async def stop_voice(c):
         await edit_delete(c, f"**ERROR:** `{ex}`")
 
 
-@kyy_cmd(pattern="vcinvite")
-async def _(kyy):
-    await edit_or_reply(kyy, "`Sedang Menginvite Member...`")
+@fanda_cmd(pattern="vcinvite")
+async def _(fanda):
+    await edit_or_reply(fanda, "`Sedang Menginvite Member...`")
     users = []
     z = 0
-    async for x in kyy.client.iter_participants(kyy.chat_id):
+    async for x in fanda.client.iter_participants(fanda.chat_id):
         if not x.bot:
             users.append(x.id)
     hmm = list(user_list(users, 6))
     for p in hmm:
         try:
-            await kyy.client(invitetovc(call=await get_call(kyy), users=p))
+            await fanda.client(invitetovc(call=await get_call(fanda), users=p))
             z += 6
         except BaseException:
             pass
-    await edit_or_reply(kyy, f"`Menginvite {z} Member`")
+    await edit_or_reply(fanda, f"`Menginvite {z} Member`")
 
 
-@kyy_cmd(pattern="vctitle(?: |$)(.*)")
+@fanda_cmd(pattern="vctitle(?: |$)(.*)")
 @register(pattern=r"^\.cvctitle$", sudo=True)
 async def change_title(e):
     title = e.pattern_match.group(1)

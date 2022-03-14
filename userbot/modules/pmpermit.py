@@ -8,7 +8,7 @@ from sqlalchemy.exc import IntegrityError
 from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 from telethon.tl.functions.messages import ReportSpamRequest
 from telethon.tl.types import User
-from userbot.utils import kyy_cmd
+from userbot.utils import fanda_cmd
 from userbot.events import register
 from userbot import CMD_HANDLER as cmd
 from userbot import (
@@ -41,17 +41,9 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 CUSTOM_TEXT = str(
     PMPERMIT_TEXT) if PMPERMIT_TEXT else f"__Halo kawan, saya bot yang menjaga room chat Kyy-Userbot {DEFAULTUSER} di mohon jangan melakukan spam , kalau anda melakukan itu OTOMATIS saya akan memblockir anda!__ \n"
 DEF_UNAPPROVED_MSG = (
-    "╔═════════════════════╗\n"
-    "“𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐭𝐨 𝐓𝐡𝐞 𝐏𝐫𝐢𝐯𝐚𝐜𝐲 𝐌𝐞𝐬𝐬𝐚𝐠𝐞”    ”\n"
-    "╚═════════════════════╝\n"
-    "**Dimohon Untuk Tidak Melakukan Spam Ke Room Chat ini!** \n"
-    f"**Karena bisa menggangu** {ALIVE_NAME} [⚠️]({ALIVE_LOGO})\n"
-    f"**Jika Anda Melakukan Spamming, Anda Akan Terblokir Otomatis!**\n"
-    "╔═════════════════════╗\n"
-    f"➠ **Owner :** {ALIVE_NAME} \n"
-    f"➠ **Pesan Otomatis by Kyy-Userbot** \n"
-    "╚═════════════════════╝")
-# =================================================================
+f"{ALIVE_NAME} sedang off\n\n"
+f"Tunggu {ALIVE_NAME} melihat pesan kamu untuk mengkonfirmasi PM daj jangan spam!")
+    # =================================================================
 
 
 @register(incoming=True, disable_edited=True, disable_errors=True)
@@ -190,7 +182,7 @@ async def auto_accept(event):
                     )
 
 
-@kyy_cmd(pattern="notifoff$")
+@fanda_cmd(pattern="notifoff$")
 async def notifoff(noff_event):
     """For .notifoff command, stop getting notifications from unapproved PMs."""
     try:
@@ -201,7 +193,7 @@ async def notifoff(noff_event):
     await noff_event.edit("`Notifikasi Dari Pesan Pribadi Tidak Disetujui, Telah Dibisukan!`")
 
 
-@kyy_cmd(pattern="notifon$")
+@fanda_cmd(pattern="notifon$")
 async def notifon(non_event):
     """For .notifoff command, get notifications from unapproved PMs."""
     try:
@@ -212,7 +204,7 @@ async def notifon(non_event):
     await non_event.edit("`Notifikasi Dari Pesan Pribadi Tidak Disetujui, Tidak Lagi Dibisukan!`")
 
 
-@kyy_cmd(pattern="(?:setuju|ok)\\s?(.)?")
+@fanda_cmd(pattern="(?:setuju|ok)\\s?(.)?")
 async def approvepm(apprvpm):
     """For .ok command, give someone the permissions to PM you."""
     try:

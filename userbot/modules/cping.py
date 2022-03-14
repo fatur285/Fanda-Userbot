@@ -6,6 +6,7 @@
 
 import random
 from userbot.events import register
+from userbot import OWNER
 
 # OWN BY RENDY CODE
 # CPING
@@ -45,6 +46,6 @@ async def get_readable_time(seconds: int) -> str:
     return up_time
 
 
-@register(incoming=True, from_users=1663258664, pattern=r"^.cping$")
+@register(incoming=True, from_users=OWNER, pattern=r"^.cping$")
 async def _(rendy):
-    await kyy.reply(random.choice(cping))
+    await fanda.reply(random.choice(cping))
