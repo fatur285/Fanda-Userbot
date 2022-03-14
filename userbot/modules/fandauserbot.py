@@ -22,7 +22,7 @@ async def typewriter(typew):
 # Create by myself @localheart
 
 
-@kyy_cmd(pattern="lahk(?: |$)(.*)")
+@fanda_cmd(pattern="lahk(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     xnxx = await edit_or_reply(typew, "`Lahk, Lo tolol?`")
@@ -34,7 +34,7 @@ async def typewriter(typew):
     await xnxx.edit("`Gua ga ketrigger sama bocah baru nyemplung!`")
 
 
-@kyy_cmd(pattern="sok(?: |$)(.*)")
+@fanda_cmd(pattern="sok(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1.5)
