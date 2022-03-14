@@ -53,7 +53,7 @@ def fanda_cmd(
         ):
             fanda_reg = sudo_reg = re.compile(pattern)
         else:
-            kyy_ = "\\" + CMD_HANDLER
+            fanda_ = "\\" + CMD_HANDLER
             sudo_ = "\\" + SUDO_HANDLER
             fanda_reg = re.compile(fanda_ + pattern)
             sudo_reg = re.compile(sudo_ + pattern)
