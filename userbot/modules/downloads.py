@@ -199,7 +199,7 @@ async def download_vsong(event):
     await x.delete()
 
 
-@kyy_cmd(pattern="lirik (.*)")
+@fanda_cmd(pattern="lirik (.*)")
 async def original(event):
     if not event.pattern_match.group(1):
         return await edit_or_reply(event, "Beri Saya Sebuah Judul Lagu Untuk Mencari Lirik.\n**Contoh** : `{cmd}lirik` <Judul Lagu>")
