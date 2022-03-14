@@ -1,6 +1,10 @@
 <h1 align="center">Fanda-Userbot</h1>
 
 <p align="center">
+  <img src="https://telegra.ph/file/10c4e299d498c9d54e31c.jpg">
+</p>
+
+<p align="center">
     <a href="https://github.com/DIORrios285/Fanda-Userbot/commits/Fanda-Userbot"><img 
 src="https://img.shields.io/github/last-commit/DIORrios285/Fanda-Userbot?color=ff0000&logo=github&logoColor=green&style=for-the-badge" /></a>
     <a href="https://github.com/DIORrios285/Fanda-Userbot"> <img 
