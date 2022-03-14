@@ -1,34 +1,36 @@
-# kumpulin kosakata makanya bgst
+# ©DIOR-UBOT
+# DIOR-UBOT juga Fanda-Userbot goblok.
 # mks smsm
 
 from time import sleep
+from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.events import register
+from userbot.utils import fanda_cmd
 
 # PANTUNIN DULU SI JAMET
 
-@register(outgoing=True, pattern='^.pt(?: |$)(.*)')
+@fanda_cmd(pattern='pt(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
     await typew.edit("**beli vakum dibalikpapan assalamualaikum biar sopan**")
 # dior cakep
 
-@register(outgoing=True, pattern='^.ptn(?: |$)(.*)')
+@fanda_cmd(pattern='ptn(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
     await typew.edit("**KETEMU SI MAMAS DIAJAKIN KE CIBINONG PULANG NYE DIANTERIN MAKE KOPAJA EH BOCAH AMPAS MUKA HINA KEK ODONG ODONG GA USAH SO KERAS KALO MENTAL MASIH BLOM SEKERAS BAJA.**")
 # dior cakep!
 
-@register(outgoing=True, pattern='^.pn(?: |$)(.*)')
+@fanda_cmd(pattern='pn(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
     await typew.edit("**DUA TIGA TUTUP BOTOL, MUKA LO KAYAK KONTOL**")
 # dior cakep!
 
-@register(outgoing=True, pattern='^.pan(?: |$)(.*)')
+@fanda_cmd(pattern='pan(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -39,19 +41,19 @@ async def typewriter(typew):
 
 # War anjing
 
-@register(outgoing=True, pattern='^.ros(?: |$)(.*)')
+@fanda_cmd(pattern='ros(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("**MUKA LU JELEK BEGITU TOLOL MUKA KAYAK TAPE BASI BELAGU LU KONTOK GUA KASIH TAU AJA BUAT LU BOCAH TOLOL BOCAH BOCAH KAYAK LU NI YANG SUKA MAIN DISAWAG NGEJAR NGEJAR LAYANGAN BEGITU SAMBIL MAIN LUMPUR LUMPURAN SAMPE MUKA LU ITEM BEGITU KAYAK ABIS MAGHRIB APALAGI LU MANDI MASIH DIKALI BEGITU SAMBIL NYUCI BAJU BARENG EMAK LU DIJEMUR DIATAS RUMAH LU YANG KECIL BEGITU TOLOK KARNA KELUARGA LU KELUARGA PALING MISKIN DALAM SEGALA HAL TOLOL KRNA KELUARGA LU SEMUANYA GAPUNYA PENDIDIKAN PANTESAN SUKA DIBEGO BEGOIN SAMA ORANG TOLOL APALAGI NI YAA KALO LAGI HUJAN ITU KESEMPATAN LU BUAT NGELUARIN EMBER BUAT NGAMBIL AIR HUJAN KARNA DIRUMAH LU GADA AIR LAGI BUAT MANDI TOLOL SABUN AJA UDH BOLONG BEGITU DIPAKEIN BAPALU COLI SAMPE JEMBUT NYA RONTOK BEGITU UDH KAYAK RAMBUT AJA TAPI KAN BAPALU BOTAK BEGITU YA GAPUNYA RAMBUT SAMA AHA OTAKNYA JUGA KOPONG KAYAK DENGKULNYA BAPALU UDH PUNYA ISTRI MSIH AJA DOYAN COLI TOLOL MUNGKIN KARNA MEMEK MAK LU UDH JEBOL GEDE BEGITU DITUSBOLIN PAKE PISO DAPUR YANG TAJEM BEGITU KAYAK KUKU BAPALU GADIPOTONG POTONG SAMPE TAJEM BEGITU UDH KAYAK JAMET PUNYA KUKU PANJANG PANJANG BIAR DIKATA JAGO KALI YA PADAHAL KAYAK ORANG IDIOT KUKU DIPANJANGIN KONTOL DIPANJANGIN BIAR PADA DOYAN TOLOL BILANGIN KEBAPALU LU TUH DONGO LU KALO JADI ANAK YANG BENER YANG NGELAWAN ORANG TUA TOLOL TIAP HARI BUKA TELE DISURUH BELI KECAP NOLAK MULU LU TOLOL ANAK GGUNA GATAU TERIMAKASIH DARI ORANG TUA LU TOLOL BIAR DIKATA KELUARGA LU KELUARGA MISKIN PENDIDIKAN MISKIN HARTA MISKIN SEMUANYA LU HARUS BERTERIMAKASIH SAMA BAPALU LU YANG GAGUNA ITU KONTOL BIAR KEDEPANNYA LU GA SESAT APALAGI LU HARUS BERTERIMAKASIH SAMA GUA KARNA BAPALU AJA MASIH DIBIAYAIN SAMA GUA BEGO Nyerocos LU MASIH Lama  GE TOLOL**")
 # dior cakep!
 
-@register(outgoing=True, pattern='^.wr(?: |$)(.*)')
+@fanda_cmd(pattern='wr(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("**EH KONTOL GUA KASIH TAU NIH YAA, BOCAH BOCAH KAYA LU MAH KAGA PANTES PISAN MAIN DI TELE, KARNA APA? JARI JARI TANGAN LU AJA ITU PADA BUNTUNG BEGO, BIBIR LU JUGA SUMBING BEGITU, GUA TAU NIH YAA PAS MASIH DI DALEM KANDUNGAN, LU TUH GAK BISA DIEM KAN, MANGKANYA LU JADI BEGINI, CACAT BET CACAT, GUA MAH KASIAN SAMA LU, PAS MASIH BAYI JUGA LU KAGA DI KASIH AIR ASI KAN, EMANG LU PANTES DAPET BEGITU, DI KASIH AIR COMBERAN JADI OTAKNYA DONGO BEGINI NIH, LAGIAN JUGA YAA MAUPUN LU DI LAHIRIN DENGAN SEMPURNA LU JUGA GAK GUNA, KARNA APA, LU EMANG UDAH GAK PANTES TINGGAL DI BUMI ANJINGGG, LU TUH PANTESNYA TINGGAL DI DALEM BUMI GITU TUH, SENDIRIAN GAK PUNYA TEMEN, JADI ORANG GAK BERGUNA, LAGIAN JUGA KALO LU TINGGAL DI BUMI, LU TUH GAK PANTES DAN GAK COCOK, KARNA APA, KARNA LU TUH SEMUA SERBA KEKURANGAN, LU MAU TINGGAL DI LUAR ANGKASA JUGA GUA YAKIN ALIEN KAGA MAU TERIMA LU, KARNA LU TUH GAK SESUAI KRETERIA MEREKA, LU TUH JELEK BET JELEK, LEBIH JELEK DARI PADA MUKA KECOA, BISA SIH LU TINGGAL DI LUAR ANGKASA, ITU JUGA PALING JAUH, JAUH DARI PERADABAN HAHAHA, KARNA TEMPAT TEMPAT BEGITU EMANG COCOK BUAT LU, KALO DI PIKIR PIKIR OTAK SEMUT SAMA OTAK LU JUGA GUA RASA PINTERAN OTAK SEMUT GITU, KARNA APA, LU TUH DONGO NYA JELAS BANGET, SAMPE KE TULANG TULANG, KE BOOL BOOL, KE SEL SEL DARAH LU IKUTAN BLOON HAHAHAHA**")
 # dior cakep!
 
-@register(outgoing=True, pattern='^.ro(?: |$)(.*)')
+@fanda_cmd(pattern='ro(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -60,7 +62,7 @@ async def typewriter(typew):
     await typew.edit("**LIAT KOSA KATA LO YANG UDAH BASI TOLOL YANG BANYAK DI PAKE ORANG SAMA KAYA EMAK LO YANG SERING DI PAKAI ORANG TOLOL, MAK NYA UDAH KAYA ROKOK SATU BATANG BISA DI PAKE RAME RAME YAKAN ITU MAK LO TOLOL KASIAN DIA JAM SEGINI BELOM PULANG KARENA MASI CARI UANG PAKAI MEMEK NYA YANG UDAH BECEK ITU TOLOL APA LO KAGA KASIAN BEGO LIAT MAK LO YANG KEK GITU MENDINH MAMAK LO SURUH KERJA YANG BENER TOLOL JANGAN NGELONTE MULU, KASIAN JUGA LIAT BAPAK LO BAU TANAH YHAHAHAHA**")
 # dior cakep!
 
-@register(outgoing=True, pattern='^.rst(?: |$)(.*)')
+@fanda_cmd(pattern='rst(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -74,7 +76,7 @@ async def typewriter(typew):
 # dior cakep!
 
 
-@register(outgoing=True, pattern="^.title(?: |$)(.*)")
+@fanda_cmd(pattern="title(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("**OI ANAK TITLE**")
@@ -92,8 +94,7 @@ async def typewriter(typew):
     await typew.edit("**YAELAH BRO MENTAL LO CUMA DI SOSMED APA GIMANE?**")
     sleep(2)
     await typew.edit(
-        "**PERASAAN DULU TELEGRAM GAADA DEH BOCAH BOCAH SOK JAGO KEK GINI**"
-    )
+        "**PERASAAN DULU TELEGRAM GAADA DEH BOCAH BOCAH SOK JAGO KEK GINI**")
     sleep(2)
     await typew.edit("**GILIRAN TITLE NYA DI EJEK NGADU KE OWNER NYA**")
     sleep(4)
@@ -114,7 +115,7 @@ async def typewriter(typew):
     await typew.edit("**SEMOGA CEPET SADAR YA HAHAHAHA**")
 
 
-@register(outgoing=True, pattern="^.alay(?: |$)(.*)")
+@fanda_cmd(pattern="alayy(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("**Halo kak**")
@@ -138,28 +139,28 @@ async def typewriter(typew):
 
 CMD_HELP.update({
     "pantun":
-    ".pt\
+    "{cmd}pt\
 \nUsage: Pantun berdamage mks smsm.\
-    \n\n.ptn\
+    \n\n{cmd}ptn\
 \nUsage: Pantun berdamage mks smsm.\
-    \n\n.pn\
+    \n\n{cmd}pn\
 \nUsage: Pantun berdamage mks smsm.\
-    \n\n.pan\
+    \n\n{cmd}pan\
 \nUsage: Pantun berdamage mks smsm."
 })
         
 CMD_HELP.update({
     "roasting":
-    ".ros\
+    "{cmd}ros\
 \nUsage: War ngentot mks smsm.\
-    \n\n.wr\
+    \n\n{cmd}wr\
 \nUsage: War ngentot mks smsm.\
-    \n\n.ro\
+    \n\n{cmd}ro\
 \nUsage: War ngentot mks smsm.\
-    \n\n.title\
+    \n\n{cmd}title\
 \nUsage: Hina si maruk title taik anjing.\
-    \n\n.ro\
+    \n\n{cmd}ro\
 \nUsage: Hina manusia norak/alay.\
-    \n\n.alay\
+    \n\n{cmd}alayy\
 \nUsage: War ngentot mks smsm."
 })
