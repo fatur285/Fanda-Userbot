@@ -130,7 +130,7 @@ async def _(event):
             await event.edit(animation_chars[i % 11])
 
 
-@fanda_cmd(pattern="'nah(?: |$)(.*)')
+@fanda_cmd(pattern='nah(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     xnxx = await edit_or_reply(typew, "`\n(\\_/)`"
