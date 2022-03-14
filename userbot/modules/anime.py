@@ -194,7 +194,7 @@ def replace_text(text):
         "")
 
 
-@kyy_cmd(pattern="anime ?(.*)")
+@fanda_cmd(pattern="anime ?(.*)")
 async def anime(event):
     query = event.pattern_match.group(1)
     reply = await event.get_reply_message()
@@ -535,7 +535,7 @@ async def get_anime(message):
     await message.client.send_file(message.chat_id, file=main_poster, caption=captions)
 
 
-@kyy_cmd(pattern="smanga ?(.*)")
+@fanda_cmd(pattern="smanga ?(.*)")
 async def manga(message):
     search_query = message.pattern_match.group(1)
     await message.get_reply_message()
