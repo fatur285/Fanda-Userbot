@@ -122,7 +122,7 @@ async def log_tagged_messages(yahaha):
         )
 
 
-@kyy_cmd(pattern="save(?: |$)(.*)")
+@fanda_cmd(pattern="save(?: |$)(.*)")
 async def log(log_text):
     if BOTLOG_CHATID:
         if log_text.reply_to_msg_id:
