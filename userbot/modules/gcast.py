@@ -10,24 +10,24 @@
 # FROM Man-Userbot <https://github.com/mrismanaziz/Man-Userbot>
 # t.me/SharingUserbot & t.me/Lunatic0de
 
-from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import edit_or_reply, edit_delete, kyy_cmd
+from userbot import OWNER, CMD_HELP, CMD_HANDLER as cmd
+from userbot.utils import edit_or_reply, edit_delete, fanda_cmd
 from userbot.events import register
 
 GCAST_BLACKLIST = [
-    -1001380293847,  # NastySupport
-    -1001473548283,  # SharingUserbot
-    -1001578091827,  # PrimeSupportGroup
-    -1001752592753,  # SkyzuSupport
-    -1001430568914,  # FlicksSupport
-    -1001267233272,  # PocongUserbot
-    -1001386557465,  # RumahKitaro
+    -1001774519942, # Fanda Chats
+    -1001380293847, # NastySupport
+    -1001473548283, # SharingUserbot
+    -1001578091827, # PrimeSupportGroup
+    -1001752592753, # SkyzuSupport
+    -1001430568914, # FlicksSupport
+    -1001267233272, # PocongUserbot
 
 ]
 
 
-@kyy_cmd(pattern="gcast(?: |$)(.*)")
-@register(incoming=True, from_users=1663258664,
+@fanda_cmd(pattern="gcast(?: |$)(.*)")
+@register(incoming=True, from_users=OWNER,
           pattern=r"^\.cgcast(?: |$)(.*)")
 async def gcast(event):
     xx = event.pattern_match.group(1)
