@@ -3,7 +3,6 @@ import os
 import random
 import time
 
-from platform import uname
 from lyrics_extractor import SongLyrics as sl
 from telethon.tl.types import DocumentAttributeAudio
 from youtube_dl import YoutubeDL
@@ -15,8 +14,6 @@ from youtubesearchpython import SearchVideos
 
 from userbot.utils import edit_or_reply, fanda_cmd
 from userbot import CMD_HELP, ALIVE_NAME, CMD_HANDLER as cmd
-
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 
 
 @fanda_cmd(pattern="song (.*)")
@@ -102,7 +99,7 @@ Connected to server...
         rip_data["title"], rip_data["uploader"]
     )
     await xx.edit(f"`{upteload}`")
-    CAPT = f"╭┈────────────────┈\n➥ {rip_data['title']}\n➥ Uploader - {rip_data['uploader']}\n╭┈────────────────┈╯\n➥ By : {DEFAULTUSER}\n╰┈────────────────┈➤"
+    CAPT = f"╭┈────────────────┈\n➥ {rip_data['title']}\n➥ Uploader - {rip_data['uploader']}\n╭┈────────────────┈╯\n➥ By : {ALIVE_NAME}\n╰┈────────────────┈➤"
     await event.client.send_file(
         event.chat_id,
         f"{rip_data['id']}.mp3",
