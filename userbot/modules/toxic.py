@@ -1,145 +1,145 @@
 from platform import uname
 from userbot import ALIVE_NAME, CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import edit_or_reply, kyy_cmd
+from userbot.utils import edit_or_reply, fanda_cmd
 
 # ================= CONSTANT =================
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 # ============================================
 
 
-@kyy_cmd(pattern='d(?: |$)(.*)')
+@fanda_cmd(pattern='d(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "**BACOT NGENTOTTT!!BAPA LU SURUH RIBUT SAMA GUA**")
 
 
-@kyy_cmd(pattern='e(?: |$)(.*)')
+@fanda_cmd(pattern='e(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "**GAK USAH SOK KERAS GOBLOK!!KENCING MASIH BERDIRI AJA BELAGU**")
 
 
-@kyy_cmd(pattern='f(?: |$)(.*)')
+@fanda_cmd(pattern='f(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "**MUKA LU SEMUA KAYA KONTOL HAHAHAHA!!**")
 
 
-@kyy_cmd(pattern='i(?: |$)(.*)')
+@fanda_cmd(pattern='i(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "**KONTOL MASIH BENGKOK AJA BANGGA LU HAHAHAHA!!**")
 
 
-@kyy_cmd(pattern='r(?: |$)(.*)')
+@fanda_cmd(pattern='r(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "**KONTOL KONTOL APA YANG BESAR?KONTOL LU LAH HAHAHAHA!!**")
 
 
-@kyy_cmd(pattern='t(?: |$)(.*)')
+@fanda_cmd(pattern='t(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "**BABI!!KONTOL!!NGENTOT!!!**")
 
 
-@kyy_cmd(pattern='u(?: |$)(.*)')
+@fanda_cmd(pattern='u(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "**BABI LU GOBLOK!!GANTENGAN JUGA GUA HAHAHAHA**")
 
 
-@kyy_cmd(pattern='w(?: |$)(.*)')
+@fanda_cmd(pattern='w(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "**BABI LU GOBLOK!!CANTIKAN JUGA GUA HAHAHAHA**")
 
 
-@kyy_cmd(pattern='z(?: |$)(.*)')
+@fanda_cmd(pattern='z(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "**BACOTAN LU GAK BIKIN GUA TREMOR GOBLOK HAHAHAHA!!**")
 
 
-@kyy_cmd(pattern='k(?: |$)(.*)')
+@fanda_cmd(pattern='k(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "**HAI PERKENALKAN NAMA SAYA GAK TAU LUPA!!**")
 
 
-@kyy_cmd(pattern='n(?: |$)(.*)')
+@fanda_cmd(pattern='n(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "**GIMANA KABAR KAMU SAYANG??APAKAH BAIK?**")
 
 
-@kyy_cmd(pattern='b(?: |$)(.*)')
+@fanda_cmd(pattern='b(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "**ELEEEHHHH SOK BANGET KEPINTERAN KAMU!!**")
 
 
-@kyy_cmd(pattern='m(?: |$)(.*)')
+@fanda_cmd(pattern='m(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "**INI GRUB APA KUBURAN SEPI BANGET ASTAGFIRULLAH!!**")
 
 
-@kyy_cmd(pattern='c(?: |$)(.*)')
+@fanda_cmd(pattern='c(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "**KAN UDAH GUA BILANG??MAKANYA JANGAN NGEYEL!!**")
 
 
-@kyy_cmd(pattern='s(?: |$)(.*)')
+@fanda_cmd(pattern='s(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "**GAUSAH SOKAP DEH KAMU!!**")
 
 
-@kyy_cmd(pattern='v(?: |$)(.*)')
+@fanda_cmd(pattern='v(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "**MACAM BAGUS AE LU BEGITU HMM!!**")
 
 
-@kyy_cmd(pattern='j(?: |$)(.*)')
+@fanda_cmd(pattern='j(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "**MAAF BUKAN JAGOAN HAHAHAHA!!**")
 
 
-@kyy_cmd(pattern='a(?: |$)(.*)')
+@fanda_cmd(pattern='a(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "**BISMILLAH SLEEP CALL!!😁**")
 
 
-@kyy_cmd(pattern='g(?: |$)(.*)')
+@fanda_cmd(pattern='g(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "**GANTENG LU BEGITU???**")
 
 
-@kyy_cmd(pattern='y(?: |$)(.*)')
+@fanda_cmd(pattern='y(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "**War War Tai anjing, Ketrigger minta sharelok, Udah di sharelok Ga nyamperin,Keras di sosmed Bhakss...**")
 
 
-@kyy_cmd(pattern='h(?: |$)(.*)')
+@fanda_cmd(pattern='h(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "**CANTIK LU BEGITU???**")
 
 
-@kyy_cmd(pattern='o(?: |$)(.*)')
+@fanda_cmd(pattern='o(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "**MENTANG MENTANG PUNYA BOT MAINNYA BOT!!PANTES MUKANYA KAYA BOT😁**")
 
 
-@kyy_cmd(pattern='1(?: |$)(.*)')
+@fanda_cmd(pattern='1(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "**NORAK LU KONTOL!! MAKE USERBOT CUMAN BUAT WAR MALAH SOK KERAS**")
