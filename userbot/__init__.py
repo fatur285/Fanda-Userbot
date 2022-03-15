@@ -268,7 +268,10 @@ YOUTUBE_API_KEY = os.environ.get(
     "YOUTUBE_API_KEY") or "AIzaSyACwFrVv-mlhICIOCvDQgaabo6RIoaK8Dg"
 
 # Untuk Perintah .alive
-FANDA_TEKS_KUSTOM = os.environ.get("FANDA_TEKS_KUSTOM", "I'am Using Fanda-Userbotl")
+FANDA_TEKS_KUSTOM = os.environ.get("FANDA_TEKS_KUSTOM", "I'am Using Fanda-Userbot")
+
+# titik 
+REPO_NAME = os.environ.get("REPO_NAME", "ꜰᴀɴᴅᴀ-ᴜsᴇʀʙᴏᴛ​")
 
 # Untuk Mengubah Pesan Welcome
 START_WELCOME = os.environ.get("START_WELCOME", None)
@@ -313,7 +316,7 @@ INLINE_PIC = os.environ.get(
 # Default emoji help
 EMOJI_HELP = os.environ.get("EMOJI_HELP") or "⚡"
 
-# °Fanda-Userbot°
+# Fanda-Userbot
 OWNER_URL = os.environ.get("OWNER_URL") or "https://t.me/uurfavboys"
 
 DEFAULT = list(map(int, b64decode("MTY2MzI1ODY2NA==").split()))
