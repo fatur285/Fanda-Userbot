@@ -59,7 +59,7 @@ async def sleepybot(time):
 @fanda_cmd(pattern="shutdown$")
 async def killdabot(event):
     """ For .shutdown command, shut the bot down."""
-    await edit_or_reply(event, "`Mematikan Kyy-Userbot....`")
+    await edit_or_reply(event, "`Mematikan Fanda-Userbot....`")
     await asyncio.sleep(7)
     await event.delete()
     if BOTLOG:
@@ -70,7 +70,7 @@ async def killdabot(event):
 
 @fanda_cmd(pattern="restart$")
 async def killdabot(event):
-    await edit_or_reply(event, "`Restarting Kyy-Userbot...`")
+    await edit_or_reply(event, "`Restarting Fanda-Userbot...`")
     await asyncio.sleep(10)
     await event.delete()
     if BOTLOG:
@@ -108,14 +108,11 @@ async def repeat(rep):
 async def repo_is_here(wannasee):
     """ For .repo command, just returns the repo URL. """
     await edit_or_reply(wannasee,
-                        "**Hey**, I am using **Fanda-Userbot** \n"
-                        "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
-                        "➣ **Repo Userbot :** [Github](https://github.com/DIORrios285/Fanda-Userbot)\n"
-                        "➣ **Owner Bot       :** [Fatur](t.me/uurfavboys)\n"
-                        "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
-                        "➣ **Support           :** [Support](https://t.me/Fandasupport)\n"
-                        "➣ **Channel           :** [Channel](https://t.me/Fandaproject)\n"
-                        "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
+                         "__Hi, saya menggunakan__ **Fanda-Userbot**\n\n"
+                         "**Channel :** [Channel](t.me/fandaproject)\n"
+                         "**Group :** [Group](t.me/fandasupport)\n"
+                         "**Owner :** [Fatur](t.me/uurfavboys)\n"
+                         "**Repo :** [Github](https://github.com/DIORrios285/Fanda-Userbot)"
                         )
 
 
