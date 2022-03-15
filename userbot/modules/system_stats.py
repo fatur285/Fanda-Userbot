@@ -233,10 +233,9 @@ async def amireallyalive(alive):
         f"✶ Name       : {DEFAULTUSER} \n"
         f"✶ Username   : @{user.username} \n"
         f"✶ Telethon   : {version.__version__} \n"
-        f"✶  Python     : {python_version()} \n"
+        f"✶ Python     : {python_version()} \n"
         f"✶ Bot Ver    : {BOT_VER} \n"
         f"✶ Modules    : {len(modules)} \n"
-        f"╰✠╼━━━━━━━━━━━━━━━✠╯\n"
         f"[ɢʀᴏᴜᴘꜱ](https://t.me/fandasupport) | [ᴄʜᴀɴɴᴇʟ](https://t.me/FandaProject) | [ᴏᴡɴᴇʀ](https://t.me/uurfavboys) | [ɢɪᴛʜᴜʙ](https://github.com/DIORrios285/Fanda-Userbot)")
     if ALIVE_LOGO:
         try:
