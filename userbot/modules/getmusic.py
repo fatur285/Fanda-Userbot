@@ -75,7 +75,7 @@ async def _(event):
         return await event.edit("`Error: `@WooMaiBot` is not responding!.`")
 
 
-@kyy_cmd(pattern="songl(?: |$)(.*)")
+@fanda_cmd(pattern="songl(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
