@@ -99,23 +99,35 @@ CONFIG_CHECK = os.environ.get(
 
 if CONFIG_CHECK:
     LOGS.info(
-        "Please remove the line mentioned in the first hashtag from the config.env file"
+        "Harap hapus baris yang disebutkan dalam tagar pertama dari file config.env"
     )
     quit(1)
 
+# only for my best friend.
 # KALO FORK/CLONE ID DEVS NYA GA USAH DI HAPUS YA MONYET! 😡
+# Jangan diubah tanpa izin dari owner!
 DEVS = (
-    1220829364,
-    2113853612,
-    1663258664,
+    1220829364, # gw
+    2113853612, # gw
+    1663258664, # kyy
+    1204218683, # destra
+     883761960, # ari
+     844432220, # risman
 )
-
 
 # KHUSUS OWNER YA MONYET! JANGAN DIISI.
 OWNER = (
     1220829364,
     2113853612,
 )
+
+# For Blacklist Group Support
+BLACKLIST_CHAT = (
+    -1001774519942, # Fanda Chats
+    -1001380293847, # Nasty Support
+    -1001473548283, # Sharing bot telegram
+)
+
 # Blacklist User for use Fanda-Userbot
 while 0 < 6:
     _BLACKLIST = get(
