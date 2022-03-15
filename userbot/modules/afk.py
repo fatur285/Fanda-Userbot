@@ -17,7 +17,6 @@ from userbot import (  # noqa pylint: disable=unused-import isort:skip
     ISAFK,
     PM_AUTO_BAN,
     USERS,
-    PM_AUTO_BAN,
     REPO_NAME,
     bot,
 )
