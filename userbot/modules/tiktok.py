@@ -1,9 +1,9 @@
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from userbot import bot, CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import edit_or_reply, edit_delete, kyy_cmd
+from userbot.utils import edit_or_reply, edit_delete, fanda_cmd
 
 
-@kyy_cmd(pattern="tiktok(?: |$)(.*)")
+@fanda_cmd(pattern="tiktok(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
