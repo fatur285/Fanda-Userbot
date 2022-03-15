@@ -3,9 +3,10 @@
 import asyncio
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import ChannelParticipantsAdmins
+from platform import uname
 #from userbot.utils import admin_cmd
 from userbot.utils import fanda_cmd
-from userbot import ALIVE_NAME, CMD_HELP, bot, CMD_HANDLER as cmd
+from userbot import OWNER, ALIVE_NAME, CMD_HELP, bot, CMD_HANDLER as cmd
 
 # ================= CONSTANT =================
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
@@ -33,7 +34,7 @@ async def gbun(event):
         usname = replied_user.user.username
         idd = reply_message.from_id
         # make meself invulnerable cuz why not xD
-        if idd == 1036951071:
+        if idd == OWNER:
             await reply_message.reply("`Wait a second, This is my master!`\n**How dare you threaten to ban my master nigger!**\n\n__Your account has been hacked! Pay 6969$ to my master__ [Heyworld](tg://user?id=1036951071) __to release your account__😏")
         else:
             jnl = ("`Warning!!`"
