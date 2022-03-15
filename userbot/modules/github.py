@@ -1,5 +1,5 @@
 import aiohttp
-from userbot.utils import edit_or_reply, kyy_cmd
+from userbot.utils import edit_or_reply, fanda_cmd
 from userbot import CMD_HELP, CMD_HANDLER as cmd
 
 
