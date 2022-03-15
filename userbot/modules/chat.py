@@ -5,6 +5,7 @@
 """ Userbot module containing userid, chatid and log commands"""
 
 from asyncio import sleep
+from userbot import BLACKLIST_CHAT
 from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, bot, ALIVE_NAME, CMD_HANDLER as cmd
 from datetime import datetime
 from telethon import functions
@@ -106,10 +107,23 @@ async def log(log_text):
 
 @fanda_cmd(pattern="kickme$")
 async def kickme(leave):
-    """ Basically it's .kickme command """
-    await edit_or_reply(leave, f"**{ALIVE_NAME} Telah Meninggalkan Group,See You Semua!!**")
-    await leave.client.kick_participant(leave.chat_id, 'me')
+    if leave.chat_id in BLACKLIST_CHAT:
+        return await edit_or_reply(
+            leave, "**Perintah ini Dilarang digunakan di Group ini**"
+        )
+    user = await leave.client.get_me()
+    await edit_or_reply(leave, f"`{user.first_name} has left this group, bye!!`")
+    await leave.client.kick_participant(leave.chat_id, "me")
 
+
+@fanda_cmd(pattern="kikme$")
+async def kikme(leave):
+    if leave.chat_id in BLACKLIST_CHAT:
+        return await edit_or_reply(
+            leave, "**Perintah ini Dilarang digunakan di Group ini**"
+        )
+    await edit_or_reply(leave, "**GC NYA JELEK GOBLOK KELUAR DULU AH...**")
+    await leave.client.kick_participant(leave.chat_id, "me")
 
 @fanda_cmd(pattern="unmutechat$")
 async def unmute_chat(unm_e):
