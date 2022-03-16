@@ -307,14 +307,14 @@ S_PACK_NAME = os.environ.get("S_PACK_NAME", None)
 
 # Default .alive Logo
 ALIVE_LOGO = os.environ.get(
-    "ALIVE_LOGO") or "https://telegra.ph/file/10c4e299d498c9d54e31c.jpg"
+    "ALIVE_LOGO") or "https://telegra.ph/file/8ee507ef2468557fc49e0.jpg"
 
 # Default .helpme Logo
 INLINE_PIC = os.environ.get(
-    "INLINE_PIC") or "https://telegra.ph/file/10c4e299d498c9d54e31c.jpg"
+    "INLINE_PIC") or "https://telegra.ph/file/8ee507ef2468557fc49e0.jpg"
 
 # Default emoji help
-EMOJI_HELP = os.environ.get("EMOJI_HELP") or "⚡"
+EMOJI_HELP = os.environ.get("EMOJI_HELP") or "❂"
 
 # Fanda-Userbot
 OWNER_URL = os.environ.get("OWNER_URL") or "https://t.me/uurfavboys"
@@ -607,7 +607,7 @@ with bot:
         uid = user.id
         owner = user.first_name
         logo = ALIVE_LOGO
-        kyylogo = INLINE_PIC
+        fandalogo = INLINE_PIC
         tgbotusername = BOT_USERNAME
         BTN_URL_REGEX = re.compile(
             r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)"
@@ -706,7 +706,7 @@ with bot:
             builder = event.builder
             result = None
             query = event.text
-            if event.query.user_id == uid and query.startswith("@FandaUserbot"):
+            if event.query.user_id == uid and query.startswith("@Fandauserbot"):
                 buttons = paginate_help(0, dugmeler, "helpme")
                 result = builder.photo(
                     file=fandalogo,
@@ -773,7 +773,7 @@ with bot:
                 result = builder.article(
                     title="ꜰᴀɴᴅᴀ-ᴜsᴇʀʙᴏᴛ​ ",
                     description="Fanda - Userbot | Telethon",
-                    url="https://t.me/FandaProject",
+                    url="https://t.me/Fandaproject",
                     thumb=InputWebDocument(
                         INLINE_PIC,
                         0,
@@ -818,7 +818,7 @@ with bot:
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid or event.query.user_id in DEVS and SUDO_USERS:
                 openlagi = custom.Button.inline(
-                    "• Re-Open Menu •", data="reopen")
+                    "• Open Menu •", data="reopen")
                 await event.edit(
                     "⚜️ **ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ᴅɪᴛᴜᴛᴜᴘ!** ⚜️", buttons=openlagi
                 )
