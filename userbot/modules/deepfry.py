@@ -35,10 +35,10 @@ import io
 from random import randint, uniform
 
 from PIL import Image, ImageEnhance, ImageOps
-from telethon.tl.types import DocumentAttributeFilename
 
-from userbot.events import register
-from userbot import CMD_HELP, CMD_HANDLER as fanda_cmd
+from userbot import CMD_HANDLER as cmd
+from userbot import CMD_HELP
+from userbot.utils import check_media, edit_delete, edit_or_reply, fanda_cmd
 
 
 @fanda_cmd(pattern="deepfry(?: |$)(.*)")
@@ -49,41 +49,36 @@ async def deepfryer(event):
             raise ValueError
     except ValueError:
         frycount = 1
-
     if event.is_reply:
         reply_message = await event.get_reply_message()
         data = await check_media(reply_message)
-
         if isinstance(data, bool):
-            await event.edit("`I can't deep fry that!`")
-            return
+            return await edit_delete(event, "`I can't deep fry that!`")
     else:
-        await event.edit("`Reply to an image or sticker to deep fry it!`")
-        return
-
+        return await edit_delete(
+            event, "`Reply to an image or sticker to deep fry it!`"
+        )
     # download last photo (highres) as byte array
-    await event.edit("`Downloading media…`")
+    xx = await edit_or_reply(event, "`Downloading media…`")
     image = io.BytesIO()
     await event.client.download_media(data, image)
     image = Image.open(image)
-
     # fry the image
-    await event.edit("`Deep frying media…`")
+    await xx.edit("`Deep frying media…`")
     for _ in range(frycount):
         image = await deepfry(image)
-
     fried_io = io.BytesIO()
     fried_io.name = "image.jpeg"
     image.save(fried_io, "JPEG")
     fried_io.seek(0)
-
-    await event.reply(file=fried_io)
+    await xx.delete()
+    await event.send_file(event.chat_id, file=fried_io, reply_to=event.reply_to_msg_id)
 
 
 async def deepfry(img: Image) -> Image:
     colours = (
         (randint(50, 200), randint(40, 170), randint(40, 190)),
-        (randint(190, 255), randint(170, 240), randint(180, 250))
+        (randint(190, 255), randint(170, 240), randint(180, 250)),
     )
 
     img = img.copy().convert("RGB")
@@ -91,12 +86,18 @@ async def deepfry(img: Image) -> Image:
     # Crush image to hell and back
     img = img.convert("RGB")
     width, height = img.width, img.height
-    img = img.resize((int(width ** uniform(0.8, 0.9)),
-                      int(height ** uniform(0.8, 0.9))), resample=Image.LANCZOS)
-    img = img.resize((int(width ** uniform(0.85, 0.95)),
-                      int(height ** uniform(0.85, 0.95))), resample=Image.BILINEAR)
-    img = img.resize((int(width ** uniform(0.89, 0.98)),
-                      int(height ** uniform(0.89, 0.98))), resample=Image.BICUBIC)
+    img = img.resize(
+        (int(width ** uniform(0.8, 0.9)), int(height ** uniform(0.8, 0.9))),
+        resample=Image.LANCZOS,
+    )
+    img = img.resize(
+        (int(width ** uniform(0.85, 0.95)), int(height ** uniform(0.85, 0.95))),
+        resample=Image.BILINEAR,
+    )
+    img = img.resize(
+        (int(width ** uniform(0.89, 0.98)), int(height ** uniform(0.89, 0.98))),
+        resample=Image.BICUBIC,
+    )
     img = img.resize((width, height), resample=Image.BICUBIC)
     img = ImageOps.posterize(img, randint(3, 7))
 
@@ -114,33 +115,13 @@ async def deepfry(img: Image) -> Image:
     return img
 
 
-async def check_media(reply_message):
-    if reply_message and reply_message.media:
-        if reply_message.photo:
-            data = reply_message.photo
-        elif reply_message.document:
-            if DocumentAttributeFilename(
-                    file_name='AnimatedSticker.tgs') in reply_message.media.document.attributes:
-                return False
-            if reply_message.gif or reply_message.video or reply_message.audio or reply_message.voice:
-                return False
-            data = reply_message.media.document
-        else:
-            return False
-    else:
-        return False
-
-    if not data or data is None:
-        return False
-    else:
-        return data
-
-
-CMD_HELP.update({
-    "deepfry":
-    "`{cmd}deepfry` or `{cmd}deepfry` [level(1-8)]"
-    "\nUsage: deepfry image/sticker from the reply."
-    "\n@image_deepfrybot"
-    "\n`{cmd}deepfry [level(1-5)]`"
-    "\nUsage: Deepfry image"
-})
+CMD_HELP.update(
+    {
+        "deepfry": f"**Plugin : **`deepfry`\
+        \n\n  •  **Syntax :** `{cmd}deepfry` atau `.deepfry` [level(1-8)]\
+        \n  •  **Function : **Deepfry foto atau sticker dari bot @image_deepfrybot.\
+        \n\n  •  **Syntax :** `{cmd}deepfry` [level(1-5)]\
+        \n  •  **Function : **Deepfry foto atau sticker.\
+    "
+    }
+)
