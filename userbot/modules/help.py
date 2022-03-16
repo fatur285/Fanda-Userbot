@@ -6,7 +6,7 @@
 """ Userbot help command """
 
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, EMOJI_HELP
+from userbot import ALIVE_NAME, CMD_HELP, EMOJI_HELP
 from userbot.utils import edit_delete, edit_or_reply, fanda_cmd
 
 modules = CMD_HELP
@@ -30,7 +30,7 @@ async def help(event):
             event,
             f"**✦ Daftar Perintah Untuk [Fanda-Userbot](https://github.com/DIORrios285/Fanda-Userbot):**\n"
             f"**✦ Jumlah** `{len(modules)}` **Modules**\n"
-            f"**✦ Owner:** [{user.first_name}](tg://user?id={user.id})\n\n"
+            f"**✦ Owner:** {ALIVE_NAME}\n\n"
             f"{EMOJI_HELP}   {string}"
             f"\n\nSupport @fandasupport",
         )
