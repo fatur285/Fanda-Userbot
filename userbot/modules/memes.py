@@ -13,7 +13,7 @@ from validators.url import url
 
 from userbot import bot, CMD_HELP, CMD_HANDLER as cmd
 from userbot import TEMP_DOWNLOAD_DIRECTORY
-from userbot.events import register
+from userbot.utils import fanda_cmd
 
 EMOJI_PATTERN = re.compile(
     "["
