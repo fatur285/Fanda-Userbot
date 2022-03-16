@@ -30,9 +30,9 @@ async def _(event):
 
 CMD_HELP.update(
     {
-        "asupan": f"**Plugin : **`asupan`\
-        \n\n  •  **Syntax :** `{cmd}asupan`\
-        \n  •  **Function : **Untuk Mengirim video asupan secara random.\
+        "cadel": f"**Plugin : **`cadel`\
+        \n\n  •  **Syntax :** `{cmd}cadel`\
+        \n  •  **Function : **Cobain aja.\
     "
     }
 )
