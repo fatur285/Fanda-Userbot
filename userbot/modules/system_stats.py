@@ -228,15 +228,15 @@ async def amireallyalive(alive):
     user = await bot.get_me()
     await get_readable_time((time.time() - StartTime))
     output = (
-        f" **Fanda-Userbot** \n\n"
+        f" **the Fanda-Userbot.** \n\n"
         f"\n__**{FANDA_TEKS_KUSTOM}**__\n\n\n"
-        f"✶ Name       : {DEFAULTUSER} \n"
-        f"✶ Username   : @{user.username} \n"
-        f"✶ Telethon   : {version.__version__} \n"
-        f"✶ Python     : {python_version()} \n"
-        f"✶ Bot Ver    : {BOT_VER} \n"
-        f"✶ Modules    : {len(modules)} \n"
-        f"[ɢʀᴏᴜᴘꜱ](https://t.me/fandasupport) | [ᴄʜᴀɴɴᴇʟ](https://t.me/FandaProject) | [ᴏᴡɴᴇʀ](https://t.me/uurfavboys) | [ɢɪᴛʜᴜʙ](https://github.com/DIORrios285/Fanda-Userbot)")
+        f"✶ **Name       :** {DEFAULTUSER} \n"
+        f"✶ **Username   :** @{user.username} \n"
+        f"✶ **Telethon   :** {version.__version__} \n"
+        f"✶ **Python     :** {python_version()} \n"
+        f"✶ **Bot Ver    :** {BOT_VER} \n"
+        f"✶ **Modules    :** {len(modules)} \n"
+        f"[ɢʀᴏᴜᴘꜱ](https://t.me/fandasupport) | [ᴏᴡɴᴇʀ](https://t.me/uurfavboys) | [ɢɪᴛʜᴜʙ](https://github.com/DIORrios285/Fanda-Userbot)")
     if ALIVE_LOGO:
         try:
             logo = ALIVE_LOGO
@@ -257,17 +257,16 @@ async def amireallyalive(alive):
         await alive.delete()
 
 
-@fanda_cmd(pattern="(?:ralive)\\s?(.)?")
+@fanda_cmd(pattern="(?:fanda)\\s?(.)?")
 async def amireallyalive(alive):
     await bot.get_me()
     await get_readable_time((time.time() - StartTime))
     output = (
-        f"• `ᴏᴡɴᴇʀ    :`[Fatur](t.me/uurfavboys) \n"
-        f"• `ꜱʏꜱᴛᴇᴍ   :`Ubuntu 20.10 \n"
-        f"• `ᴛᴇʟᴇᴛʜᴏɴ :`v.{version.__version__} \n"
-        f"• `ᴘʏᴛʜᴏɴ   :`v.{python_version()} \n"
-        f"• `ʙᴏᴛ      :`v.{BOT_VER} \n"
-        f"• `ᴍᴏᴅᴜʟᴇ   :`{len(modules)}")
+        f"• `ᴏᴡɴᴇʀ    :` [Fatur](t.me/uurfavboys) \n"
+        f"• `ꜱʏꜱᴛᴇᴍ   :` Ubuntu 20.10 \n"
+        f"• `ᴛᴇʟᴇᴛʜᴏɴ :` v.{version.__version__} \n"
+        f"• `ᴘʏᴛʜᴏɴ   :` v.{python_version()} \n"
+        f"• `ʙᴏᴛ      :` v.{BOT_VER} \n")
     if ALIVE_LOGO:
         try:
             logo = ALIVE_LOGO
@@ -319,8 +318,10 @@ CMD_HELP.update({
 })
 CMD_HELP.update({
     "alive":
-    f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}alive` or `ralive`"
+    f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}alive`"
     "\n↳ : To see whether your bot is working or not."
+    f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}fanda`"
+    "\n↳ : Get some system information from fanda."
     f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}aliveu` <text>"
     "\n↳ : Changes the 'user' in alive to the text you want."
     f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}resetalive`"
