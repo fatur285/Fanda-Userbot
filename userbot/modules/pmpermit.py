@@ -42,7 +42,7 @@ CUSTOM_TEXT = str(
     PMPERMIT_TEXT) if PMPERMIT_TEXT else f"__Halo kawan, saya bot yang menjaga room chat Kyy-Userbot {DEFAULTUSER} di mohon jangan melakukan spam , kalau anda melakukan itu OTOMATIS saya akan memblockir anda!__ \n"
 DEF_UNAPPROVED_MSG = (
 f"{ALIVE_NAME} sedang off\n\n"
-f"Tunggu {ALIVE_NAME} melihat pesan kamu untuk mengkonfirmasi PM daj jangan spam!")
+f"Tunggu {ALIVE_NAME} melihat pesan ini untuk mengkonfirmasi PM kamu dan jangan spam!")
     # =================================================================
 
 
@@ -253,7 +253,7 @@ async def approvepm(apprvpm):
         )
 
 
-@kyy_cmd(pattern="(?:tolak|nopm)\\s?(.)?")
+@fanda_cmd(pattern="(?:tolak|nopm)\\s?(.)?")
 async def disapprovepm(disapprvpm):
     try:
         from userbot.modules.sql_helper.pm_permit_sql import dissprove
@@ -283,7 +283,7 @@ async def disapprovepm(disapprvpm):
         )
 
 
-@kyy_cmd(pattern="block$")
+@fanda_cmd(pattern="block$")
 async def blockpm(block):
     """For .block command, block people from PMing you!"""
     if block.reply_to_msg_id:
@@ -315,7 +315,7 @@ async def blockpm(block):
         )
 
 
-@kyy_cmd(pattern="unblock$")
+@fanda_cmd(pattern="unblock$")
 async def unblockpm(unblock):
     """For .unblock command, let people PMing you again!"""
     if unblock.reply_to_msg_id:
@@ -332,7 +332,7 @@ async def unblockpm(unblock):
         )
 
 
-@kyy_cmd(pattern="(set|get|reset) pm_msg(?: |$)(\\w*)")
+@fanda_cmd(pattern="(set|get|reset) pm_msg(?: |$)(\\w*)")
 async def add_pmsg(cust_msg):
     """Set your own Unapproved message"""
     if not PM_AUTO_BAN:
