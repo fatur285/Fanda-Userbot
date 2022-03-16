@@ -16,7 +16,7 @@ async def typewriter(typew):
 @fanda_cmd(pattern='atg(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("**ASTAGFIRULLAH!!!*"*")
+    await typew.edit("**ASTAGFIRULLAH!!!**")
 
 
 @fanda_cmd(pattern='^L(?: |$)(.*)')
