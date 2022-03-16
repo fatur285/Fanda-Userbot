@@ -62,7 +62,7 @@ async def waifu(animu):
     await animu.delete()
 
 
-@fanda_cmd(pattern="hz(:? |$)(.*)?')
+@fanda_cmd(pattern='hz(:? |$)(.*)?')
 async def _(hazmat):
     await hazmat.edit("`Sending information...`")
     level = hazmat.pattern_match.group(2)
