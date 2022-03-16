@@ -8,7 +8,7 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 # ============================================
 
 
-@fanda_cmd(pattern="helpmy$")
+@fanda_cmd(pattern="ihelp$")
 async def usit(e):
     await e.edit(
         f"**Halo {DEFAULTUSER} jika kamu tidak tahu perintah untuk memerintahku ketik** `.help` **atau minta bantuan kepada:**\n"
