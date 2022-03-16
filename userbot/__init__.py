@@ -507,7 +507,7 @@ with bot:
 async def update_restart_msg(chat_id, msg_id):
     DEFAULTUSER = ALIVE_NAME or "Set `ALIVE_NAME` ConfigVar!"
     message = (
-        f"**Fanda-Userbot v{BOT_VER} is back up and running!**\n\n"
+        f"**Fanda-Userbot v{BOT_VER} is up and running!**\n\n"
         f"**Telethon:** {version.__version__}\n"
         f"**Python:** {python_version()}\n"
         f"**User:** {DEFAULTUSER}"
@@ -619,7 +619,7 @@ with bot:
                 current_page_number = int(looters)
                 buttons = paginate_help(
                     current_page_number, dugmeler, "helpme")
-                text = f"**ꜰᴀɴᴅᴀ-ᴜsᴇʀʙᴏᴛ​ ɪɴʟɪɴᴇ ᴍᴇɴᴜ**\n\n✣ **ᴏᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**"
+                text = f"**ɪɴʟɪɴᴇ ᴍᴇɴᴜ**\n\n✣ **ᴏᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**"
                 await event.edit(
                     text,
                     file=fandalogo,
@@ -711,7 +711,7 @@ with bot:
                 result = builder.photo(
                     file=fandalogo,
                     link_preview=False,
-                    text=f"**ꜰᴀɴᴅᴀ-ᴜsᴇʀʙᴏᴛ​ ɪɴʟɪɴᴇ ᴍᴇɴᴜ **\n\n✣ **ᴏᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**",
+                    text=f"**ɪɴʟɪɴᴇ ᴍᴇɴᴜ **\n\n✣ **ᴏᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**",
                     buttons=buttons,
                 )
             elif query.startswith("repo"):
@@ -820,7 +820,7 @@ with bot:
                 openlagi = custom.Button.inline(
                     "• Open Menu •", data="reopen")
                 await event.edit(
-                    "⚜️ **ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ᴅɪᴛᴜᴛᴜᴘ!** ⚜️", buttons=openlagi
+                    "⚜️ **ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ᴅɪᴛᴜᴛᴜᴘ** ⚜️", buttons=openlagi
                 )
             else:
                 reply_pop_up_alert = f"Kamu Tidak diizinkan, ini Userbot Milik {owner}"
