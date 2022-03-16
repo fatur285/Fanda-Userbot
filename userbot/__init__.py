@@ -268,7 +268,7 @@ YOUTUBE_API_KEY = os.environ.get(
     "YOUTUBE_API_KEY") or "AIzaSyACwFrVv-mlhICIOCvDQgaabo6RIoaK8Dg"
 
 # Untuk Perintah .alive
-FANDA_TEKS_KUSTOM = os.environ.get("FANDA_TEKS_KUSTOM", "Hey,i am alive.")
+FANDA_TEKS_KUSTOM = os.environ.get("FANDA_TEKS_KUSTOM", "Hey, i am alive.")
 
 # titik 
 REPO_NAME = os.environ.get("REPO_NAME", "ꜰᴀɴᴅᴀ-ᴜsᴇʀʙᴏᴛ​")
