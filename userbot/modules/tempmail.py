@@ -1,11 +1,11 @@
 from telethon import events
-from userbot import CMD_HELP, bot
-from userbot.events import register
+from userbot import OWNER, CMD_HELP, bot, CMD_HANDLER as cmd
+from userbot.utils import fanda_cmd
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 import asyncio
 
 
-@register(outgoing=True, pattern=r"^\.tm(?: |$)(.*)")
+@fanda_cmd(pattern="tm(?: |$)(.*)")
 async def _(event):
     chat = "@TempMailBot"
     geez = await event.edit("Sedang Memprosess...")
@@ -13,7 +13,7 @@ async def _(event):
         try:
             response = conv.wait_event(events.NewMessage(
                 incoming=True,
-                from_users=220112646
+                from_users=OWNER
             )
             )
             await conv.send_message("/start")
@@ -28,5 +28,5 @@ async def _(event):
         await event.edit(f"**GEEZ TEMPMAIL** ~ `{response.message.message}`\n\n[KLIK DISINI UNTUK VERIFIKASI]({geezuserbot})")
 
 
-CMD_HELP.update({"tempmail": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tm`"
+CMD_HELP.update({"tempmail": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}tm`"
                  "\n•: Mendapatkan Email Gratis Dari Temp Mail"})
