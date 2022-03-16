@@ -38,10 +38,10 @@ from PIL import Image, ImageEnhance, ImageOps
 from telethon.tl.types import DocumentAttributeFilename
 
 from userbot.events import register
-from userbot import CMD_HELP
+from userbot import CMD_HELP, CMD_HANDLER as fanda_cmd
 
 
-@register(outgoing=True, pattern="^.deepfry(?: |$)(.*)")
+@fanda_cmd(pattern="deepfry(?: |$)(.*)")
 async def deepfryer(event):
     try:
         frycount = int(event.pattern_match.group(1))
@@ -138,9 +138,9 @@ async def check_media(reply_message):
 
 CMD_HELP.update({
     "deepfry":
-    "`.deepfry` or `.deepfry` [level(1-8)]"
+    "`{cmd}deepfry` or `{cmd}deepfry` [level(1-8)]"
     "\nUsage: deepfry image/sticker from the reply."
     "\n@image_deepfrybot"
-    "\n`.deepfry [level(1-5)]`"
+    "\n`{cmd}deepfry [level(1-5)]`"
     "\nUsage: Deepfry image"
 })
