@@ -1,5 +1,5 @@
 """ Userbot module for other small commands. """
-from userbot import CMD_HELP, ALIVE_NAME CMD_HANDLER as cmd
+from userbot import CMD_HELP, ALIVE_NAME, CMD_HANDLER as cmd
 from userbot.utils import fanda_cmd
 
 
