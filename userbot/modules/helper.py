@@ -8,20 +8,20 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 # ============================================
 
 
-@fanda_cmd(pattern="lhelp$")
+@fanda_cmd(pattern="helpmy$")
 async def usit(e):
     await e.edit(
-        f"**Halo {DEFAULTUSER} Jika Anda Tidak Tau Perintah Untuk Memerintah Ku Ketik** `.help` Atau Bisa Minta Bantuan Ke:\n"
-        "\n[Telegram](t.me/uurfavboys)"
-        "\n[Support](t.me/fandasupport )"
+        f"**Halo {DEFAULTUSER} jika kamu tidak tahu perintah untuk memerintahku ketik** `.help` **atau minta bantuan kepada:**\n"
+        "\n[Fatur](t.me/uurfavboys)"
+        "\n[Support](t.me/fandasupport)"
         "\n[Instagram](instagram.com/fatur.285)")
 
 
 @fanda_cmd(pattern="vars$")
 async def var(m):
     await m.edit(
-        f"**Disini Daftar Vars Dari {DEFAULTUSER}:**\n"
-        "\n[DAFTAR VARS](https://raw.githubusercontent.com/DIORrios285/Fanda-Userbot/main/varshelper.txt)")
+        f"**Daftar Vars Dari {DEFAULTUSER}:**\n"
+        "\n[ [klik disini](https://raw.githubusercontent.com/DIORrios285/Fanda-Userbot/main/varshelper.txt) ]")
 
 
 CMD_HELP.update({
