@@ -164,7 +164,7 @@ async def moni(event):
         return await event.edit("`Invalid syntax.`")
 
 
-@kyy_cmd(pattern="google(.*)")
+@fanda_cmd(pattern="google(.*)")
 async def gsearch(q_event):
     match = q_event.pattern_match.group(1)
     page = findall(r"page=\d+", match)
@@ -498,7 +498,7 @@ async def wolfram(wvent):
         )
 
 
-@kyy_cmd(pattern="ytsearch (.*)")
+@fanda_cmd(pattern="ytsearch (.*)")
 async def yt_search(video_q):
     query = video_q.pattern_match.group(1)
     if not query:
@@ -516,7 +516,7 @@ async def yt_search(video_q):
     await video_q.edit(output, link_preview=False)
 
 
-@kyy_cmd(pattern="(aud|vid) (.*)")
+@fanda_cmd(pattern="(aud|vid) (.*)")
 async def download_video(v_url):
     url = v_url.pattern_match.group(2)
     url = v_url.pattern_match.group(1).lower()
@@ -652,7 +652,7 @@ async def ocr(event):
     os.remove(downloaded_file_name)
 
 
-@kyy_cmd(pattern="ss (.*)")
+@fanda_cmd(pattern="ss (.*)")
 async def capture(url):
     """ For .ss command, capture a website's screenshot and send the photo. """
     await url.edit("`Processing...`")
@@ -701,7 +701,7 @@ async def capture(url):
         await url.delete()
 
 
-@kyy_cmd(pattern="nekko(?: |$)([\\s\\S]*)")
+@fanda_cmd(pattern="nekko(?: |$)([\\s\\S]*)")
 async def neko(nekobin):
     """For .paste command, pastes the text directly to dogbin."""
     nekobin_final_url = ""
@@ -754,7 +754,7 @@ async def neko(nekobin):
         )
 
 
-@kyy_cmd(pattern="neko(?: |$)([\\s\\S]*)")
+@fanda_cmd(pattern="neko(?: |$)([\\s\\S]*)")
 async def neko(nekobin):
     """For .paste command, pastes the text directly to dogbin."""
     nekobin_final_url = ""
@@ -802,7 +802,7 @@ async def neko(nekobin):
     await nekobin.edit(reply_text)
 
 
-@kyy_cmd(pattern="getpaste(?: |$)(.*)")
+@fanda_cmd(pattern="getpaste(?: |$)(.*)")
 async def get_dogbin_content(dog_url):
     textx = await dog_url.get_reply_message()
     message = dog_url.pattern_match.group(1)
@@ -854,7 +854,7 @@ async def get_dogbin_content(dog_url):
         )
 
 
-@kyy_cmd(pattern="removebg(?: |$)(.*)")
+@fanda_cmd(pattern="removebg(?: |$)(.*)")
 async def kbg(remob):
     """ For .rbg command, Remove Image Background. """
     if REM_BG_API_KEY is None:
@@ -937,7 +937,7 @@ async def ReTrieveURL(input_url):
     return r
 
 
-@kyy_cmd(pattern="direct(?: |$)([\\s\\S]*)")
+@fanda_cmd(pattern="direct(?: |$)([\\s\\S]*)")
 async def direct_link_generator(request):
     """ direct links generator """
     await request.edit("`Processing...`")
