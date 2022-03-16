@@ -11,7 +11,7 @@ from telegraph import exceptions
 from telegraph import upload_file
 from validators.url import url
 
-from userbot import bot, CMD_HELP
+from userbot import bot, CMD_HELP, CMD_HANDLER as cmd
 from userbot import TEMP_DOWNLOAD_DIRECTORY
 from userbot.events import register
 
@@ -197,7 +197,7 @@ async def purge():
         pass
 
 
-@register(outgoing=True, pattern=r"^\.trump(?: |$)(.*)")
+@fanda_cmd(pattern="trump(?: |$)(.*)")
 async def trump(event):
     text = event.pattern_match.group(1)
     text = re.sub("&", "", text)
@@ -218,7 +218,7 @@ async def trump(event):
     await purge()
 
 
-@register(pattern="^.modi(?: |$)(.*)", outgoing=True)
+@fanda_cmd(pattern="modi(?: |$)(.*)")
 async def nekobot(event):
     text = event.pattern_match.group(1)
     reply_to_id = event.message
@@ -238,7 +238,7 @@ async def nekobot(event):
     await purge()
 
 
-@register(outgoing=True, pattern=r"^\.cmm(?: |$)(.*)")
+@fanda_cmd(pattern="cmm(?: |$)(.*)")
 async def cmm(event):
     text = event.pattern_match.group(1)
     text = re.sub("&", "", text)
@@ -259,7 +259,7 @@ async def cmm(event):
     await purge()
 
 
-@register(outgoing=True, pattern=r"^\.kanna(?: |$)(.*)")
+@fanda_cmd(pattern="kanna(?: |$)(.*)")
 async def kanna(event):
     text = event.pattern_match.group(1)
     text = re.sub("&", "", text)
@@ -280,7 +280,7 @@ async def kanna(event):
     await purge()
 
 
-@register(outgoing=True, pattern=r"\.tweet(?: |$)(.*)")
+@fanda_cmd(pattern="tweet(?: |$)(.*)")
 async def tweet(event):
     text = event.pattern_match.group(1)
     text = re.sub("&", "", text)
@@ -312,7 +312,7 @@ async def tweet(event):
     await purge()
 
 
-@register(pattern="^.threat(?: |$)(.*)", outgoing=True)
+@fanda_cmd(pattern="threat(?: |$)(.*)")
 async def nekobot(event):
     replied = await event.get_reply_message()
     if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY):
@@ -354,7 +354,7 @@ async def nekobot(event):
     await bot.send_file(event.chat_id, file, reply_to=replied)
 
 
-@register(pattern="^.trash(?: |$)(.*)", outgoing=True)
+@fanda_cmd(pattern="trash(?: |$)(.*)")
 async def nekobot(event):
     replied = await event.get_reply_message()
     if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY):
@@ -396,7 +396,7 @@ async def nekobot(event):
     await bot.send_file(event.chat_id, file, reply_to=replied)
 
 
-@register(pattern="^.trap(?: |$)(.*)", outgoing=True)
+@fanda_cmd(pattern="trap(?: |$)(.*)")
 async def nekobot(e):
     input_str = e.pattern_match.group(1)
     input_str = deEmojify(input_str)
@@ -449,7 +449,7 @@ async def nekobot(e):
 # Ported by @AshSTR
 
 
-@register(outgoing=True, pattern="^.fgs ((.*) ; (.*))")
+@fanda_cmd(pattern="fgs ((.*) ; (.*))")
 async def FakeGoogleSearch(event):
     """ Get a user-customised google search meme! """
     input_str = event.pattern_match.group(1)
@@ -487,7 +487,7 @@ async def FakeGoogleSearch(event):
     os.remove('downloads/test.jpg')
 
 
-@register(outgoing=True, pattern=r"^\.ph(?: |$)(.*)")
+@fanda_cmd(pattern="ph(?: |$)(.*)")
 async def phcomment(event):
     try:
         await event.edit("`Processing..`")
@@ -535,12 +535,12 @@ async def phcomment(event):
     await purge()
 
 CMD_HELP.update({
-    "memes1":
-    "`.fgs`\
+    "memes":
+    "`{cmd}fgs`\
 \nUsage: Dapatkan meme dari google yang di custom pengguna!\
-\n`.fgs [Teks Atas] ; [Teks Bawah]`\
-\n\n<`.modi` or `.trump` or `.cmm` or `.kanna`> <text>\
+\n`{cmdfgs [Teks Atas] ; [Teks Bawah]`\
+\n\n<`{cmd}modi` or `{cmd}trump` or `{cmd}cmm` or `{cmd}kanna`> <text>\
 \nUsage: Just for Fun.\
-\n\n<`.ph` or `.threat` or `.trash` or `.trap` >\
+\n\n<`{cmd}ph` or `{cmd}threat` or `{cmd}trash` or `{cmd}trap` >\
 \nUsage: Balas Ke Sticker Atau Gambar Dan Liat Apa Yang Terjadi."
 })
