@@ -24,7 +24,7 @@ from telethon.tl.functions.channels import InviteToChannelRequest
 from telethon.tl.types import InputPeerUser
 
 
-@fanda_cmd(pattern="getmemb$")
+@fanda_cmd(pattern="getmem$")
 async def scrapmem(event):
     chat = event.chat_id
     await event.edit("`Mohon tunggu...`")
@@ -39,7 +39,7 @@ async def scrapmem(event):
     await event.edit("`Berhasil Mengumpulkan Member..`")
 
 
-@kyy_cmd(pattern="addmemb$")
+@fanda_cmd(pattern="addmem$")
 async def admem(event):
     await event.edit("`Proses Menambahkan 0 Member...`")
     chat = await event.get_chat()
@@ -78,9 +78,9 @@ async def admem(event):
 
 CMD_HELP.update({
     "scraper":
-    f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}getmemb`\
+    f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}getmem`\
    \nUsage : Mengumpulkan Anggota dari Obrolan\
-   \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}addmemb`\
+   \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}addmem`\
    \nUsage : Menambahkan Anggota ke Obrolan\
    \nTata Cara Menggunakannya:  Pertama, Anda harus melakukan .getmemb terlebih dahulu dari Obrolan. Lalu buka grup Anda dan ketik .addmemb untuk menambahkan mereka ke grup Anda."
 })
