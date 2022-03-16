@@ -5,9 +5,8 @@
 #
 """ Userbot help command """
 
-from userbot import CHANNEL
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, ICON_HELP
+from userbot import CMD_HELP, EMOJI_HELP
 from userbot.utils import edit_delete, edit_or_reply, fanda_cmd
 
 modules = CMD_HELP
@@ -26,15 +25,15 @@ async def help(event):
         string = ""
         for i in CMD_HELP:
             string += "`" + str(i)
-            string += f"`\t\t\t{ICON_HELP}\t\t\t"
+            string += f"`\t\t\t{EMOJI_HELP}\t\t\t"
         await edit_or_reply(
             event,
             f"**✦ Daftar Perintah Untuk [Fanda-Userbot](https://github.com/DIORrios285/Fanda-Userbot):**\n"
             f"**✦ Jumlah** `{len(modules)}` **Modules**\n"
             f"**✦ Owner:** [{user.first_name}](tg://user?id={user.id})\n\n"
             f"{ICON_HELP}   {string}"
-            f"\n\nSupport @{CHANNEL}",
+            f"\n\nSupport @fandasupport",
         )
         await event.reply(
-            f"\n**Contoh Ketik** `{cmd}help afk` **Untuk Melihat Informasi Module**"
+            f"\n**Contoh Ketik** `{cmd}help cadel` **Untuk Melihat Informasi Module**"
         )
