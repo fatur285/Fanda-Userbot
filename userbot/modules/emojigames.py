@@ -24,7 +24,7 @@ async def _(event):
             pass
 
 
-@register(outgoing=True, pattern="^.dart(?: |$)(.*)")
+@fanda_cmd(pattern="dart(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
