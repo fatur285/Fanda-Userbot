@@ -1,33 +1,33 @@
 """ Userbot module for other small commands. """
-from userbot import CMD_HELP, ALIVE_NAME, CMD_HANDLER as cmd
-from userbot.utils import fanda_cmd
-
-
-# ================= CONSTANT =================
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
-# ============================================
+from userbot import CMD_HANDLER as cmd
+from userbot import CMD_HELP
+from userbot.utils import edit_or_reply, fanda_cmd
 
 
 @fanda_cmd(pattern="ihelp$")
-async def usit(e):
-    await e.edit(
-        f"**Halo {DEFAULTUSER} jika kamu tidak tahu perintah untuk memerintahku ketik** `.help` **atau minta bantuan kepada:**\n"
-        "\n[Fatur](t.me/uurfavboys)"
-        "\n[Support](t.me/fandasupport)"
-        "\n[Instagram](instagram.com/fatur.285)")
+async def usit(event):
+    me = await event.client.get_me()
+    await edit_or_reply(
+        event,
+        f"**Hai {me.first_name} Kalo Anda Tidak Tau Perintah Untuk Memerintah Ku Ketik** `.help` Atau Bisa Minta Bantuan Ke:\n"
+        f"✣ **Group Support :** [Fanda Support](t.me/fandasupport)\n"
+        f"✣ **Channel fanda :** [Fanda Project](t.me/fandaproject)\n"
+        f"✣ **Owner Repo :** [Fatur](t.me/uurfavboys)\n"
+        f"✣ **Repo :** [Fanda-Userbot](https://github.com/DIORrios285/Fanda-Userbot)\n",
+    )
 
 
-@fanda_cmd(pattern="vars$")
-async def var(m):
-    await m.edit(
-        f"**Daftar Vars Dari {DEFAULTUSER}:**\n"
-        "\n[ [klik disini](https://raw.githubusercontent.com/DIORrios285/Fanda-Userbot/main/varshelper.txt) ]")
-
+@fanda_cmd(pattern="listvar$")
+async def var(event):
+    await edit_or_reply(
+        event,
+        "**Daftar Lengkap Vars Dari Fanda-Userbot:** [KLIK DISINI](https://raw.githubusercontent.com/DIORrios285/Fanda-Userbot/Fanda-Userbot/varshelper.txt)",
+    )
 
 CMD_HELP.update({
     "helper":
-    "`{cmd}lhelp`\
+    "`{cmd}ihelp`\
 \nUsage: Bantuan Untuk Fanda-Userbot.\
-\n`{cmd}vars`\
+\n`{cmd}listvar`\
 \nUsage: Melihat Daftar Vars."
 })
