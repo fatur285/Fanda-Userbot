@@ -31,7 +31,7 @@ async def help(event):
             f"**✦ Daftar Perintah Untuk [Fanda-Userbot](https://github.com/DIORrios285/Fanda-Userbot):**\n"
             f"**✦ Jumlah** `{len(modules)}` **Modules**\n"
             f"**✦ Owner:** [{user.first_name}](tg://user?id={user.id})\n\n"
-            f"{ICON_HELP}   {string}"
+            f"{EMOJI_HELP}   {string}"
             f"\n\nSupport @fandasupport",
         )
         await event.reply(
