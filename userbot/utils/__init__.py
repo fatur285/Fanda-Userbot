@@ -25,6 +25,7 @@ from .tools import (
     humanbytes,
     reply_id,
     time_formatter,
+    check_media,
     human_to_bytes,
     run_cmd, md5,
     post_to_telegraph,
