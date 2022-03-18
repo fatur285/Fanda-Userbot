@@ -228,8 +228,8 @@ async def amireallyalive(alive):
     user = await bot.get_me()
     await get_readable_time((time.time() - StartTime))
     output = (
-        f" **the Fanda-Userbot.** \n\n"
-        f"\n__**{FANDA_TEKS_KUSTOM}**__\n\n\n"
+        f" **the 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​.** \n\n"
+        f"__**{FANDA_TEKS_KUSTOM}**__\n\n"
         f"✶ **Name       :** {DEFAULTUSER} \n"
         f"✶ **Username   :** @{user.username} \n"
         f"✶ **Telethon   :** {version.__version__} \n"
