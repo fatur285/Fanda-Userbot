@@ -57,7 +57,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
         heroku_applications = heroku.apps()
         if HEROKU_APP_NAME is None:
             await edit_or_reply(event,
-                                "`[HEROKU]: Harap Siapkan Variabel` **HEROKU_APP_NAME** `"
+                                "**[HEROKU]:** `Harap Siapkan Variabel` **HEROKU_APP_NAME** `"
                                 " agar bisa memperbarui Fanda-Userbot .`"
                                 )
             repo.__del__()
@@ -72,7 +72,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
                               )
             return repo.__del__()
         await edit_or_reply(event,
-                            "`Heroku :` `Sedang MengUpdate`" "\n`Mohon Menunggu 5-7 Menit`"
+                            "**[Heroku]:** `Sedang Memperbarui **Fanda-Userbot**`" "\n`Mohon tunggu sebentar...`"
                             )
         ups_rem.fetch(ac_br)
         repo.git.reset("--hard", "FETCH_HEAD")
@@ -96,17 +96,17 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
                               )
         else:
             await edit_delete(event,
-                              "`Fanda-Userbot berhasil di perbarui,Restarting Tunggu Sebentar`"
+                              "**Fanda-Userbot** `Berhasil di perbarui,Restarting tunggu sebentar`"
                               )
 
         if BOTLOG:
             await event.client.send_message(
-                BOTLOG_CHATID, "#BOT \n" "`Fanda-Userbot Berhasil Di Update`"
+                BOTLOG_CHATID, "#UPDATER \n" "`Fanda-Userbot Berhasil diperbarui`"
             )
 
     else:
         await edit_delete(event,
-                          "`[HEROKU]:" "\nHarap Siapkan Variabel` **HEROKU_API_KEY** `.`"
+                          "**[HEROKU]:**" "\n`Harap Siapkan Variabel` **HEROKU_API_KEY** `.`"
                           )
     return
 
@@ -117,7 +117,7 @@ async def update(event, repo, ups_rem, ac_br):
     except GitCommandError:
         repo.git.reset("--hard", "FETCH_HEAD")
     await update_requirements()
-    x = await edit_or_reply(event, "**Fanda-Userbot** `Berhasil Di Update!`")
+    x = await edit_or_reply(event, "**Fanda-Userbot** `Berhasil diperbarui!`")
     await asyncio.sleep(1)
     await x.edit("'Sedang merestart....`")
     await asyncio.sleep(1)
@@ -127,7 +127,7 @@ async def update(event, repo, ups_rem, ac_br):
 
     if BOTLOG:
         await event.client.send_message(
-            BOTLOG_CHATID, "#BOT \n" "**Fanda-Userbot Telah Di Perbarui.**"
+            BOTLOG_CHATID, "#UPDATER \n" "**Fanda-Userbot Telah di perbarui.**"
         )
         await asyncio.sleep(100)
         await x.delete()
@@ -191,9 +191,9 @@ async def upstream(event):
 
     if changelog == "" and force_update is False:
         await xx.edit(
-            f"\nFanda-userbot Sudah Versi Terbaru Goblok!|| Kunjungi @fandaproject untuk melihat berita terbaru tentang Fanda-Userbot.\n"
+            f"\n**Fanda-userbot Sudah Versi Terbaru Goblok!|| Kunjungi @fandaproject untuk melihat berita terbaru tentang Fanda-Userbot.**\n"
         )
-        await asyncio.sleep(15)
+        await asyncio.sleep(1)
         await xx.delete()
         return repo.__del__()
 
@@ -215,7 +215,7 @@ async def upstream(event):
         else:
             await xx.edit(changelog_str)
         return await event.respond(
-            f"**Perintah Untuk Update, Sebagai Berikut.**\n🔰 𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`{cmd}update now` (Sementara)\n🔰 𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`{cmd}update deploy` (Permanen)\n\n__Untuk Memperbarui Fanda-Userbot .__"
+            f"Perintah untuk memperbarui **Fanda-Userbot:**\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}update now`\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}update deploy`."
         )
 
     if force_update:
@@ -223,12 +223,13 @@ async def upstream(event):
             "`Sinkronisasi Paksa Ke Kode Userbot Stabil Terbaru, Harap Tunggu .....`"
         )
     else:
-        await xx.edit("` Proses Update, Loading....1%`")
-        await xx.edit("` Proses Update, Loading....20%`")
-        await xx.edit("` Proses Update, Loading....35%`")
-        await xx.edit("` Proses Update, Loading....77%`")
-        await xx.edit("` Proses Update, Loading...90%`")
-        await xx.edit("` Proses Update, Loading....100%`")
+        await xx.edit("`Mulai memperbarui Fanda-Userbot...`")
+        await xx.edit("`Loading...1%`")
+        await xx.edit("`Loading...20%`")
+        await xx.edit("`Loading...35%`")
+        await xx.edit("`Loading...77%`")
+        await xx.edit("`Loading...90%`")
+        await xx.edit("`Loading...100%`")
         await xx.edit("`Berhasil memperbarui Fanda-Userbot, Mohon tunggu sebentar..."
         )
 
