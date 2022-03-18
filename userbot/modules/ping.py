@@ -17,11 +17,11 @@ from userbot.events import register
 from userbot.utils import fanda_cmd
 
 absen = [
-    "**Hadir fatur** 🥵",
-    "**Hadir tur** 😎",
-    "**Hadir kak fatur** 😉",
-    "**Hadir bang fatur** 😁",
-    "**Hadir tur maap telat** 🥺",
+    "**Hadir fatur**",
+    "**Hadir tur**",
+    "**Hadir kak fatur**",
+    "**Hadir bang fatur**",
+    "**Hadir tur maap telat**",
 ]
 
 pacar = [
@@ -101,7 +101,7 @@ async def redis(pong):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await pong.edit(
-        f"**⚡ Fanda-Userbot ⚡**\n"
+        f"𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​\n"
         f"** ▹  Sɪɢɴᴀʟ   :** "
         f"`%sms` \n"
         f"** ▹  Uᴘᴛɪᴍᴇ  :** "
@@ -151,7 +151,7 @@ async def redis(pong):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await pong.edit(
-        f"**⚡ Fanda-Userbot ⚡**\n"
+        f"𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​\n"
         f"➣ __Signal__    __:__ "
         f"`%sms` \n"
         f"➣ __Uptime__ __:__ "
