@@ -4,11 +4,11 @@
 # you may not use this file except in compliance with the License.
 
 from covid import Covid
-from userbot import CMD_HELP
-from userbot.events import register
+from userbot import CMD_HELP, CMD_HANDLER as cmd
+from userbot.utils import fanda_cmd
 
 
-@register(outgoing=True, pattern="^.covid (.*)")
+@fanda_cmd(pattern="covid (.*)")
 async def corona(event):
     await event.edit("`Processing...`")
     country = event.pattern_match.group(1)
@@ -30,7 +30,7 @@ async def corona(event):
     await event.edit(f"`Corona Virus Info in {country}:`\n\n{output_text}")
 
 
-@register(outgoing=True, pattern="^.covid$")
+@fanda_cmd(pattern="covid$")
 async def corona(event):
     await event.edit("`Processing...`")
     country = "World"
@@ -52,7 +52,7 @@ async def corona(event):
     await event.edit(f"`Corona Virus Info in {country}:`\n\n{output_text}")
 
 
-CMD_HELP.update({"covid": "`.covid `**<country>**"
+CMD_HELP.update({"covid": "`{cmd}covid `**<country>**"
                  "\n`Usage: Get an information about covid-19 data in your country.`\n\n"
-                 "`.covid`"
+                 "`{cmd}covid`"
                  "\n`Usage: Get an information about covid-19 data in Worldwide.`\n"})
