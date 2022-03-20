@@ -1,8 +1,9 @@
+from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, bot
-from userbot.events import register
+from userbot.utils import fanda_cmd
 
 
-@register(outgoing=True, pattern=r"^\.xogame(?: |$)(.*)")
+@fanda_cmd(pattern="xogame(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -15,7 +16,7 @@ async def _(event):
     await event.delete()
 
 
-@register(outgoing=True, pattern=r"^\.whisp(?: |$)(.*)")
+@fanda_cmd(pattern="whisp(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -28,7 +29,7 @@ async def _(event):
     await event.delete()
 
 
-@register(outgoing=True, pattern=r"^\.mod(?: |$)(.*)")
+@fanda_cmd(pattern="mod(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -42,9 +43,9 @@ async def _(event):
 
 CMD_HELP.update({
     "games": "\
-𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.xogame`\
+𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}xogame`\
 \n↳ : Mainkan game XO bersama temanmu.\
-\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.mod <nama app>`\
+\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}mod <nama app>`\
 \n↳ : Dapatkan applikasi mod\
-\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.whisp <teks> <username/ID>`\
+\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}whisp <teks> <username/ID>`\
 \n↳ : Berikan pesan rahasia"})
