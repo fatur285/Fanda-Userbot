@@ -3,18 +3,6 @@ from userbot import CMD_HELP, CMD_HANDLER as cmd
 from userbot.utils import fanda_cmd
 
 
-@fanda_cmd(pattern='fatur(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    sleep(3)
-    await typew.edit("`Hai perkenalkan namaku fatur`")
-    sleep(3)
-    await typew.edit("`17 Tahun`")
-    sleep(1)
-    await typew.edit("`Tinggal di kalimantan, salam kenal:)`")
-# Create by myself @localheart
-
-
 @fanda_cmd(pattern='sayang(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
@@ -40,10 +28,8 @@ async def typewriter(typew):
 
 
 CMD_HELP.update({
-    "oi": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}fatur`\
-    \n↳ : perkenalan ownintro\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sayang`\
-    \n↳ : Gombalan maut`\
+    "gabut": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sayang`\
+    \n↳ : kontol`\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}semangat`\
     \n↳ : Jan Lupa Semangat."
 })
