@@ -28,7 +28,7 @@ async def typewriter(typew):
 
 
 CMD_HELP.update({
-    "gabut": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sayang`\
+    "gabut2": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sayang`\
     \n↳ : kontol`\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}semangat`\
     \n↳ : Jan Lupa Semangat."
