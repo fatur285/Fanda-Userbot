@@ -72,7 +72,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
                               )
             return repo.__del__()
         await edit_or_reply(event,
-                            "**[Heroku]:** `Sedang Memperbarui **Fanda-Userbot**`" "\n`Mohon tunggu sebentar...`"
+                            "**[Heroku]:** `Sedang Memperbarui 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​`" "\n`Mohon tunggu sebentar...`"
                             )
         ups_rem.fetch(ac_br)
         repo.git.reset("--hard", "FETCH_HEAD")
@@ -96,12 +96,12 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
                               )
         else:
             await edit_delete(event,
-                              "**Fanda-Userbot** `Berhasil di perbarui,Restarting tunggu sebentar`"
+                              "𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ `Berhasil di perbarui,Restarting tunggu sebentar`"
                               )
 
         if BOTLOG:
             await event.client.send_message(
-                BOTLOG_CHATID, "#UPDATER \n" "`Fanda-Userbot Berhasil diperbarui`"
+                BOTLOG_CHATID, "#UPDATER \n" "`𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ Berhasil diperbarui`"
             )
 
     else:
@@ -191,7 +191,7 @@ async def upstream(event):
 
     if changelog == "" and force_update is False:
         await xx.edit(
-            f"\n**Fanda-userbot Sudah Versi Terbaru Goblok!|| Kunjungi @fandaproject untuk melihat berita terbaru tentang Fanda-Userbot.**\n"
+            f"\n𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ **Sudah Versi Terbaru Goblok!|| Kunjungi @fandaproject untuk melihat berita terbaru tentang** 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​.\n"
         )
         await asyncio.sleep(1)
         await xx.delete()
@@ -223,12 +223,16 @@ async def upstream(event):
             "`Sinkronisasi Paksa Ke Kode Userbot Stabil Terbaru, Harap Tunggu .....`"
         )
     else:
-        await xx.edit("`Mulai memperbarui Fanda-Userbot...`")
+        await xx.edit("`Mulai memperbarui 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​...`")
         await xx.edit("`Loading...1%`")
         await xx.edit("`Loading...20%`")
         await xx.edit("`Loading...35%`")
-        await xx.edit("`Loading...77%`")
+        await xx.edit("`Loading...50%`")
+        await xx.edit("`Loading...55%`")
+        await xx.edit("`Loading...70%`")
+        await xx.edit("`Loading...75%`")
         await xx.edit("`Loading...90%`")
+        await xx.edit("`Loading...95%`")
         await xx.edit("`Loading...100%`")
         await xx.edit("`Berhasil memperbarui 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​, Mohon tunggu sebentar...`"
         )
