@@ -1,6 +1,10 @@
 # Copyright (C) 2021 Kyy - Userbot
 # Created by Kyy
 # Jangan hapus credit Anj!!!
+# Kyy itu kontol ygy
+# Fatur ni geng
+# axixi
+# Hapus pala bapak mu hilang!
 
 
 from time import sleep
@@ -25,11 +29,11 @@ async def typewriter(typew):
 @fanda_cmd(pattern="lahk(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    xnxx = await edit_or_reply(typew, "`Lahk, Lo tolol?`")
+    xnxx = await edit_or_reply(typew, "`Lahk, lo tolol?`")
     sleep(1)
-    await xnxx.edit("`Apa dongok?`")
+    await xnxx.edit("`Apa dongo?`")
     sleep(1)
-    await xnxx.edit("`Gausah sok keras`")
+    await xnxx.edit("`Gausah so keras`")
     sleep(1)
     await xnxx.edit("`Gua ga ketrigger sama bocah baru nyemplung!`")
 
@@ -44,7 +48,9 @@ async def typewriter(typew):
     sleep(1.5)
     await xnxx.edit("**KALO MENTAL MASIH PATUNGAN**")
     sleep(1.5)
-    await xnxx.edit("**GAUSAH SOK KERAS DEH**")
+    await xnxx.edit("**GAUSAH SO KERAS DEH**")
+    sleep(1.5)
+    await xnxx.edit("**MENDING LO KERASIN BATANG KONTOL LO DULU**")
     sleep(1.5)
     await xnxx.edit("**GA KEREN LO BEGITU NGENTOT**")
 
@@ -73,11 +79,11 @@ async def typewriter(typew):
     sleep(1)
     xnxx = await edit_or_reply(typew, "eh kamu, iya kamu")
     sleep(1)
-    await xnxx.edit("**ALAY** bnget sih")
+    await xnxx.edit("kok kamu **ALAY** banget sih")
     sleep(1)
-    await xnxx.edit("spam bot mulu")
+    await xnxx.edit("mainan bot mulu")
     sleep(1)
-    await xnxx.edit("baru jadi userbot ya?? xixixi")
+    await xnxx.edit("baru jadi userbot ya? axixixi")
     sleep(1)
     await xnxx.edit("pantes **NORAK**")
 
@@ -102,7 +108,7 @@ async def typewriter(typew):
     sleep(1)
     await xnxx.edit("Canda **BURIK**")
     sleep(1)
-    await xnxx.edit("Lari Ada Plastik KePanasan")
+    await xnxx.edit("Lari ada plastik meleleh")
 
 
 @fanda_cmd(pattern="ange(?: |$)(.*)")
@@ -112,7 +118,7 @@ async def typewriter(typew):
     sleep(1)
     await xnxx.edit("`Ange😫`")
     sleep(1)
-    await xnxx.edit("`Ayukkk Ewean Ayanggg🤤`")
+    await xnxx.edit("`Ayukkk Entot Ayanggg🤤`")
 
 
 @fanda_cmd(pattern="virtual(?: |$)(.*)")
@@ -132,7 +138,7 @@ async def typewriter(typew):
     sleep(1.5)
     await xnxx.edit("**APALAGI OMONGANNYA**")
     sleep(1.5)
-    await xnxx.edit("**BHAHAHAHA**")
+    await xnxx.edit("**HAHAHAHA**")
     sleep(1.5)
     await xnxx.edit("**KASIAN MANA MASIH MUDA**")
 
@@ -177,21 +183,21 @@ async def typewriter(typew):
 
 CMD_HELP.update({
     "fandauserbot": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sadboy`\
-    \n↳ : Biasalah sadboy hikss\
+    \n↳ : Sini fatur cium mwah\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}wah`\
-    \n↳ : Ngatain orang war\
+    \n↳ : Sini fatur cium mwah\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sok`\
-    \n↳ : Ngatain orang sok keras2\
+    \n↳ : Sini fatur cium mwah\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}lahk`\
-    \n↳ : Ngatain orang sok keras.\
+    \n↳ : Sini fatur cium mwah\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}alay`\
-    \n↳ : Ngatain orang alay\
+    \n↳ : Sini fatur cium mwah\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}erpe`\
-    \n↳ : Ngatain anak erpe\
+    \n↳ : Sini fatur cium mwah\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}ange`\
-    \n↳ : Sangean\
+    \n↳ : Sini fatur cium mwah\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}virtual`\
-    \n↳ : Ngatain bocah virtual.\
+    \n↳ : Sini fatur cium mwah\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}tittle`\
-    \n↳ : Ngatain bocah gila tittle."
+    \n↳ : Sini fatur cium mwah"
 })
