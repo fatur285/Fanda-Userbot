@@ -35,14 +35,14 @@ async def _(event):
 async def _(event):
     xx = await edit_or_reply(event, "`Tunggu Sebentar...`")
     try:
-        favsong = [
+        inilagunya = [
             song
             async for song in event.client.iter_messages(
                 "@uurfavsong", filter=InputMessagesFilterVoice
             )
         ]
         await event.client.send_file(
-            event.chat_id, file=choice(favsong), reply_to=event.reply_to_msg_id
+            event.chat_id, file=choice(inilagunya), reply_to=event.reply_to_msg_id
         )
         await xx.delete()
     except Exception:
@@ -60,7 +60,7 @@ CMD_HELP.update(
 
 CMD_HELP.update(
     {
-        "fandafavsongs": f"**Plugin : **`favsong`\
+        "favsongs": f"**Plugin : **`favsong`\
         \n\n  •  **Syntax :** `{cmd}favsong`\
         \n  •  **Function : **Kumpulan lagu favorit dari owner Fanda-Userbot.\
     "
