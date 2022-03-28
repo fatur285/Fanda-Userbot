@@ -117,7 +117,7 @@ async def update(event, repo, ups_rem, ac_br):
     except GitCommandError:
         repo.git.reset("--hard", "FETCH_HEAD")
     await update_requirements()
-    x = await edit_or_reply(event, "**Fanda-Userbot** `Berhasil diperbarui!`")
+    x = await edit_or_reply(event, "𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ `Berhasil diperbarui!`")
     await asyncio.sleep(1)
     await x.edit("'Sedang merestart....`")
     await asyncio.sleep(1)
@@ -127,7 +127,7 @@ async def update(event, repo, ups_rem, ac_br):
 
     if BOTLOG:
         await event.client.send_message(
-            BOTLOG_CHATID, "#UPDATER \n" "**Fanda-Userbot Telah di perbarui.**"
+            BOTLOG_CHATID, "#UPDATER \n" "𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ **Telah di perbarui.**"
         )
         await asyncio.sleep(100)
         await x.delete()
@@ -199,7 +199,7 @@ async def upstream(event):
 
     if conf is None and force_update is False:
         changelog_str = (
-            f"**Pembaruan Untuk Fanda-Userbot :\n\n⚒️ Pembaruan Data :**\n`{changelog}`"
+            f"**Pembaruan Untuk 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​:\n\n⚒️ Pembaruan Data :**\n`{changelog}`"
         )
         if len(changelog_str) > 4096:
             await xx.edit("`Changelog Terlalu Besar, Lihat File Untuk Melihatnya.`")
@@ -215,7 +215,7 @@ async def upstream(event):
         else:
             await xx.edit(changelog_str)
         return await event.respond(
-            f"Perintah untuk memperbarui **Fanda-Userbot:**\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}update now`\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}update deploy`."
+            f"Perintah untuk memperbarui 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​:\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}update now`\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}update deploy`."
         )
 
     if force_update:
@@ -230,7 +230,7 @@ async def upstream(event):
         await xx.edit("`Loading...77%`")
         await xx.edit("`Loading...90%`")
         await xx.edit("`Loading...100%`")
-        await xx.edit("`Berhasil memperbarui Fanda-Userbot, Mohon tunggu sebentar..."
+        await xx.edit("`Berhasil memperbarui 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​, Mohon tunggu sebentar...`"
         )
 
     if conf == "now":
@@ -247,10 +247,10 @@ async def upstream(event):
 CMD_HELP.update(
     {
         "update": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}update`"
-        "\n• : Untuk Melihat Pembaruan Terbaru Fanda-Userbot."
+        "\n• : Untuk Melihat Pembaruan dari 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​."
         f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}update now`"
-        "\n• : Memperbarui Fanda-Userbot."
+        "\n• : Memperbarui 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​."
         f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}update deploy`"
-        "\n• : Memperbarui Fanda-Userbot Dengan Cara Men-Deploy Ulang."
+        "\n• : Memperbarui 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ Dengan Cara Men-Deploy Ulang."
     }
 )
