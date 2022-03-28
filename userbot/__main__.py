@@ -47,13 +47,13 @@ for module_name in ALL_MODULES:
 LOGS.info(
     f"Jika {ALIVE_NAME} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/fandasupport")
 LOGS.info(
-    f"⚡Fanda-Userbot⚡ ⚙️ V{BOT_VER} [TELAH DIAKTIFKAN!]")
+    f"⚡𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​⚡ ⚙️ V{BOT_VER} [TELAH DIAKTIFKAN!]")
 
 
 async def check_alive():
     try:
         if BOTLOG_CHATID != 0:
-            await bot.send_message(BOTLOG_CHATID, "**Fanda-Userbot Berhasil Diaktifkan**!!\n━━━━━━━━━━━\n➠ **Userbot Version** - 3.1.0@Fanda-Userbot\n➠ **Ketik** `.ping` **Untuk Mengecek Bot**\n━━━━━━━━━━━\n➠ **Support:** @Fandasupport")
+            await bot.send_message(BOTLOG_CHATID, "𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ **Berhasil Diaktifkan**!!\n━━━━━━━━━━━\n➠ **Userbot Version** - 3.1.0@Fanda-Userbot\n➠ **Ketik** `.ping` **Untuk Mengecek Bot**\n━━━━━━━━━━━\n➠ **Support:** @Fandasupport")
     except Exception as e:
         LOGS.info(str(e))
     try:
@@ -64,7 +64,7 @@ async def check_alive():
 bot.loop.run_until_complete(check_alive())
 if not BOT_TOKEN:
     LOGS.info(
-        "BOT_TOKEN Vars tidak terisi, Memulai Membuat BOT Otomatis di @Botfather..."
+        "BOT_TOKEN Vars tidak terisi, Mulai Membuat BOT Otomatis di @Botfather..."
     )
     bot.loop.run_until_complete(autobot())
 
