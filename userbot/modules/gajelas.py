@@ -146,7 +146,7 @@ async def typewriter(typew):
 
 
 CMD_HELP.update({
-    "toxic":
+    "gajelas":
     f"{cmd}d\
 \nUsage: YNTKTS.\
 \n\n{cmd}e\
