@@ -32,7 +32,7 @@ async def help(event):
             f"**✦ Jumlah** `{len(modules)}` **Modules**\n"
             f"**✦ Owner:** {ALIVE_NAME}\n\n"
             f"{EMOJI_HELP}   {string}"
-            f"\n\n• Contact userbot own [fatur](https://t.me/uurfavbous)\n• Support @fandasupport",
+            f"\n\n• Contact userbot own @uurfavboys\n• Support @fandasupport",
         )
         await event.reply(
             f"\n**Contoh Ketik** `{cmd}help fandauserbot` **Untuk Melihat Informasi Module**"
