@@ -118,7 +118,7 @@ async def gben(userbot):
     await userbot.get_chat()
     a = b = 0
     if userbot.is_private:
-        user = pler.chat
+        user = userbot.chat
         reason = userbot.pattern_match.group(1)
     else:
         userbot.chat.title
