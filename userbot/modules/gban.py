@@ -169,7 +169,7 @@ async def gben(userbot):
     return await gbun.edit(
         f"➠ **Perintah:** `{ALIVE_NAME}`\n➠ **Pengguna:** [{user.first_name}](tg://user?id={user.id})\n➠ **Aksi:** `Global Banned`"
     )
- 
+    try:
     if BOTLOG:
         await userbot.client.send_message(
             GBANLIST_CHID,
