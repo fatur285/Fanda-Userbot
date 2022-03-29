@@ -4,7 +4,6 @@ from telethon.events import ChatAction
 from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 from telethon.tl.types import MessageEntityMentionName
 
-from userbot import BOTLOG, GBANLIST_CHID
 from userbot import ALIVE_NAME, CMD_HELP, DEVS, bot
 from userbot import CMD_HANDLER as cmd
 from userbot.events import register
@@ -167,16 +166,9 @@ async def gben(userbot):
     except BaseException:
         pass
     return await gbun.edit(
-        f"➠ **Perintah:** `{ALIVE_NAME}`\n➠ **Pengguna:** [{user.first_name}](tg://user?id={user.id})\n➠ **Aksi:** `Global Banned`"
+        f"➠ **Master:** `{ALIVE_NAME}`\n➠ **Gban user:** [{user.first_name}](tg://user?id={user.id})\n➠ **Command:** `Global Banned`"
     )
-    try:
-    if BOTLOG:
-        await userbot.client.send_message(
-            GBANLIST_CHID,
-            "**#Gbanned user**\n"
-            f"PENGGUNA: [{user.first_name}](tg://user?id={user.id})\n"
-            f"GRUP: {userbot.chat.title}\n",
-        )
+
 
 @fanda_cmd(pattern="ungban(?: |$)(.*)")
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cungban(?: |$)(.*)")
@@ -190,7 +182,7 @@ async def gunben(userbot):
         ungbun = await edit_or_reply(userbot, "`Membatalkan Perintah Global Banned`")
     me = await userbot.client.get_me()
     await ungbun.edit(
-        f"`Memulai Membatalkan Perintah Global Banned, Pengguna Ini Akan Dapat Bergabung Ke Grup Anda`"
+        f"`Membatalkan Perintah Global Banned, Pengguna Ini Akan Dapat Bergabung Ke Grup Anda`"
     )
     my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id)
     f"@{me.username}" if me.username else my_mention
@@ -245,7 +237,7 @@ async def gunben(userbot):
     except BaseException:
         pass
     return await ungbun.edit(
-        f"➠ **Perintah :** `{ALIVE_NAME}`\n➠ **Pengguna:** [{user.first_name}](tg://user?id={user.id})\n➠ **Aksi:** `Membatalkan Global Banned`"
+        f"➠ **Master :** `{ALIVE_NAME}`\n➠ **Gban user:** [{user.first_name}](tg://user?id={user.id})\n➠ **Command:** `Membatalkan Global Banned`"
     )
 
 
