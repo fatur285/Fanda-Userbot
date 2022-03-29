@@ -177,6 +177,8 @@ STRING_SESSION = os.environ.get("STRING_SESSION", "")
 # Logging channel/group ID configuration.
 BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID", ""))
 
+# To put a list of gban users.
+GBANLIST_CHID = int(os.environ.get("GBANLIST_CHID", ""))
 
 # Handler Userbot
 CMD_HANDLER = os.environ.get("CMD_HANDLER") or "."
