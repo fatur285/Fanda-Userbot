@@ -72,7 +72,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
                               )
             return repo.__del__()
         await edit_or_reply(event,
-                            "**[Heroku]:** `Sedang Memperbarui 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​`" "\n`Mohon tunggu sebentar...`"
+                            "**[Heroku]:** `Sedang Memperbarui 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​`" "\n`Mohon tunggu...`"
                             )
         ups_rem.fetch(ac_br)
         repo.git.reset("--hard", "FETCH_HEAD")
@@ -96,12 +96,12 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
                               )
         else:
             await edit_delete(event,
-                              "𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ `Berhasil di perbarui,Restarting tunggu sebentar`"
+                              "𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ `Berhasil di perbarui, Restarting tunggu sebentar...`"
                               )
 
         if BOTLOG:
             await event.client.send_message(
-                BOTLOG_CHATID, "#UPDATER \n" "`𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ Berhasil diperbarui`"
+                BOTLOG_CHATID, "#UPDATER \n" "𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ Berhasil diperbarui"
             )
 
     else:
@@ -117,7 +117,7 @@ async def update(event, repo, ups_rem, ac_br):
     except GitCommandError:
         repo.git.reset("--hard", "FETCH_HEAD")
     await update_requirements()
-    x = await edit_or_reply(event, "𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ `Berhasil diperbarui!`")
+    x = await edit_or_reply(event, "𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ Berhasil diperbarui!")
     await asyncio.sleep(1)
     await x.edit("'Sedang merestart....`")
     await asyncio.sleep(1)
@@ -141,7 +141,7 @@ async def update(event, repo, ups_rem, ac_br):
 @fanda_cmd(pattern="update(?: |$)(now|deploy)?")
 async def upstream(event):
     "For .update command, check if the bot is up to date, update if specified"
-    xx = await edit_or_reply(event, "**Mengecek Pembaruan, Silakan Menunggu....**")
+    xx = await edit_or_reply(event, "**Mengecek Pembaruan...**")
     conf = event.pattern_match.group(1)
     off_repo = UPSTREAM_REPO_URL
     force_update = False
@@ -199,7 +199,7 @@ async def upstream(event):
 
     if conf is None and force_update is False:
         changelog_str = (
-            f"**Pembaruan Untuk 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​:\n\n⚒️ Pembaruan Data :**\n`{changelog}`"
+            f"**Pembaruan Untuk** 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​:\n\n⚒️ **Pembaruan Data:**\n`{changelog}`"
         )
         if len(changelog_str) > 4096:
             await xx.edit("`Changelog Terlalu Besar, Lihat File Untuk Melihatnya.`")
