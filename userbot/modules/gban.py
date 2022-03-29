@@ -1,18 +1,4 @@
-# ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-# ┃ ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓ ┃
-# ┃ ┃ ┏━━━━━━━━━━━━┓   ┏━━━━━━━━━━┓   ┏━━━━━━━━━━━┓   ┏━━━━━━━━━━┓       ┏━━━━━━━━━━┓  ┃ ┃
-# ┃ ┃ ┃              ┃   ┃            ┃   ┃             ┃   ┃             ┃     ┃             ┃  ┃ ┃
-# ┃ ┃ ┃              ┃   ┃   ┏━━━┓   ┃   ┃    ┏━━┓    ┃   ┃     ┏━┓      ┃    ┃    ┏━━━┓   ┃  ┃ ┃
-# ┃ ┃ ┃     ┏━━━━━━━┛  ┃   ┃    ┃   ┃   ┃    ┃   ┃    ┃   ┃    ┃   ┃      ┃   ┃    ┃    ┃   ┃  ┃ ┃
-# ┃ ┃ ┃     ┗━━━━━━━┓  ┃   ┃    ┃   ┃   ┃    ┃   ┃    ┃   ┃    ┃     ┃    ┃   ┃    ┃    ┃   ┃  ┃ ┃
-# ┃ ┃ ┃              ┃   ┃   ┗━━━┛   ┃   ┃    ┃   ┃    ┃   ┃    ┃     ┃    ┃   ┃    ┗━━━┛   ┃  ┃ ┃
-# ┃ ┃ ┃              ┃   ┃            ┃   ┃    ┃   ┃    ┃   ┃    ┃     ┃    ┃   ┃             ┃  ┃ ┃
-# ┃ ┃ ┃     ┏━━━━━━━┛  ┃   ┏━━━┓    ┃   ┃    ┃   ┃    ┃   ┃    ┃   ┃      ┃   ┃    ┏━━━┓    ┃  ┃ ┃
-# ┃ ┃ ┃     ┃            ┃   ┃   ┃    ┃   ┃    ┃   ┃    ┃   ┃    ┗━┛       ┃    ┃    ┃   ┃    ┃  ┃ ┃
-# ┃ ┃ ┃     ┃            ┃   ┃   ┃    ┃   ┃    ┃   ┃    ┃   ┃             ┃     ┃    ┃   ┃    ┃  ┃ ┃
-# ┃ ┃ ┗━━━━┛            ┗━━━┛   ┗━━━┛   ┗━━━┛    ┗━━━┛   ┗━━━━━━━━━━┛      ┗━━━┛    ┗━━━┛  ┃ ┃
-# ┃ ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛ ┃
-# ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
 
 from telethon.events import ChatAction
 from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
@@ -118,25 +104,25 @@ async def handler(tele):
 
 @fanda_cmd(pattern="gban(?: |$)(.*)")
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cgban(?: |$)(.*)")
-async def gben(pler):
-    dc = pler
+async def gben(userbot):
+    dc = userbot
     sender = await dc.get_sender()
     me = await dc.client.get_me()
     if not sender.id == me.id:
         gbun = await dc.reply("`Mengaktifkan Perintah Global Banned!`")
     else:
         gbun = await edit_or_reply(userbot, "`Memproses Global Banned Anak Anjing Satu Ini!!`")
-    me = await pler.client.get_me()
+    me = await userbot.client.get_me()
     await gbun.edit(f"`Global Banned Segera Diaktifkan Tuan!!!`")
     my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id)
     f"@{me.username}" if me.username else my_mention
-    await pler.get_chat()
+    await userbot.get_chat()
     a = b = 0
-    if pler.is_private:
+    if userbot.is_private:
         user = pler.chat
-        reason = pler.pattern_match.group(1)
+        reason = userbot.pattern_match.group(1)
     else:
-        pler.chat.title
+        userbot.chat.title
     try:
         user, reason = await get_full_user(pler)
     except BaseException:
@@ -156,17 +142,17 @@ async def gben(pler):
         except BaseException:
             pass
         try:
-            await pler.client(BlockRequest(user))
+            await userbot.client(BlockRequest(user))
         except BaseException:
             pass
         testuserbot = [
             d.entity.id
-            for d in await pler.client.get_dialogs()
+            for d in await userbot.client.get_dialogs()
             if (d.is_group or d.is_channel)
         ]
         for i in testuserbot:
             try:
-                await pler.client.edit_permissions(i, user, view_messages=False)
+                await userbot.client.edit_permissions(i, user, view_messages=False)
                 a += 1
                 await gbun.edit(f"`Global Banned Aktif ✅")
             except BaseException:
@@ -185,11 +171,11 @@ async def gben(pler):
     )
  
     if BOTLOG:
-        await pler.client.send_message(
+        await userbot.client.send_message(
             GBANLIST_CHID,
             "**#Gbanned user**\n"
             f"PENGGUNA: [{user.first_name}](tg://user?id={user.id})\n"
-            f"GRUP: {pler.chat.title}\n",
+            f"GRUP: {userbot.chat.title}\n",
         )
 
 @fanda_cmd(pattern="ungban(?: |$)(.*)")
