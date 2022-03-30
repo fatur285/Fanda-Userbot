@@ -11,7 +11,7 @@ from datetime import datetime
 from telethon import functions
 from emoji import emojize
 from math import sqrt
-from telethon.tl.functions.channels import GetFullChannelRequest, GetParticipantsRequest
+from telethon.tl.functions.channels import GetFullChannelRequest, GetParticipantsRequest, LeaveChannelRequest
 from telethon.tl.functions.messages import GetFullChatRequest, GetHistoryRequest
 from telethon.tl.types import MessageActionChannelMigrateFrom, ChannelParticipantsAdmins
 from telethon.errors import (
@@ -104,6 +104,7 @@ async def log(log_text):
     else:
         await edit_delete(log_text, "`Fitur Ini Mengharuskan Loging Diaktifkan!`")
 
+# kickme
 
 @fanda_cmd(pattern="kickme$")
 async def kickme(leave):
@@ -124,6 +125,25 @@ async def kikme(leave):
         )
     await edit_or_reply(leave, "**GC NYA JELEK GOBLOK KELUAR DULU AH...**")
     await leave.client.kick_participant(leave.chat_id, "me")
+
+
+@fanda_cmd(pattern="leaveall$", allow_sudo=False)
+async def kickmeall(event):
+    Man = await edit_or_reply(event, "`Global Leave from group chats...`")
+    er = 0
+    done = 0
+    async for x in event.client.iter_dialogs():
+        if x.is_group:
+            chat = x.id
+            try:
+                done += 1
+                await event.client(LeaveChannelRequest(chat))
+            except BaseException:
+                er += 1
+    await Man.edit(
+        f"**Berhasil Keluar dari {done} Group, Gagal Keluar dari {er} Group**"
+    )
+
 
 @fanda_cmd(pattern="unmutechat$")
 async def unmute_chat(unm_e):
