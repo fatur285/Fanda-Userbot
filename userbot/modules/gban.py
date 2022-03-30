@@ -4,7 +4,7 @@ from telethon.events import ChatAction
 from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 from telethon.tl.types import MessageEntityMentionName
 
-from userbot import ALIVE_NAME, CMD_HELP, DEVS, bot
+from userbot import OWNER, ALIVE_NAME, CMD_HELP, DEVS, bot
 from userbot import CMD_HANDLER as cmd
 from userbot.events import register
 from userbot.utils import edit_or_reply, fanda_cmd
@@ -132,9 +132,12 @@ async def gben(userbot):
     except BaseException:
         return await gbun.edit(f"`Terjadi Kesalahan`")
     if user:
+        if user.id in OWNER:
+            return await gbun.edit(
+                f"`Anda Tidak Bisa Melakukan Global Banned, Karena dia adalah pembuatku🤪`"
         if user.id in DEVS:
             return await gbun.edit(
-                f"`Anda Tidak Bisa Melakukan Global Banned, Karena dia pembuatku🤪`"
+                f"`Anda Tidak Bisa Melakukan Global Banned, Karena dia adalah sahabat fanda`"
             )
         try:
             from userbot.modules.sql_helper.gmute_sql import gmute
