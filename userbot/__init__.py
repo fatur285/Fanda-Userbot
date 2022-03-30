@@ -140,7 +140,7 @@ DEVS = (
 # KHUSUS OWNER YA MONYET! JANGAN DIISI.
 OWNER = (
     1220829364,
-    2113853612,
+
 )
 
 # For blacklist group Support
@@ -469,8 +469,8 @@ except Exception as e:
 
 
 async def checking():
-    gocheck = str(pybase64.b64decode("QGZhbmRhc3VwcG9ydA=="))[2:15]
-    checker = str(pybase64.b64decode(""))[2:16]
+    gocheck = str(pybase64.b64decode("QGZhbmRhc3VwcG9ydA=="))[8:15]
+    checker = str(pybase64.b64decode("QGZhbmRhcHJvamVjdA=="))[8:16]
     try:
         await bot(GetSec(gocheck))
     except BaseException:
@@ -485,15 +485,15 @@ with bot:
         bot.loop.run_until_complete(checking())
     except BaseException:
         LOGS.info(
-            "Join Support Group @Fandasupport and Channel @FandaProject to see the updates of userbot"
-            "Don't Leave")
+            "Join Support Group @Fandasupport and Channel @Fandaproject to see the updates of userbot"
+            "Don't Leave.")
         quit(1)
 
 
 async def check_botlog_chatid():
     if not BOTLOG_CHATID and LOGSPAMMER:
         LOGS.info(
-            "You must set up the BOTLOG_CHATID variable in the config.env or environment variables, for the private error log storage to work."
+            "Anda harus mengatur variabel BOTLOG_CHATID di config.env atau variabel lingkungan, agar penyimpanan log kesalahan pribadi berfungsi."
         )
         quit(1)
 
