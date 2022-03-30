@@ -39,9 +39,9 @@ LASTMSG = {}
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 CUSTOM_TEXT = str(
-    PMPERMIT_TEXT) if PMPERMIT_TEXT else f"__Halo kawan, saya bot yang menjaga room chat Kyy-Userbot {DEFAULTUSER} di mohon jangan melakukan spam , kalau anda melakukan itu OTOMATIS saya akan memblockir anda!__ \n"
+    PMPERMIT_TEXT) if PMPERMIT_TEXT else f"{ALIVE_NAME} sedang off.\n\nTunggu {ALIVE_NAME} melihat pesan ini untuk mengkonfirmasi PM kamu dan jangan spam! \n"
 DEF_UNAPPROVED_MSG = (
-f"{ALIVE_NAME} sedang off\n\n"
+f"{ALIVE_NAME} sedang off.\n\n"
 f"Tunggu {ALIVE_NAME} melihat pesan ini untuk mengkonfirmasi PM kamu dan jangan spam!")
     # =================================================================
 
@@ -100,8 +100,7 @@ async def permitpm(event):
 
             if COUNT_PM[event.chat_id] > 5:
                 await event.respond(
-                    "`Anda Telah Di Blokir Karna Melakukan Spam Pesan`\n"
-                    f"`Ke Room Chat Ini`"
+                    "`Anda Telah Di Blokir Karna Melakukan Spam`\n"
                 )
 
                 try:
