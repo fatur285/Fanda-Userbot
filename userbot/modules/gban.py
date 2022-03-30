@@ -207,6 +207,10 @@ async def gunben(userbot):
     except BaseException:
         return await ungbun.edit("`Terjadi Kesalahan`")
     if user:
+        if user.id in OWNER:
+            return await gbun.edit(
+                f"`Anda Tidak Bisa Melakukan Global Banned, Karena dia adalah pembuatku🤪`"
+            )
         if user.id in DEVS:
             return await ungbun.edit(
                 "**Pengguna Ini tidak bisa di Blacklist, Karna Dia adalah pembuatku🤪**"
