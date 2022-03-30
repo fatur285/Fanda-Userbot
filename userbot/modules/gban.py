@@ -135,6 +135,7 @@ async def gben(userbot):
         if user.id in OWNER:
             return await gbun.edit(
                 f"`Anda Tidak Bisa Melakukan Global Banned, Karena dia adalah pembuatku🤪`"
+            )
         if user.id in DEVS:
             return await gbun.edit(
                 f"`Anda Tidak Bisa Melakukan Global Banned, Karena dia adalah sahabat fanda`"
