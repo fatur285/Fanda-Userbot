@@ -262,11 +262,11 @@ async def amireallyalive(alive):
     await bot.get_me()
     await get_readable_time((time.time() - StartTime))
     output = (
-        f"• `ᴏᴡɴᴇʀ    :` [Fatur](t.me/uurfavboys) \n"
-        f"• `ꜱʏꜱᴛᴇᴍ   :` Ubuntu 20.10 \n"
-        f"• `ᴛᴇʟᴇᴛʜᴏɴ :` v.{version.__version__} \n"
-        f"• `ᴘʏᴛʜᴏɴ   :` v.{python_version()} \n"
-        f"• `ʙᴏᴛ      :` v.{BOT_VER} \n")
+        f"• **ᴏᴡɴᴇʀ    :** [Fatur](t.me/uurfavboys) \n"
+        f"• **ꜱʏꜱᴛᴇᴍ   :** Ubuntu 20.10 \n"
+        f"• **ᴛᴇʟᴇᴛʜᴏɴ :** v.{version.__version__} \n"
+        f"• **ᴘʏᴛʜᴏɴ   :** v.{python_version()} \n"
+        f"• **ʙᴏᴛ      :** v.{BOT_VER} \n")
     if ALIVE_LOGO:
         try:
             logo = ALIVE_LOGO
