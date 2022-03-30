@@ -123,7 +123,7 @@ async def gben(userbot):
     else:
         userbot.chat.title
     try:
-        user, reason = await get_full_user(pler)
+        user, reason = await get_full_user(userbot)
     except BaseException:
         pass
     try:
@@ -237,7 +237,7 @@ async def gunben(userbot):
     except BaseException:
         pass
     return await ungbun.edit(
-        f"➠ **Master :** `{ALIVE_NAME}`\n➠ **Gban user:** [{user.first_name}](tg://user?id={user.id})\n➠ **Command:** `Membatalkan Global Banned`"
+        f"➠ **Master :** `{ALIVE_NAME}`\n➠ **Gban user:** [{user.first_name}](tg://user?id={user.id})\n➠ **Command:** `UnGbanned`"
     )
 
 
