@@ -19,6 +19,7 @@ from telethon.tl.functions.channels import (
     EditBannedRequest,
     EditPhotoRequest,
 )
+from telethon.tl.functions.channels import LeaveChannelRequest
 from telethon.tl.functions.messages import UpdatePinnedMessageRequest
 from telethon.tl.types import (
     ChannelParticipantsAdmins,
@@ -142,7 +143,7 @@ async def promote(event):
         pin_messages=True,
     )
 
-    eventkyy = await edit_or_reply(event, "`Promosikan Pengguna Sebagai Admin... Mohon Menunggu`")
+    xx = await edit_or_reply(event, "`Promosikan Pengguna Sebagai Admin... Mohon Menunggu`")
     user, rank = await get_user_from_event(event)
     if not rank:
         rank = "Admin"  # Just in case.
@@ -152,12 +153,12 @@ async def promote(event):
     # Try to promote if current user is admin or creator
     try:
         await event.client(EditAdminRequest(promt.chat_id, user.id, new_rights, rank))
-        await edit_delete(eventkyy, "`Berhasil Menambahkan Pengguna Ini Sebagai Admin!`")
+        await edit_delete(xx, "`Berhasil Menambahkan Pengguna Ini Sebagai Admin!`")
 
     # If Telethon spit BadRequestError, assume
     # we don't have Promote permission
     except BadRequestError:
-        return await eventkyy.edit(NO_PERM)
+        return await xx.edit(NO_PERM)
 
     # Announce to the logging group if we have promoted successfully
     if BOTLOG:
