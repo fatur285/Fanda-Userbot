@@ -127,6 +127,7 @@ async def spam_function(event, spammer, xnxx, sleeptimem, sleeptimet, DelaySpam=
 
 
 @fanda_cmd(pattern="spam ([\\s\\S]*)")
+@register(pattern=r"fspam ([\\s\\S]*)", sudo=True)
 async def nyespam(event):
     spammer = await event.get_reply_message()
     xnxx = ("".join(event.text.split(maxsplit=1)[1:])).split(" ", 1)
