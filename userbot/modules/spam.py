@@ -15,6 +15,7 @@ from userbot import CMD_HELP, LOGS
 from userbot.modules.sql_helper.globals import addgvar, gvarstatus
 from userbot.utils import edit_delete, edit_or_reply, fanda_cmd
 from userbot.utils.tools import media_type
+from userbot.events import register
 
 
 async def unsavegif(event, spammer):
