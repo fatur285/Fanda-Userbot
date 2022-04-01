@@ -165,8 +165,8 @@ async def promote(event):
         await event.client.send_message(
             BOTLOG_CHATID,
             "#PROMOSI\n"
-            f"PENGGUNA: [{user.first_name}](tg://user?id={user.id})\n"
-            f"GRUP: {promt.chat.title}(`{promt.chat_id}`)",
+            f"**PENGGUNA:** [{user.first_name}](tg://user?id={user.id})\n"
+            f"**GRUP:** {promt.chat.title}(`{promt.chat_id}`)",
         )
 
 
@@ -213,8 +213,8 @@ async def demote(event):
         await event.client.send_message(
             BOTLOG_CHATID,
             "#DEMOTE\n"
-            f"PENGGUNA: [{user.first_name}](tg://user?id={user.id})\n"
-            f"GRUP: {dmod.chat.title}(`{dmod.chat_id}`)",
+            f"**PENGGUNA:** [{user.first_name}](tg://user?id={user.id})\n"
+            f"**GRUP:** {dmod.chat.title}(`{dmod.chat_id}`)",
         )
 
 
@@ -267,8 +267,8 @@ async def ban(bon):
         await bon.client.send_message(
             BOTLOG_CHATID,
             "#BAN\n"
-            f"PENGGUNA: [{user.first_name}](tg://user?id={user.id})\n"
-            f"GRUP: {bon.chat.title}(`{bon.chat_id}`)",
+            f"**PENGGUNA:** [{user.first_name}](tg://user?id={user.id})\n"
+            f"**GRUP:** {bon.chat.title}(`{bon.chat_id}`)",
         )
 
 
@@ -300,8 +300,8 @@ async def nothanos(unbon):
             await unbon.client.send_message(
                 BOTLOG_CHATID,
                 "#UNBAN\n"
-                f"PENGGUNA: [{user.first_name}](tg://user?id={user.id})\n"
-                f"GRUP: {unbon.chat.title}(`{unbon.chat_id}`)",
+                f"**PENGGUNA:** [{user.first_name}](tg://user?id={user.id})\n"
+                f"**GRUP:** {unbon.chat.title}(`{unbon.chat_id}`)",
             )
     except UserIdInvalidError:
         await edit_delete(kyy, "`Sepertinya Terjadi Kesalahan!`")
@@ -355,8 +355,8 @@ async def spider(spdr):
                 await spdr.client.send_message(
                     BOTLOG_CHATID,
                     "#MUTE\n"
-                    f"PENGGUNA: [{user.first_name}](tg://user?id={user.id})\n"
-                    f"GRUP: {spdr.chat.title}(`{spdr.chat_id}`)",
+                    f"**PENGGUNA:** [{user.first_name}](tg://user?id={user.id})\n"
+                    f"**GRUP:** {spdr.chat.title}(`{spdr.chat_id}`)",
                 )
         except UserIdInvalidError:
             return await edit_delete(kyy, "`Terjadi Kesalahan!`")
@@ -401,8 +401,8 @@ async def unmoot(unmot):
             await unmot.client.send_message(
                 BOTLOG_CHATID,
                 "#UNMUTE\n"
-                f"PENGGUNA: [{user.first_name}](tg://user?id={user.id})\n"
-                f"GRUP: {unmot.chat.title}(`{unmot.chat_id}`)",
+                f"**PENGGUNA:** [{user.first_name}](tg://user?id={user.id})\n"
+                f"**GRUP:** {unmot.chat.title}(`{unmot.chat_id}`)",
             )
 
 
@@ -473,8 +473,8 @@ async def ungmoot(un_gmute):
             await un_gmute.client.send_message(
                 BOTLOG_CHATID,
                 "#UNGMUTE\n"
-                f"PENGGUNA: [{user.first_name}](tg://user?id={user.id})\n"
-                f"GRUP: {un_gmute.chat.title}(`{un_gmute.chat_id}`)",
+                f"**PENGGUNA:** [{user.first_name}](tg://user?id={user.id})\n"
+                f"**GRUP:** {un_gmute.chat.title}(`{un_gmute.chat_id}`)",
             )
 
 
@@ -514,8 +514,8 @@ async def gspider(gspdr):
             await gspdr.client.send_message(
                 BOTLOG_CHATID,
                 "#GLOBALMUTE\n"
-                f"PENGGUNA: [{user.first_name}](tg://user?id={user.id})\n"
-                f"GRUP: {gspdr.chat.title}(`{gspdr.chat_id}`)",
+                f"**PENGGUNA:** [{user.first_name}](tg://user?id={user.id})\n"
+                f"**GRUP:** {gspdr.chat.title}(`{gspdr.chat_id}`)",
             )
 
 
@@ -583,7 +583,7 @@ async def rm_deletedacc(show):
             BOTLOG_CHATID,
             "#MEMBERSIHKAN\n"
             f"Membersihkan **{del_u}** Akun Terhapus!"
-            f"\nGRUP: {show.chat.title}(`{show.chat_id}`)",
+            f"\n**GRUP:** {show.chat.title}(`{show.chat_id}`)",
         )
 
 
@@ -643,9 +643,9 @@ async def pin(msg):
         await msg.client.send_message(
             BOTLOG_CHATID,
             "#PIN\n"
-            f"ADMIN: [{user.first_name}](tg://user?id={user.id})\n"
-            f"GRUP: {msg.chat.title}(`{msg.chat_id}`)\n"
-            f"NOTIF: {not is_silent}",
+            f"**ADMIN:** [{user.first_name}](tg://user?id={user.id})\n"
+            f"**GRUP:** {msg.chat.title}(`{msg.chat_id}`)\n"
+            f"**NOTIF:** {not is_silent}",
         )
 
 
@@ -686,8 +686,8 @@ async def kick(usr):
         await usr.client.send_message(
             BOTLOG_CHATID,
             "#KICK\n"
-            f"PENGGUNA: [{user.first_name}](tg://user?id={user.id})\n"
-            f"GRUP: {usr.chat.title}(`{usr.chat_id}`)\n",
+            f"**PENGGUNA:** [{user.first_name}](tg://user?id={user.id})\n"
+            f"**GRUP:** {usr.chat.title}(`{usr.chat_id}`)\n",
         )
 
 
