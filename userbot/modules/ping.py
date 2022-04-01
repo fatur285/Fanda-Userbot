@@ -5,16 +5,17 @@
 """ Userbot module containing commands related to the \
     Information Superhighway (yes, Internet). """
 
-import asyncio
 import random
 import time
 import redis
 
 from datetime import datetime
 from speedtest import Speedtest
-from userbot import CMD_HELP, StartTime, ALIVE_NAME, OWNER, DEVS, CMD_HANDLER as cmd
+
+from userbot import CMD_HANDLER as cmd
+from userbot import CMD_HELP, OWNER, DEVS, StartTime
 from userbot.events import register
-from userbot.utils import fanda_cmd
+from userbot.utils import edit_or_reply, fanda_cmd
 
 absen = [
     "**Hadir fatur**",
@@ -85,52 +86,48 @@ async def _(fanda):
     await fanda.reply(random.choice(roas))
 
 
+@fanda_cmd(pattern="ping$")
+async def _(ping):
+    uptime = await get_readable_time((time.time() - StartTime))
+    start = datetime.now()
+    xx = await edit_or_reply(ping, "**Assalamualaikum...Yesus memberkati...**")
+    await xx.edit("**✣**")
+    await xx.edit("**✣✣**")
+    await xx.edit("**✣✣✣**")
+    await xx.edit("**✣✣✣✣**")
+    await xx.edit("**YO NGENTOT**")
+    end = datetime.now()
+    duration = (end - start).microseconds / 1000
+    user = await ping.client.get_me()
+    await xx.edit(
+        f"**PONG!!! 🏓**\n"
+        f"✣ **Pinger** - `%sms`\n"
+        f"✣ **Uptime -** `{uptime}` \n"
+        f"**✦҈͜͡Owner :** [{user.first_name}](tg://user?id={user.id})" % (duration)
+    )
+
 @fanda_cmd(pattern="sinyal$")
 async def redis(pong):
     """For .ping command, ping the userbot from any chat."""
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
-    await pong.edit("**Mengecek Sinyal...**")
-    await pong.edit("**0% ▒▒▒▒▒▒▒▒▒▒**")
-    await pong.edit("**20% ██▒▒▒▒▒▒▒▒**")
-    await pong.edit("**40% ████▒▒▒▒▒▒**")
-    await pong.edit("**60% ██████▒▒▒▒**")
-    await pong.edit("**80% ████████▒▒**")
-    await pong.edit("**100% ██████████**")
-    await asyncio.sleep(2)
+    kentot = await edit_or_reply(pong, "Check signal...")
+    await kentot.edit("**0% ▒▒▒▒▒▒▒▒▒▒**")
+    await kentot.edit("**20% ██▒▒▒▒▒▒▒▒**")
+    await kentot.edit("**40% ████▒▒▒▒▒▒**")
+    await kentot.edit("**60% ██████▒▒▒▒**")
+    await kentot.edit("**80% ████████▒▒**")
+    await kentot.edit("**100% ██████████**")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
-    await pong.edit(
+    user = await ping.client.get_me()
+    await kentot.edit(
         f"𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​\n"
         f"** ▹  Sɪɢɴᴀʟ   :** "
         f"`%sms` \n"
         f"** ▹  Uᴘᴛɪᴍᴇ  :** "
         f"`{uptime}` \n"
-        f"** ▹  Oᴡɴᴇʀ   :** `{ALIVE_NAME}` \n" % (duration)
-    )
-
-
-@fanda_cmd(pattern="ping$")
-async def redis(pong):
-    """ For .ping command, ping the userbot from any chat.  """
-    uptime = await get_readable_time((time.time() - StartTime))
-    start = datetime.now()
-    await pong.edit("**Assalamualaikum...Yesus memberkati...**")
-    await asyncio.sleep(2)
-    await pong.edit("✣✣")
-    await pong.edit("✣✣✣")
-    await pong.edit("✣✣✣✣")
-    await pong.edit("**YO NGENTOT!!!**")
-    await asyncio.sleep(2)
-    end = datetime.now()
-    duration = (end - start).microseconds / 1000
-    await pong.edit(
-        f"**PONG!!! 🏓**\n"
-        f"✣ **Ping** - "
-        f"`%sms` \n"
-        f"✣ **Uptime** - "
-        f"`{uptime}` \n"
-        f"**✦҈͜͡Owner   :** `{ALIVE_NAME}`" % (duration)
+        f"** ▹  Oᴡɴᴇʀ   :** [{user.first_name}](tg://user?id={user.id}) \n" % (duration)
     )
 
 
@@ -139,18 +136,19 @@ async def redis(pong):
     """For .ping command, ping the userbot from any chat."""
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
-    await pong.edit("__Sedang Memuat..__")
-    await pong.edit("__Sedang Memuat...__")
-    await pong.edit("__Sedang Memuat..__")
-    await pong.edit("__Sedang Memuat.__")
-    await pong.edit("__Sedang Memuat...__")
-    await pong.edit("__Sedang Memuat..__")
-    await pong.edit("__Sedang Memuat.__")
-    await pong.edit("__Sedang Memuat..__")
-    await pong.edit("__Sedang Memuat...__")
+    xping = await edit_or_reply(pong, "
+    await xping.edit("__Sedang Memuat..__")
+    await xping.edit("__Sedang Memuat...__")
+    await xping.edit("__Sedang Memuat..__")
+    await xping.edit("__Sedang Memuat.__")
+    await xping.edit("__Sedang Memuat...__")
+    await xping.edit("__Sedang Memuat..__")
+    await xping.edit("__Sedang Memuat.__")
+    await xping.edit("__Sedang Memuat..__")
+    await xping.edit("__Sedang Memuat...__")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
-    await pong.edit(
+    await xping.edit(
         f"𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​\n"
         f"➣ __Signal__    __:__ "
         f"`%sms` \n"
@@ -172,7 +170,7 @@ async def speedtst(spd):
     result = test.results.dict()
 
     await spd.edit("**Kecepatan Jaringan:\n**"
-                   "✧ **Dimulai Pada :** "
+                   "✧ **Starting at:** "
                    f"`{result['timestamp']}` \n"
                    f" **━━━━━━━━━━━━━━━━━**\n\n"
                    "✧ **Download:** "
@@ -183,7 +181,7 @@ async def speedtst(spd):
                    f"`{result['ping']}` \n"
                    "✧ **ISP:** "
                    f"`{result['client']['isp']}` \n"
-                   f"✧ **BOT:** {REPO_NAME}")
+                   f"✧ **BOT:** 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁")
 
 
 def speed_convert(size):
@@ -203,21 +201,23 @@ def speed_convert(size):
 async def pingme(pong):
     """ For .ping command, ping the userbot from any chat.  """
     start = datetime.now()
-    await pong.edit("`Pong🚀...........`")
-    await pong.edit("`Pong.🚀..........`")
-    await pong.edit("`Pong..🚀.........`")
-    await pong.edit("`Pong...🚀........`")
-    await pong.edit("`Pong....🚀.......`")
-    await pong.edit("`Pong.....🚀......`")
-    await pong.edit("`Pong......🚀.....`")
-    await pong.edit("`Pong.......🚀....`")
-    await pong.edit("`Pong........🚀...`")
-    await pong.edit("`Pong.........🚀..`")
-    await pong.edit("`Pong..........🚀.`")
-    await pong.edit("`Pong...........🚀`")
+    pepek = await edit_or_reply(pong, "**ahh ahh**")
+    await pepek.edit("`Pong🚀...........`")
+    await pepek.edit("`Pong.🚀..........`")
+    await pepek.edit("`Pong..🚀.........`")
+    await pepek.edit("`Pong...🚀........`")
+    await pepek.edit("`Pong....🚀.......`")
+    await pepek.edit("`Pong.....🚀......`")
+    await pepek.edit("`Pong......🚀.....`")
+    await pepek.edit("`Pong.......🚀....`")
+    await pepek.edit("`Pong........🚀...`")
+    await pepek.edit("`Pong.........🚀..`")
+    await pepek.edit("`Pong..........🚀.`")
+    await pepek.edit("`Pong...........🚀`")
     end = datetime.now()
-    duration = (end - start).microseconds / 9000
-    await pong.edit(f"**✦҈͜͡Owner : {ALIVE_NAME}**\n📈 `%sms`" % (duration))
+    duration = (end - start).microseconds / 1000
+    user = await ping.client.get_me()
+    await pepek.edit(f"**✦҈͜͡Owner : [{user.first_name}](tg://user?id={user.id})**\n📈 `%sms`" % (duration))
 
 
 CMD_HELP.update(
