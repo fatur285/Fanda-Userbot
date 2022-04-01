@@ -120,7 +120,7 @@ async def redis(pong):
     await kentot.edit("**100% ██████████**")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
-    user = await ping.client.get_me()
+    user = await pong.client.get_me()
     await kentot.edit(
         f"𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​\n"
         f"** ▹  Sɪɢɴᴀʟ   :** "
@@ -218,7 +218,7 @@ async def pingme(pong):
     await pepek.edit("`Pong...........🚀`")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
-    user = await ping.client.get_me()
+    user = await pong.client.get_me()
     await pepek.edit(f"**✦҈͜͡Owner : [{user.first_name}](tg://user?id={user.id})**\n📈 `%sms`" % (duration))
 
 
