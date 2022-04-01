@@ -134,11 +134,11 @@ async def gben(userbot):
     if user:
         if user.id in OWNER:
             return await gbun.edit(
-                f"`Anda Tidak Bisa Melakukan Global Banned, Karena dia adalah pembuatku🤪`"
+                f"**Anda Tidak Bisa Melakukan Global Banned, Karena dia adalah pembuatku🤪**"
             )
         if user.id in DEVS:
             return await gbun.edit(
-                f"`Anda Tidak Bisa Melakukan Global Banned, Karena dia adalah sahabat fanda.`"
+                f"**Anda Tidak Bisa Melakukan Global Banned, Karena dia adalah sahabat fanda.**"
             )
         try:
             from userbot.modules.sql_helper.gmute_sql import gmute
@@ -157,7 +157,7 @@ async def gben(userbot):
             try:
                 await userbot.client.edit_permissions(i, user, view_messages=False)
                 a += 1
-                await gbun.edit(f"`Global Banned Aktif ✅")
+                await gbun.edit(f"**Global Banned Aktif ✅**")
             except BaseException:
                 b += 1
     else:
@@ -209,7 +209,7 @@ async def gunben(userbot):
     if user:
         if user.id in OWNER:
             return await gbun.edit(
-                f"`Anda Tidak Bisa Melakukan Global Banned, Karena dia adalah pembuatku🤪`"
+                f"**Anda Tidak Bisa Melakukan Global Banned, Karena dia adalah pembuatku🤪**"
             )
         if user.id in DEVS:
             return await ungbun.edit(
@@ -232,7 +232,7 @@ async def gunben(userbot):
             try:
                 await userbot.client.edit_permissions(i, user, send_messages=True)
                 a += 1
-                await ungbun.edit(f"`Membatalkan Global Banned...`")
+                await ungbun.edit(f"**Berhasil unGBanned pengguna ini**")
             except BaseException:
                 b += 1
     else:
@@ -245,7 +245,7 @@ async def gunben(userbot):
     except BaseException:
         pass
     return await ungbun.edit(
-        f"➠ **Master :** [{me.first_name}](tg://user?id={me.id})\n➠ **Gban user:** [{user.first_name}](tg://user?id={user.id})\n➠ **Action:** `UnGbanned`"
+        f"➠ **Master:** [{me.first_name}](tg://user?id={me.id})\n➠ **Gban user:** [{user.first_name}](tg://user?id={user.id})\n➠ **Action:** `UnGbanned`"
     )
 
 
