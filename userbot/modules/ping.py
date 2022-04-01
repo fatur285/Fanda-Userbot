@@ -136,7 +136,9 @@ async def redis(pong):
     """For .ping command, ping the userbot from any chat."""
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
-    xping = await edit_or_reply(pong, "
+    xping = await edit_or_reply(pong, ".")
+    await xping.edit("..")
+    await xping.edit("...")
     await xping.edit("__Sedang Memuat..__")
     await xping.edit("__Sedang Memuat...__")
     await xping.edit("__Sedang Memuat..__")
