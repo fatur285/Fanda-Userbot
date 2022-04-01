@@ -4,7 +4,7 @@ from telethon.events import ChatAction
 from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 from telethon.tl.types import MessageEntityMentionName
 
-from userbot import OWNER, ALIVE_NAME, CMD_HELP, DEVS, bot
+from userbot import OWNER, CMD_HELP, DEVS, bot
 from userbot import CMD_HANDLER as cmd
 from userbot.events import register
 from userbot.utils import edit_or_reply, fanda_cmd
@@ -170,7 +170,7 @@ async def gben(userbot):
     except BaseException:
         pass
     return await gbun.edit(
-        f"➠ **Master:** `{ALIVE_NAME}`\n➠ **Gban user:** [{user.first_name}](tg://user?id={user.id})\n➠ **Action:** `Global Banned`"
+        f"➠ **Master:** [{me.first_name}](tg://user?id={me.id})\n➠ **Gban user:** [{user.first_name}](tg://user?id={user.id})\n➠ **Action:** `Global Banned`"
     )
 
 
@@ -245,7 +245,7 @@ async def gunben(userbot):
     except BaseException:
         pass
     return await ungbun.edit(
-        f"➠ **Master :** `{ALIVE_NAME}`\n➠ **Gban user:** [{user.first_name}](tg://user?id={user.id})\n➠ **Action:** `UnGbanned`"
+        f"➠ **Master :** [{me.first_name}](tg://user?id={me.id})\n➠ **Gban user:** [{user.first_name}](tg://user?id={user.id})\n➠ **Action:** `UnGbanned`"
     )
 
 
