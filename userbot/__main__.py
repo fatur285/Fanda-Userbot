@@ -53,7 +53,7 @@ LOGS.info(
 async def check_alive():
     try:
         if BOTLOG_CHATID != 0:
-            await bot.send_message(BOTLOG_CHATID, "𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ **Berhasil Diaktifkan**!!\n━━━━━━━━━\n➠ **FATUR SAYANG BANGET SAMA SABARIA, LOVE YOU SABA💕**\n━━━━━━━━━\n➠ **alay tapi fakta:)**")
+            await bot.send_message(BOTLOG_CHATID, "𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ **Berhasil Diaktifkan**!!\n━━━━━━━━━\n➠ **bbb**\n━━━━━━━━━\n➠ **...**")
     except Exception as e:
         LOGS.info(str(e))
     try:
