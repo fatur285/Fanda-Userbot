@@ -43,7 +43,7 @@ CUSTOM_TEXT = str(
 DEF_UNAPPROVED_MSG = (
 f"{ALIVE_NAME} sedang off.\n\n"
 f"Tunggu {ALIVE_NAME} melihat pesan ini untuk mengkonfirmasi PM kamu dan jangan spam!")
-    # =================================================================
+# =================================================================
 
 
 @register(incoming=True, disable_edited=True, disable_errors=True)
@@ -127,7 +127,7 @@ async def permitpm(event):
                         + "](tg://user?id="
                         + str(event.chat_id)
                         + ")"
-                        + " Telah Diblokir Karna Melakukan Spam Ke Room Chat",
+                        + " Telah diblokir karena melakukan Spam ke room chat",
                     )
 
 
@@ -241,14 +241,14 @@ async def approvepm(apprvpm):
     except IntegrityError:
         return await apprvpm.edit("`Oke Pesan Anda Sudah Diterima ツ`")
 
-    await apprvpm.edit(f"`Hai` [{name0}](tg://user?id={uid}) `Pesan Anda Sudah Diterima 😎`")
+    await apprvpm.edit(f"`all right,` [{name0}](tg://user?id={uid}) `di setujui untuk PM.`")
     await apprvpm.delete(getmsg)
     await message.delete()
 
     if BOTLOG:
         await apprvpm.client.send_message(
             BOTLOG_CHATID,
-            "#DITERIMA\n" + "User: " + f"[{name0}](tg://user?id={uid})"
+            "#APPROVE\n" + "User: " + f"[{name0}](tg://user?id={uid})"
         )
 
 
@@ -271,7 +271,7 @@ async def disapprovepm(disapprvpm):
         name0 = str(aname.first_name)
 
     await disapprvpm.edit(
-        f"`Maaf` [{name0}](tg://user?id={disapprvpm.chat_id}) `Pesan Anda Telah Ditolak, Mohon Jangan Melakukan Spam Ke Room Chat!`"
+        f"`Maaf` [{name0}](tg://user?id={disapprvpm.chat_id}) `Pesan kamu ditolak, Mohon jangan melakukan Spam ke room chat!`"
     )
 
     if BOTLOG:
