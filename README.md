@@ -16,7 +16,7 @@ src="https://img.shields.io/pypi/v/telethon?color=important&label=telethon&logo=
 
 [![Sparkline](https://stars.medv.io/DIORrios285/DIOR-UBOT.svg)](https://stars.medv.io/DIORrios285/DIOR-UBOT)
 
-## DISCLAIMER
+<h2 align="left">Disclaimer</h3>
 
 ```
 Gua sih engga bertanggung jawab atas penyalah gunaan userbot ini.
@@ -24,12 +24,15 @@ Gunakan userbot ini dengan resiko lu sendiri, dan gunakan dengan bijak, oke?..
 Sekian dan terimakasih!!!
 ```
 
-## Support!
+<h2 align="left">Support</h2>
 </p>
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
     <p align="center"> 
+Grup
     <a href="https://t.me/fandasupport" target="blank"><img src="https://img.icons8.com/nolan/55/telegram-app.png" /></a>
+Channel
     <a href="https://t.me/fandaproject" target="blank"><img src="https://img.icons8.com/nolan/55/telegram-app.png" /></a>
+Instagram
     <a href="https://instagram.com/fatur.285" target="blank"><img src="https://img.icons8.com/nolan/55/instagram-new.png" /></a>
 </p>
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
@@ -41,22 +44,20 @@ href="https://www.python.org" target="_blank"> <img
 src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="150" height="150"/> 
 </a> </p>
 
-<h2 align="center">
-   Metode Deploy
-</h2>
+<h2 align="left">Metode Deploy</h2>
 
-<p align="center">
-<a href="https://dashboard.heroku.com/new?template=https://github.com/DIORrios285/Fanda-Userbot/three/Fanda-Userbot"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku" width="250""/</a>  
-<a href="https://telegram.dog/XTZ_HerokuBot?start=RElPUnJpb3MyODUvRmFuZGEtVXNlcmJvdCBGYW5kYS1Vc2VyYm90"><img src="https://img.shields.io/badge/Deploy%20Via%20Telegram-blue?style=for-the-badge&logo=telegram" width="250""/</a>  </p>
-
+<p align="center"><a href="https://github.com/DIORrios285/Fanda-Userbot/three/Fanda-Userbot"><img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy to Heroku" target="_blank"/></a></p>
+<h3 align="center">With bot telegram</h3>
+<p align="center"><a href="https://telegram.dog/XTZ_HerokuBot?start=RElPUnJpb3MyODUvRmFuZGEtVXNlcmJvdCBGYW5kYS1Vc2VyYm90"><img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy to bot Heroku" target="_blank"/></a></p>
 
 ## © Credits
 
 </Click>
 
 <details>
-<summary><b> Makasih banyak banget nih ya,buat para suhu² dibawah </b></summary>
+<summary><b>Details</b></summary>
 <br>
+Makasih banyak banget nih ya buat para suhu² dibawah:
 
 *   [Fatur](https://github.com/DIORrios285/Fanda-Userbot) Fanda-Userbot
 *   [Risman](https://github.com/mrismanaziz/Man-Userbot) Suhu-Userbot
