@@ -230,27 +230,12 @@ async def amireallyalive(alive):
     output = (
         f"** the** 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​. \n\n"
         f"__**{FANDA_TEKS_KUSTOM}**__\n\n"
-        f"✶ **Name       :** {DEFAULTUSER} \n"
-        f"✶ **Username   :** @{user.username} \n"
-        f"✶ **Telethon   :** {version.__version__} \n"
-        f"✶ **Python     :** {python_version()} \n"
-        f"✶ **Bot Ver    :** {BOT_VER} \n"
-        f"✶ **Modules    :** {len(modules)} \n"
+        f"✶ **Name    -** {DEFAULTUSER} \n"
+        f"✶ **Telethon   -** {version.__version__} \n"
+        f"✶ **Python   -** {python_version()} \n"
+        f"✶ **Fanda   -** {BOT_VER} \n"
+        f"✶ **Branch   -** {len(modules)} \n"
         f"[ɢʀᴏᴜᴘꜱ](https://t.me/fandasupport) | [ᴏᴡɴᴇʀ](https://t.me/uurfavboys) | [ɢɪᴛʜᴜʙ](https://github.com/DIORrios285/Fanda-Userbot)")
-    if ALIVE_LOGO:
-        try:
-            logo = ALIVE_LOGO
-            await alive.delete()
-            msg = await bot.send_file(alive.chat_id, logo, caption=output)
-            await asyncio.sleep(200)
-            await msg.delete()
-        except BaseException:
-            await alive.edit(
-                output + "\n\n *`The provided logo is invalid."
-                "\nMake sure the link is directed to the logo picture`"
-            )
-            await asyncio.sleep(100)
-            await alive.delete()
     else:
         await alive.edit(output)
         await asyncio.sleep(100)
