@@ -228,7 +228,7 @@ async def amireallyalive(alive):
     user = await bot.get_me()
     await get_readable_time((time.time() - StartTime))
     output = (
-        f"** the** 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​. \n\n"
+        f"** the** 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ \n\n"
         f"__**{FANDA_TEKS_KUSTOM}**__\n\n"
         f"✶ **Name    -** {DEFAULTUSER} \n"
         f"✶ **Telethon   -** {version.__version__} \n"
@@ -236,6 +236,20 @@ async def amireallyalive(alive):
         f"✶ **Fanda   -** {BOT_VER} \n"
         f"✶ **Branch   -** {len(modules)} \n"
         f"[ɢʀᴏᴜᴘꜱ](https://t.me/fandasupport) | [ᴏᴡɴᴇʀ](https://t.me/uurfavboys) | [ɢɪᴛʜᴜʙ](https://github.com/DIORrios285/Fanda-Userbot)")
+    if ALIVE_LOGO:
+        try:
+            logo = ALIVE_LOGO
+            await alive.delete()
+            msg = await bot.send_file(alive.chat_id, logo, caption=output)
+            await asyncio.sleep(200)
+            await msg.delete()
+        except BaseException:
+            await alive.edit(
+                output + "\n\n *`Logo yang diberikan tidak valid."
+                "\nPastikan link diarahkan ke gambar logo`"
+            )
+            await asyncio.sleep(100)
+            await alive.delete()
     else:
         await alive.edit(output)
         await asyncio.sleep(100)
@@ -261,8 +275,8 @@ async def amireallyalive(alive):
             await msg.delete()
         except BaseException:
             await alive.edit(
-                output + "\n\n *`The provided logo is invalid."
-                "\nMake sure the link is directed to the logo picture`"
+                output + "\n\n *`Logo yang diberikan tidak valid."
+                "\nPastikan link diarahkan ke gambar logo`"
             )
             await asyncio.sleep(100)
             await alive.delete()
