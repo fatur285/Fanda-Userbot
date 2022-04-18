@@ -100,7 +100,7 @@ async def permitpm(event):
 
             if COUNT_PM[event.chat_id] > 5:
                 await event.respond(
-                    "`Anda Telah Di Blokir Karna Melakukan Spam`\n"
+                    "`Anda di Blokir karena telah melakukan spam.`\n"
                 )
 
                 try:
