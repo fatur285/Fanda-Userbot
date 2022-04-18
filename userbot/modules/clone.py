@@ -24,7 +24,7 @@ async def impostor(event):
         await event.edit("**Kembali ke identitas asli...**")
         if not STORAGE.userObj:
             return await event.edit(
-                "**Anda harus mengclone orang dulu sebelum kembali!**"
+                "**U harus clone someone dulu sebelum kembali to your real identity!**"
             )
         await updateProfile(STORAGE.userObj, restore=True)
         return await event.edit("**Berhasil Mengembalikan Akun Anda dari clone**")
@@ -47,9 +47,9 @@ async def impostor(event):
 
     LOGS.info(STORAGE.userObj)
 
-    await event.edit("**Mencuri identitas orang ini...**")
+    await event.edit("**Mencuri identitas this human...**")
     await updateProfile(userObj)
-    await event.edit("**Aku adalah kamu dan kamu adalah aku. asekk 🤪**")
+    await event.edit("**i don't care.**")
 
 
 async def updateProfile(userObj, restore=False):
