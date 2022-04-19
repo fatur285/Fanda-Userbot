@@ -178,7 +178,7 @@ async def dyno_usage(dyno):
 
             AppHours = math.floor(AppQuotaUsed / 60)
             AppMinutes = math.floor(AppQuotaUsed % 60)
-            user = await dyno.client.get_me()
+            
             await xx.edit(
                 f"• **ᴘᴇɴɢɢᴜɴᴀ ᴅʏɴᴏ sᴀᴀᴛ ɪɴɪ :**\n"
                 f"  `{AppHours}`**ᴊᴀᴍ**  `{AppMinutes}`**ᴍᴇɴɪᴛ**  "
@@ -186,7 +186,7 @@ async def dyno_usage(dyno):
                 "• **sɪsᴀ ᴋᴏᴜᴛᴀ ᴅʏɴᴏ ʙᴜʟᴀɴ ɪɴɪ :**\n"
                 f"  `{hours}`**ᴊᴀᴍ**  `{minutes}`**ᴍᴇɴɪᴛ**  "
                 f"[`{percentage}`**%**]\n"
-                f"• **ʙᴏᴛ ᴏꜰ :** [{user.first_name}](tg://user?id={user.id})  "
+                f"• **ʙᴏᴛ ᴏꜰ :** {ALIVE_NAME}  "
             )
             await asyncio.sleep(30)
             await xx.delete()
