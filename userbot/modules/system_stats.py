@@ -236,9 +236,24 @@ async def amireallyalive(alive):
         f"✶ **Fanda   -** {BOT_VER} \n"
         f"✶ **Branch   -** {len(modules)} \n"
         f"[ɢʀᴏᴜᴘꜱ](https://t.me/fandasupport) | [ᴏᴡɴᴇʀ](https://t.me/uurfavboys) | [ɢɪᴛʜᴜʙ](https://github.com/DIORrios285/Fanda-Userbot)")
-      await alive.edit(output)
-      await asyncio.sleep(100)
-      await alive.delete()
+   if ALIVE_LOGO:
+        try:
+            logo = ALIVE_LOGO
+            await alive.delete()
+            msg = await bot.send_file(alive.chat_id, logo, caption=output)
+            await asyncio.sleep(200)
+            await msg.delete()
+        except BaseException:
+            await alive.edit(
+                output + "\n\n *`Logo yang diberikan tidak valid."
+                "\nPastikan link diarahkan ke gambar logo`"
+            )
+            await asyncio.sleep(100)
+            await alive.delete()
+    else:
+        await alive.edit(output)
+        await asyncio.sleep(100)
+        await alive.delete()
 
 
 @fanda_cmd(pattern="(?:fanda)\\s?(.)?")
