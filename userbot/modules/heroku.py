@@ -180,17 +180,14 @@ async def dyno_usage(dyno):
             AppMinutes = math.floor(AppQuotaUsed % 60)
 
             await xx.edit(
-                "✨ **ɪɴꜰᴏʀᴍᴀsɪ ᴅʏɴᴏ ʜᴇʀᴏᴋᴜ :**\n"
-                "╔════════════════════╗\n"
                 f"• **ᴘᴇɴɢɢᴜɴᴀ ᴅʏɴᴏ sᴀᴀᴛ ɪɴɪ :**\n"
                 f"  `{AppHours}`**ᴊᴀᴍ**  `{AppMinutes}`**ᴍᴇɴɪᴛ**  "
-                f"**|**  [`{AppPercentage}`**%**]"
-                "\n◖════════════════════◗\n"
+                f"[`{AppPercentage}`**%**]"
+                "\n════════════════════\n"
                 "• **sɪsᴀ ᴋᴏᴜᴛᴀ ᴅʏɴᴏ ʙᴜʟᴀɴ ɪɴɪ :**\n"
                 f"  `{hours}`**ᴊᴀᴍ**  `{minutes}`**ᴍᴇɴɪᴛ**  "
-                f"**|**  [`{percentage}`**%**]\n"
+                f"[`{percentage}`**%**]\n"
                 f"• **ʙᴏᴛ ᴏꜰ :** {ALIVE_NAME}  "
-                "\n╚════════════════════╝"
             )
             await asyncio.sleep(30)
             await xx.delete()
@@ -206,19 +203,19 @@ async def _(dyno):
         return await dyno.reply(
             "`Please make sure your Heroku API Key, Your App name are configured correctly in the heroku var.`"
         )
-    xx = await edit_or_reply(dyno, "`Sedang Mengambil Logs Anda`")
+    xx = await edit_or_reply(dyno, "`Retrieve log information`")
     with open("logs.txt", "w") as log:
         log.write(app.get_log())
     await xx.delete()
     await dyno.client.send_file(
         dyno.chat_id,
         file="logs.txt",
-        caption="`Ini Logs Heroku anda`",
+        caption="`Logs your heroku`",
     )
     return os.remove("logs.txt")
 
 
-CMD_HELP.update({"herokuapp": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}usage`"
+CMD_HELP.update({"heroku": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}usage`"
                  "\n↳ : Check Quota Dyno Heroku"
                  f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}logs`"
                  "\n↳ : Melihat Logs Heroku Anda"
