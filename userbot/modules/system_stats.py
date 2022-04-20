@@ -18,7 +18,7 @@ import sys
 import time
 from datetime import datetime
 import psutil
-from userbot import ALIVE_LOGO, ALIVE_NAME, BOT_VER, CMD_HELP, FANDA_TEKS_KUSTOM, StartTime, UPSTREAM_REPO_BRANCH, bot, CMD_HANDLER as cmd
+from userbot import ALIVE_LOGO, ALIVE_NAME, BOT_VER, CMD_HELP, FANDA_TEKS_KUSTOM, StartTime, UPSTREAM_REPO_BRANCH, bot, CMD_HANDLER as prf
 from userbot.utils import edit_or_reply, fanda_cmd
 
 
@@ -230,11 +230,11 @@ async def amireallyalive(alive):
     output = (
         f"** the** 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ \n\n"
         f"__**{FANDA_TEKS_KUSTOM}**__\n\n"
-        f"✶ **Name    -** {DEFAULTUSER} \n"
-        f"✶ **Telethon   -** {version.__version__} \n"
-        f"✶ **Python   -** {python_version()} \n"
-        f"✶ **Fanda   -** {BOT_VER} \n"
-        f"✶ **Branch   -** {len(modules)} \n"
+        f"✶ **Name -** {DEFAULTUSER} \n"
+        f"✶ **Telethon -** {version.__version__} \n"
+        f"✶ **Python -** {python_version()} \n"
+        f"✶ **Fanda -** {BOT_VER} \n"
+        f"✶ **Branch -** {len(modules)} \n"
         f"[ɢʀᴏᴜᴘꜱ](https://t.me/fandasupport) | [ᴏᴡɴᴇʀ](https://t.me/uurfavboys) | [ɢɪᴛʜᴜʙ](https://github.com/DIORrios285/Fanda-Userbot)"
     )
     if ALIVE_LOGO:
@@ -306,29 +306,29 @@ async def amireallyalivereset(ureset):
 
 CMD_HELP.update({
     "system":
-    f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sysd`"
+    f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{prf}sysd`"
     "\n↳ : Shows system information using neofetch."
-    f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}db`"
+    f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{prf}db`"
     "\n↳ : Shows database related info."
-    f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}spc`"
+    f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{prf}spc`"
     "\n↳ : Show system specification."
 })
 CMD_HELP.update({
     "alive":
-    f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}alive`"
+    f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{prf}alive`"
     "\n↳ : To see whether your bot is working or not."
-    f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}fanda`"
+    f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{prf}fanda`"
     "\n↳ : Get some system information from fanda."
-    f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}aliveu` <text>"
+    f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{prf}aliveu` <text>"
     "\n↳ : Changes the 'user' in alive to the text you want."
-    f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}resetalive`"
+    f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{prf}resetalive`"
     "\n↳ : Resets the user to default."
 })
 CMD_HELP.update(
     {
         "botversion":
-        f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}botver`"
+        f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{prf}botver`"
         "\n↳ : Shows the userbot version."
-        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}pip` <module(s)>"
+        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{prf}pip` <module(s)>"
         "\n↳ : Does a search of pip modules(s)."
     })
