@@ -235,25 +235,24 @@ async def amireallyalive(alive):
         f"✶ **Python   -** {python_version()} \n"
         f"✶ **Fanda   -** {BOT_VER} \n"
         f"✶ **Branch   -** {len(modules)} \n"
-        f"[ɢʀᴏᴜᴘꜱ](https://t.me/fandasupport) | [ᴏᴡɴᴇʀ](https://t.me/uurfavboys) | [ɢɪᴛʜᴜʙ](https://github.com/DIORrios285/Fanda-Userbot)")
-   if ALIVE_LOGO:
+        f"[ɢʀᴏᴜᴘꜱ](https://t.me/fandasupport) | [ᴏᴡɴᴇʀ](https://t.me/uurfavboys) | [ɢɪᴛʜᴜʙ](https://github.com/DIORrios285/Fanda-Userbot)"
+    )
+    if ALIVE_LOGO:
         try:
             logo = ALIVE_LOGO
             await alive.delete()
             msg = await bot.send_file(alive.chat_id, logo, caption=output)
-            await asyncio.sleep(200)
+            await asyncio.sleep(500)
             await msg.delete()
         except BaseException:
             await alive.edit(
-                output + "\n\n *`Logo yang diberikan tidak valid."
-                "\nPastikan link diarahkan ke gambar logo`"
+                output + "\n\n *`Logo Yang Disediakan Tidak Valid."
+                "\nPastikan Tautan Yang Anda Gunakan Valid`"
             )
             await asyncio.sleep(100)
             await alive.delete()
     else:
-        await alive.edit(output)
-        await asyncio.sleep(100)
-        await alive.delete()
+        await edit_or_reply(alive, output)
 
 
 @fanda_cmd(pattern="(?:fanda)\\s?(.)?")
@@ -271,19 +270,18 @@ async def amireallyalive(alive):
             logo = ALIVE_LOGO
             await alive.delete()
             msg = await bot.send_file(alive.chat_id, logo, caption=output)
-            await asyncio.sleep(200)
+            await asyncio.sleep(500)
             await msg.delete()
         except BaseException:
             await alive.edit(
-                output + "\n\n *`Logo yang diberikan tidak valid."
-                "\nPastikan link diarahkan ke gambar logo`"
+                output + "\n\n *`Logo Yang Disediakan Tidak Valid."
+                "\nPastikan Tautan Yang Anda Gunakan Valid`"
             )
             await asyncio.sleep(100)
             await alive.delete()
     else:
-        await alive.edit(output)
-        await asyncio.sleep(100)
-        await alive.delete()
+        await edit_or_reply(alive, output)
+
 
 
 @fanda_cmd(pattern="aliveu")
