@@ -191,7 +191,7 @@ async def upstream(event):
 
     if changelog == "" and force_update is False:
         await xx.edit(
-            f"\n𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ **Sudah Versi Terbaru Goblok!|| Kunjungi @fandaproject untuk melihat berita terbaru tentang** 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​.\n"
+            f"\n𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ **Sudah Versi Terbaru Goblok! || Kunjungi @fandaproject untuk melihat berita terbaru tentang** 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​.\n"
         )
         await asyncio.sleep(50)
         await xx.delete()
