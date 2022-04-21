@@ -674,7 +674,7 @@ CMD_HELP.update(
 
 CMD_HELP.update(
     {
-        "sticker_v2": f"**Plugin : **`stickers`\
+        "stickers2": f"**Plugin : **`stickers`\
         \n\n  •  **Syntax :** `{suck}stoi`\
         \n  •  **Function : **Mengambil sticker tanpa menambahkannya ke pack.\
         \n\n  •  **Syntax :** `{suck}mtoi`\
