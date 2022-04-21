@@ -184,7 +184,7 @@ async def dyno_usage(dyno):
                 "• **ᴅʏɴᴏ ᴅɪɢᴜɴᴀᴋᴀɴ​:**\n"
                 f"  `{AppHours}`**ᴊᴀᴍ**  `{AppMinutes}`**ᴍᴇɴɪᴛ**  "
                 f"[`{AppPercentage}`**%**]\n"
-                f"**       </>{ALIVE_NAME}<\>**   "
+                f"**       </>{ALIVE_NAME}<\>**   \n"
                 "• **sɪsᴀ ᴅʏɴᴏ ʙᴜʟᴀɴ ɪɴɪ:**\n"
                 f"  `{hours}`**ᴊᴀᴍ**  `{minutes}`**ᴍᴇɴɪᴛ**  "
                 f"[`{percentage}`**%**]"
