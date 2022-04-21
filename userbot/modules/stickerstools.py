@@ -652,11 +652,11 @@ CMD_HELP.update(
     {
         "stickers": f"**Plugin : **`stickers`\
         \n\n  •  **Syntax :** `{suck}kang` atau `{suck}tikel` [emoji]\
-        \n  •  **Function : **Balas .kang Ke Sticker Atau Gambar Untuk Menambahkan Ke Sticker Pack Mu\
+        \n  •  **Function : **Balas {suck}kang Ke Sticker Atau Gambar Untuk Menambahkan Ke Sticker Pack Mu\
         \n\n  •  **Syntax :** `{suck}kang` [emoji] atau `{suck}tikel` [emoji]\
-        \n  •  **Function : **Balas {cmd}kang emoji Ke Sticker Atau Gambar Untuk Menambahkan dan costum emoji sticker Ke Pack Mu\
+        \n  •  **Function : **Balas {suck}kang emoji Ke Sticker Atau Gambar Untuk Menambahkan dan costum emoji sticker Ke Pack Mu\
         \n\n  •  **Syntax :** `{suck}pkang` <nama sticker pack>\
-        \n  •  **Function : **Balas {cmd}pkang Ke Sticker Untuk Mencuri semua sticker pack tersebut\
+        \n  •  **Function : **Balas {suck}pkang Ke Sticker Untuk Mencuri semua sticker pack tersebut\
         \n\n  •  **Syntax :** `{suck}delsticker` <reply sticker>\
         \n  •  **Function : **Untuk Menghapus sticker dari Sticker Pack.\
         \n\n  •  **Syntax :** `{suck}editsticker` <reply sticker> <emoji>\
@@ -665,7 +665,7 @@ CMD_HELP.update(
         \n  •  **Function : **Untuk Mendapatkan Informasi Sticker Pack.\
         \n\n  •  **Syntax :** `{suck}stickers` <nama sticker pack >\
         \n  •  **Function : **Untuk Mencari Sticker Pack.\
-        \n\n  •  **NOTE:** Untuk Membuat Sticker Pack baru Gunakan angka dibelakang `{cmd}kang`\
+        \n\n  •  **NOTE:** Untuk Membuat Sticker Pack baru Gunakan angka dibelakang `{suck}kang`\
         \n  •  **CONTOH:** `{suck}kang 2` untuk membuat dan menyimpan ke sticker pack ke 2\
     "
     }
