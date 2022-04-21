@@ -1,11 +1,3 @@
-# Copyright (C) 2019 The Raphielscape Company LLC.
-#
-# Licensed under the Raphielscape Public License, Version 1.c (the "License");
-# you may not use this file except in compliance with the License.
-#
-# Recode by @mrismanaziz
-# FROM Man-Userbot <https://github.com/mrismanaziz/Man-Userbot>
-# t.me/SharingUserbot & t.me/Lunatic0de
 
 import asyncio
 import io
@@ -33,7 +25,7 @@ from telethon.tl.types import (
 from telethon.utils import get_input_document
 
 from userbot import BOT_USERNAME
-from userbot import CMD_HANDLER as cmd
+from userbot import CMD_HANDLER as suck
 from userbot import CMD_HELP
 from userbot import S_PACK_NAME as custompack
 from userbot import tgbot
@@ -534,26 +526,6 @@ async def _(event):
                 )
 
 
-@fanda_cmd(pattern="getsticker$")
-async def sticker_to_png(sticker):
-    if not sticker.is_reply:
-        await edit_delete(sticker, "**Harap balas ke stiker**")
-        return False
-    img = await sticker.get_reply_message()
-    if not img.document:
-        await edit_delete(sticker, "**Maaf , Ini Bukan Sticker**")
-        return False
-    xx = await edit_or_reply(sticker, "`Berhasil Mengambil Sticker!`")
-    image = io.BytesIO()
-    await sticker.client.download_media(img, image)
-    image.name = "sticker.png"
-    image.seek(0)
-    await sticker.client.send_file(
-        sticker.chat_id, image, reply_to=img.id, force_document=True
-    )
-    await xx.delete()
-
-
 @fanda_cmd(pattern="stickers ?([\\s\\S]*)")
 async def cb_sticker(event):
     query = event.pattern_match.group(1)
@@ -579,9 +551,7 @@ async def _(event):
     if event.fwd_from:
         return
     if not event.reply_to_msg_id:
-        await edit_delete(
-            event, "sir this is not a image message reply to image message"
-        )
+        await edit_delete(event, "sir this is not a image message reply to image message")
         return
     reply_message = await event.get_reply_message()
     if not reply_message.media:
@@ -592,63 +562,111 @@ async def _(event):
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
-                events.NewMessage(incoming=True, from_users=164977173)
-            )
+                events.NewMessage(
+                    incoming=True,
+                    from_users=164977173))
             msg = await event.client.forward_messages(chat, reply_message)
             response = await response
         except YouBlockedUserError:
-            await event.client(UnblockRequest(chat))
-            msg = await event.client.forward_messages(chat, reply_message)
-            response = await response
+            await event.reply("unblock me (@buildstickerbot) and try again")
+            return
         if response.text.startswith("Hi!"):
-            await xx.edit(
-                "Can you kindly disable your forward privacy settings for good?"
-            )
+            await xx.edit("Can you kindly disable your forward privacy settings for good?")
         else:
-            await xx.delete()
-            await event.client.send_read_acknowledge(conv.chat_id)
+            await event.delete()
+            await bot.send_read_acknowledge(conv.chat_id)
             await event.client.send_message(event.chat_id, response.message)
             await event.client.delete_message(event.chat_id, [msg.id, response.id])
 
 
-@fanda_cmd(pattern="get$")
+@fanda_cmd(pattern="mtoi$")
 async def _(event):
-    rep_msg = await event.get_reply_message()
-    if not event.is_reply or not rep_msg.sticker:
-        return await edit_delete(event, "**Harap balas ke stiker**")
-    xx = await edit_or_reply(event, "`Mengconvert ke foto...`")
-    foto = io.BytesIO()
-    foto = await event.client.download_media(rep_msg.sticker, foto)
-    im = Image.open(foto).convert("RGB")
-    im.save("sticker.png", "png")
-    await event.client.send_file(
-        event.chat_id,
-        "sticker.png",
-        reply_to=rep_msg,
+    if event.fwd_from:
+        return
+    if not event.reply_to_msg_id:
+        await edit_delete(event, "`Mohon Maaf, Balas Ke Sticker Terlebih Dahulu.`")
+        return
+    reply_message = await event.get_reply_message()
+    if not reply_message.media:
+        await edit_delete(event, "`Mohon Maaf, Balas Ke Sticker Terlebih Dahulu.`")
+        return
+    chat = "@stickers_to_image_bot"
+    xx = await edit_or_reply(event, "`Sedang Mengubah Sticker Menjadi Gambar...`")
+    async with event.client.conversation(chat) as conv:
+        try:
+            response = conv.wait_event(
+                events.NewMessage(
+                    incoming=True,
+                    from_users=611085086))
+            msg = await event.client.forward_messages(chat, reply_message)
+            response = await response
+        except YouBlockedUserError:
+            await event.reply("Mohon Maaf, Buka Blokir @stickers_to_image_bot Lalu Coba Lagi.")
+            return
+        if response.text.startswith("I understand only stickers"):
+            await xx.edit("`Maaf, Saya Tidak Bisa Mengubah Ini Menjadi Gambar, Periksa Kembali Apakah Itu Sticker Animasi ?`")
+        else:
+            response = conv.wait_event(
+                events.NewMessage(
+                    incoming=True,
+                    from_users=611085086))
+            response = await response
+            if response.text.startswith("..."):
+                response = conv.wait_event(
+                    events.NewMessage(
+                        incoming=True,
+                        from_users=611085086))
+                response = await response
+                await event.delete()
+                await event.client.send_message(event.chat_id, response.message, reply_to=reply_message.id)
+                await event.client.delete_message(event.chat_id, [msg.id, response.id])
+            else:
+                await xx.edit("`Tolong Coba Lagi.`")
+        await bot.send_read_acknowledge(conv.chat_id)
+
+
+@fanda_cmd(pattern="stoi$")
+async def sticker_to_png(sticker):
+    if not sticker.is_reply:
+        await edit_delete(sticker, "`NULL information to feftch...`")
+        return False
+
+    img = await sticker.get_reply_message()
+    if not img.document:
+        await edit_delete(sticker, "`Mohon Maaf, Ini Bukanlah Sticker`")
+        return False
+
+    xx = await edit_or_reply(sticker, "`Berhasil Mengambil Sticker Ini !`")
+    image = io.BytesIO()
+    await sticker.client.download_media(img, image)
+    image.name = "sticker.png"
+    image.seek(0)
+    await sticker.client.send_file(
+        sticker.chat_id, image, reply_to=img.id, force_document=True
     )
     await xx.delete()
-    remove("sticker.png")
+    return
 
 
 CMD_HELP.update(
     {
         "stickers": f"**Plugin : **`stickers`\
-        \n\n  •  **Syntax :** `{cmd}kang` atau `{cmd}tikel` [emoji]\
+        \n\n  •  **Syntax :** `{suck}kang` atau `{suck}tikel` [emoji]\
         \n  •  **Function : **Balas .kang Ke Sticker Atau Gambar Untuk Menambahkan Ke Sticker Pack Mu\
-        \n\n  •  **Syntax :** `{cmd}kang` [emoji] atau `{cmd}tikel` [emoji]\
+        \n\n  •  **Syntax :** `{suck}kang` [emoji] atau `{suck}tikel` [emoji]\
         \n  •  **Function : **Balas {cmd}kang emoji Ke Sticker Atau Gambar Untuk Menambahkan dan costum emoji sticker Ke Pack Mu\
-        \n\n  •  **Syntax :** `{cmd}pkang` <nama sticker pack>\
+        \n\n  •  **Syntax :** `{suck}pkang` <nama sticker pack>\
         \n  •  **Function : **Balas {cmd}pkang Ke Sticker Untuk Mencuri semua sticker pack tersebut\
-        \n\n  •  **Syntax :** `{cmd}delsticker` <reply sticker>\
+        \n\n  •  **Syntax :** `{suck}delsticker` <reply sticker>\
         \n  •  **Function : **Untuk Menghapus sticker dari Sticker Pack.\
-        \n\n  •  **Syntax :** `{cmd}editsticker` <reply sticker> <emoji>\
+        \n\n  •  **Syntax :** `{suck}editsticker` <reply sticker> <emoji>\
         \n  •  **Function : **Untuk Mengedit emoji stiker dengan emoji yang baru.\
-        \n\n  •  **Syntax :** `{cmd}stickerinfo`\
+        \n\n  •  **Syntax :** `{suck}stickerinfo`\
         \n  •  **Function : **Untuk Mendapatkan Informasi Sticker Pack.\
-        \n\n  •  **Syntax :** `{cmd}stickers` <nama sticker pack >\
+        \n\n  •  **Syntax :** `{suck}stickers` <nama sticker pack >\
         \n  •  **Function : **Untuk Mencari Sticker Pack.\
         \n\n  •  **NOTE:** Untuk Membuat Sticker Pack baru Gunakan angka dibelakang `{cmd}kang`\
-        \n  •  **CONTOH:** `{cmd}kang 2` untuk membuat dan menyimpan ke sticker pack ke 2\
+        \n  •  **CONTOH:** `{suck}kang 2` untuk membuat dan menyimpan ke sticker pack ke 2\
     "
     }
 )
@@ -657,12 +675,12 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "sticker_v2": f"**Plugin : **`stickers`\
-        \n\n  •  **Syntax :** `{cmd}getsticker`\
-        \n  •  **Function : **Balas Ke Stcker Untuk Mendapatkan File 'PNG' Sticker.\
-        \n\n  •  **Syntax :** `{cmd}get`\
-        \n  •  **Function : **Balas ke sticker untuk mendapatkan foto sticker\
-        \n\n  •  **Syntax :** `{cmd}itos`\
-        \n  •  **Function : **Balas ke foto untuk membuat foto menjadi sticker\
+        \n\n  •  **Syntax :** `{suck}stoi`\
+        \n  •  **Function : **Mengambil sticker tanpa menambahkannya ke pack.\
+        \n\n  •  **Syntax :** `{suck}mtoi`\
+        \n  •  **Function : **Reply Ke Sticker Untuk Mendapatkan File 'PNG' Sticker.\
+        \n\n  •  **Syntax :** `{suck}itos`\
+        \n  •  **Function : **Reply ke foto untuk menjadikannya sticker.\
     "
     }
 )
