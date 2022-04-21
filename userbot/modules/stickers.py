@@ -42,7 +42,7 @@ from userbot.utils import edit_delete, edit_or_reply, fanda_cmd
 from userbot.utils.misc import animator
 
 KANGING_STR = [
-    "Sedang Mengambil Sticker Ini Ke Pack Anda",
+    "scrape this sticker to your pack",
     "Tikel capa ciii aku colong ya",
 ]
 
@@ -81,7 +81,7 @@ async def kang(args):
             in message.media.document.attributes
         ):
             emoji = message.media.document.attributes[1].alt
-            if emoji != "🔞":
+            if emoji != "🤫":
                 emojibypass = True
     elif message.file and "tgsticker" in message.file.mime_type:
         xx = await edit_or_reply(args, f"`{random.choice(KANGING_STR)}`")
@@ -102,7 +102,7 @@ async def kang(args):
             await animator(message, args, xx)
             await xx.edit(f"`{random.choice(KANGING_STR)}`")
         is_video = True
-        emoji = "🔞"
+        emoji = "😏"
         emojibypass = True
         photo = 1
     else:
@@ -112,7 +112,7 @@ async def kang(args):
     if photo:
         splat = args.text.split()
         if not emojibypass:
-            emoji = "🔞"
+            emoji = "😆"
         pack = 1
         if len(splat) == 3:
             pack = splat[2]
