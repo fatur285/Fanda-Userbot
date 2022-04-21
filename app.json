@@ -1,17 +1,6 @@
 {
   "name": "Fanda-Userbot",
   "description": "A SPECIAL USERBOT USED FOR FUN ON TELEGRAM.",
-  "logo": "",
-  "keywords": [
-    "telegram",
-    "userbot",
-    "plugin",
-    "modular",
-    "productivity"
-  ],
-  "repository": "https://github.com/DIORrios285/Fanda-Userbot/Fanda-Userbot",
-  "telegram": "https://t.me/uurfavboys",
-  "success_url": "https://t.me/FandaProject",
   "stack": "container",
   "env": {
     "API_KEY": {
@@ -27,7 +16,7 @@
       "required": true
     },
     "HEROKU_APP_NAME": {
-      "description": "Nama App heroku, Nama App yang paling pertama di isi (liat paling atas)",
+      "description": "Tanpa menggunakan huruf kapital masukan nama App yang paling pertama di isi (liat paling atas)",
       "required": true
     },
     "HEROKU_API_KEY": {
@@ -35,10 +24,6 @@
       "required": true
     },
     "BOTLOG_CHATID": {
-      "description": "Buatlah Sebuah Grup Publik Lalu Tambahkan @MissRose_Bot Sebagai Admin di Grup Mu, Lalu Ketik /id. Nanti akan muncul ID seperti ini Contohnya : -1001234567890",
-      "required": true
-    },
-    "G_BAN_LOGGER_GROUP": {
       "description": "Buatlah Sebuah Grup Publik Lalu Tambahkan @MissRose_Bot Sebagai Admin di Grup Mu, Lalu Ketik /id. Nanti akan muncul ID seperti ini Contohnya : -1001234567890",
       "required": true
     },
