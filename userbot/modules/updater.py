@@ -215,7 +215,7 @@ async def upstream(event):
         else:
             await xx.edit(changelog_str)
         return await event.respond(
-            f"Perintah untuk memperbarui 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​:\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}update now`\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}update deploy`."
+            f"**Perintah untuk memperbarui** 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​:\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}update now`\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}update deploy`."
         )
 
     if force_update:
