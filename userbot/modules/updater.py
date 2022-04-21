@@ -58,7 +58,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
         if HEROKU_APP_NAME is None:
             await edit_or_reply(event,
                                 "**[HEROKU]:** `Harap Siapkan Variabel` **HEROKU_APP_NAME** `"
-                                " agar bisa memperbarui Fanda-Userbot .`"
+                                " agar bisa memperbarui Fanda-Userbot.`"
                                 )
             repo.__del__()
             return
@@ -72,7 +72,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
                               )
             return repo.__del__()
         await edit_or_reply(event,
-                            "**[Heroku]:** `Sedang Memperbarui 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​`" "\n`Mohon tunggu...`"
+                            "**[Heroku]:** `Sedang memperbarui 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁 mohon tunggu...`"
                             )
         ups_rem.fetch(ac_br)
         repo.git.reset("--hard", "FETCH_HEAD")
@@ -101,7 +101,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
 
         if BOTLOG:
             await event.client.send_message(
-                BOTLOG_CHATID, "#UPDATER \n" "𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ Berhasil diperbarui"
+                BOTLOG_CHATID, "#UPDATER \n" "𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ Berhasil diperbarui."
             )
 
     else:
@@ -117,17 +117,17 @@ async def update(event, repo, ups_rem, ac_br):
     except GitCommandError:
         repo.git.reset("--hard", "FETCH_HEAD")
     await update_requirements()
-    x = await edit_or_reply(event, "𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ Berhasil diperbarui!")
-    await asyncio.sleep(1)
+    x = await edit_or_reply(event, "𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ Berhasil diperbarui.")
+    await asyncio.sleep(2)
     await x.edit("'Sedang merestart....`")
     await asyncio.sleep(1)
-    await x.edit("`Mohon Menunggu Beberapa Detik.`")
+    await x.edit("`Mohon tunggu beberapa detik.`")
     await asyncio.sleep(10)
     await x.delete()
 
     if BOTLOG:
         await event.client.send_message(
-            BOTLOG_CHATID, "#UPDATER \n" "𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ **Telah di perbarui.**"
+            BOTLOG_CHATID, "#UPDATER \n" "𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ **Berhasil diperbarui.**"
         )
         await asyncio.sleep(100)
         await x.delete()
@@ -146,8 +146,8 @@ async def upstream(event):
     off_repo = UPSTREAM_REPO_URL
     force_update = False
     try:
-        txt = "`Mohon Maaf, Pembaruan Tidak Dapat Di Lanjutkan Karna "
-        txt += "Beberapa Masalah Terjadi`\n\n**LOGTRACE:**\n"
+        txt = "`Mohon maaf, Pembaruan tidak dapat di lanjutkan karena "
+        txt += "beberapa masalah terjadi`\n\n**LOGTRACE:**\n"
         repo = Repo()
     except NoSuchPathError as error:
         await xx.edit(f"{txt}\n`Directory {error} Tidak Dapat Di Temukan`")
@@ -193,13 +193,13 @@ async def upstream(event):
         await xx.edit(
             f"\n𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ **Sudah Versi Terbaru Goblok!|| Kunjungi @fandaproject untuk melihat berita terbaru tentang** 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​.\n"
         )
-        await asyncio.sleep(1)
+        await asyncio.sleep(50)
         await xx.delete()
         return repo.__del__()
 
     if conf is None and force_update is False:
         changelog_str = (
-            f"**Pembaruan Untuk** 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​:\n\n⚒️ **Pembaruan Data:**\n`{changelog}`"
+            f"**Pembaruan Untuk** 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​:\n\n⚒️ **Change log:**\n`{changelog}`"
         )
         if len(changelog_str) > 4096:
             await xx.edit("`Changelog Terlalu Besar, Lihat File Untuk Melihatnya.`")
@@ -224,13 +224,24 @@ async def upstream(event):
         )
     else:
         await xx.edit("`Mulai memperbarui 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​...`")
-        await xx.edit("`Loading...1%`")
+        await xx.edit("`Loading...0%`")
+        await xx.edit("`Loading...5%`")
+        await xx.edit("`Loading...10%`")
+        await xx.edit("`Loading...15%`")
         await xx.edit("`Loading...20%`")
+        await xx.edit("`Loading...25%`")
+        await xx.edit("`Loading...30%`")
         await xx.edit("`Loading...35%`")
+        await xx.edit("`Loading...40%`")
+        await xx.edit("`Loading...45%`")
         await xx.edit("`Loading...50%`")
         await xx.edit("`Loading...55%`")
+        await xx.edit("`Loading...60%`")
+        await xx.edit("`Loading...65%`")
         await xx.edit("`Loading...70%`")
         await xx.edit("`Loading...75%`")
+        await xx.edit("`Loading...80%`")
+        await xx.edit("`Loading...85%`")
         await xx.edit("`Loading...90%`")
         await xx.edit("`Loading...95%`")
         await xx.edit("`Loading...100%`")
