@@ -22,6 +22,7 @@ from userbot import (
     bot,
     call_py,
 )
+from userbot import CMD_HANDLER as kontol
 from userbot.modules import ALL_MODULES
 from userbot.utils import autobot
 
@@ -53,7 +54,7 @@ LOGS.info(
 async def check_alive():
     try:
         if BOTLOG_CHATID != 0:
-            await bot.send_message(BOTLOG_CHATID, "𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ **Berhasil Diaktifkan**!!\n━━━━━━━━━\n➠ **Userbot Version** - 3.1.0@Fanda-Userbot\n➠ **Ketik** `.ping` **Untuk Mengecek Bot**\n━━━━━━━━━\n➠ **Support:** @Fandasupport")
+            await bot.send_message(BOTLOG_CHATID, "𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ **Berhasil Diaktifkan**!!\n━━━━━━━━━\n➠ **Userbot Version** - 3.1.0@Fanda-Userbot\n➠ **Ketik** `{kontol}ping` **Untuk Mengecek Bot**\n━━━━━━━━━\n➠ **Support:** @Fandasupport")
     except Exception as e:
         LOGS.info(str(e))
     try:
