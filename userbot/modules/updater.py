@@ -9,7 +9,7 @@ import sys
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 
-from userbot import CMD_HANDLER as cmd
+from userbot import CMD_HANDLER as shutup
 from userbot import (
     BOTLOG,
     BOTLOG_CHATID,
@@ -96,7 +96,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
                               )
         else:
             await edit_delete(event,
-                              "𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ `Berhasil di perbarui, Restarting tunggu sebentar...`"
+                              "𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ **Berhasil di perbarui, Restarting tunggu sebentar...**"
                               )
 
         if BOTLOG:
@@ -141,7 +141,7 @@ async def update(event, repo, ups_rem, ac_br):
 @fanda_cmd(pattern="update(?: |$)(now|deploy)?")
 async def upstream(event):
     "For .update command, check if the bot is up to date, update if specified"
-    xx = await edit_or_reply(event, "**Mengecek Pembaruan...**")
+    xx = await edit_or_reply(event, "**Checking for updates...**")
     conf = event.pattern_match.group(1)
     off_repo = UPSTREAM_REPO_URL
     force_update = False
@@ -215,7 +215,7 @@ async def upstream(event):
         else:
             await xx.edit(changelog_str)
         return await event.respond(
-            f"**Perintah untuk memperbarui** 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​:\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}update now`\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}update deploy`."
+            f"**Perintah untuk memperbarui** 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​:\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{shutup}update now`\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{shutup}update deploy`"
         )
 
     if force_update:
@@ -261,11 +261,11 @@ async def upstream(event):
 
 CMD_HELP.update(
     {
-        "update": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}update`"
+        "update": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{shutup}update`"
         "\n• : Untuk Melihat Pembaruan dari 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​."
-        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}update now`"
+        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{shutup}update now`"
         "\n• : Memperbarui 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​."
-        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}update deploy`"
+        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{shutup}update deploy`"
         "\n• : Memperbarui 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ Dengan Cara Men-Deploy Ulang."
     }
 )
