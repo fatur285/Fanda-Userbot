@@ -112,7 +112,7 @@ async def change_title(e):
         await edit_delete(e, f"**ERROR:** `{ex}`")
 
 
-@fanda_cmd(pattern="joinvc(?: |$)(.*)", group_only=True)
+@fanda_cmd(pattern="joinvc(?: |$)(.*)")
 @register(pattern=r"^\.joinvcs(?: |$)(.*)", sudo=True)
 async def _(event):
     Onlyme = await edit_or_reply(event, "`Processing...`")
@@ -147,7 +147,7 @@ async def _(event):
             return await Onlyme.edit(f"**INFO:** `{e}`")
 
 
-@fanda_cmd(pattern="leavevc(?: |$)(.*)", group_only=True)
+@fanda_cmd(pattern="leavevc(?: |$)(.*)")
 @register(pattern=r"^\.leavevcs(?: |$)(.*)", sudo=True)
 async def vc_end(event):
     Onlyme = await edit_or_reply(event, "`Processing...`")
