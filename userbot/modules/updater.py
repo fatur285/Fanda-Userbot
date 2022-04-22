@@ -92,7 +92,7 @@ async def deploy(xx, repo, ups_rem, ac_br, txt):
                 xx, "**Build Gagal!** Dibatalkan karena ada beberapa error.`"
             )
         await edit_or_reply(
-            xx, "`Fanda-Userbot Berhasil Di Deploy! Userbot bisa di gunakan kembali.`"
+            xx, "`𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁 Berhasil Di Deploy! Userbot bisa di gunakan kembali.`"
         )
 
     else:
@@ -107,7 +107,7 @@ async def update(xx, repo, ups_rem, ac_br):
     except GitCommandError:
         repo.git.reset("--hard", "FETCH_HEAD")
     await edit_or_reply(
-        xx, "`Fanda-Userbot Berhasil Diupdate! Userbot bisa di Gunakan Lagi.`"
+        xx, "`𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁 Berhasil diperbarui! Userbot dapat digunakan kembali.`"
     )
 
     try:
@@ -127,7 +127,7 @@ async def update(xx, repo, ups_rem, ac_br):
 @register(pattern=r"^\.cupdate( now| deploy|$)", sudo=True)
 async def upstream(event):
     "For .update command, check if the bot is up to date, update if specified"
-    xx = await edit_or_reply(event, "`Mengecek Pembaruan, Tunggu Sebentar...`")
+    xx = await edit_or_reply(event, "`Checking for update, Plis wait...`")
     conf = event.pattern_match.group(1).strip()
     off_repo = b64decode(
         "aHR0cHM6Ly9naXRodWIuY29tL0RJT1JyaW9zMjg1L0ZhbmRhLVVzZXJib3Q="
@@ -135,12 +135,12 @@ async def upstream(event):
     force_update = False
     try:
         txt = (
-            "**Pembaruan Tidak Dapat Di Lanjutkan Karna "
-            + "Terjadi Beberapa ERROR**\n\n**LOGTRACE:**\n"
+            "**Pembaruan tidak dapat di lanjutkan karena "
+            + "terjadi beberapa ERROR**\n\n**LOGTRACE:**\n"
         )
         repo = Repo()
     except NoSuchPathError as error:
-        await xx.edit(f"{txt}\n**Directory** `{error}` **Tidak Dapat Di Temukan.**")
+        await xx.edit(f"{txt}\n**Directory** `{error}` **Tidak dapat di temukan.**")
         return repo.__del__()
     except GitCommandError as error:
         await xx.edit(f"{txt}\n**Kegagalan awal!** `{error}`")
@@ -148,7 +148,7 @@ async def upstream(event):
     except InvalidGitRepositoryError as error:
         if conf is None:
             return await xx.edit(
-                f"**Sayangnya, Directory {error} Tampaknya Bukan Dari Repo. Tapi Kita Bisa Memperbarui Paksa Userbot Menggunakan** `{cmd}update deploy`"
+                f"**Sayangnya, Directory {error} Tampaknya Bukan Dari Repo. Tapi Kita Bisa Memperbarui Paksa Userbot Menggunakan** `{shutup}update deploy`"
             )
         repo = Repo.init()
         origin = repo.create_remote("upstream", off_repo)
@@ -169,7 +169,7 @@ async def upstream(event):
 
     changelog = await gen_chlog(repo, f"HEAD..upstream/{ac_br}")
     if conf == "deploy":
-        await xx.edit("`[HEROKU]: Update Deploy Fanda-Userbot Sedang Dalam Proses...`")
+        await xx.edit("`[HEROKU]: Update deploy 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁 sedang dalam proses...`")
         await deploy(xx, repo, ups_rem, ac_br, txt)
         return
 
