@@ -125,7 +125,7 @@ async def _(event):
     else:
         chat_id = event.chat_id
     if chat_id:
-        file = "./userbot/resources/audio-ini.mp3"
+        file = "./resources/audio-ini.mp3"
         try:
             await call_py.join_group_call(
                 chat_id,
