@@ -2,53 +2,43 @@
 This module updates the userbot based on upstream revision
 """
 
-from os import remove, execle, path, environ
-import asyncio
 import sys
+from base64 import b64decode
+from os import environ, execle, remove
 
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 
 from userbot import CMD_HANDLER as shutup
-from userbot import (
-    BOTLOG,
-    BOTLOG_CHATID,
-    CMD_HELP,
-    HEROKU_API_KEY,
-    HEROKU_APP_NAME,
-    UPSTREAM_REPO_URL,
-    UPSTREAM_REPO_BRANCH)
-from userbot.utils import edit_or_reply, edit_delete, fanda_cmd
-
-requirements_path = path.join(
-    path.dirname(path.dirname(path.dirname(__file__))), 'requirements.txt')
+from userbot import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME
+from userbot.events import register
+from userbot.utils import edit_delete, edit_or_reply, fanda_cmd
 
 
 async def gen_chlog(repo, diff):
-    ch_log = ""
     d_form = "%d/%m/%y"
-    for c in repo.iter_commits(diff):
-        ch_log += (
-            f"•[{c.committed_datetime.strftime(d_form)}]: {c.summary} <{c.author}>\n"
-        )
-    return ch_log
+    return "".join(
+        f"• [{c.committed_datetime.strftime(d_form)}]: {c.summary} <{c.author}>\n"
+        for c in repo.iter_commits(diff)
+    )
 
 
-async def update_requirements():
-    reqs = str(requirements_path)
-    try:
-        process = await asyncio.create_subprocess_shell(
-            " ".join([sys.executable, "-m", "pip", "install", "-r", reqs]),
-            stdout=asyncio.subprocess.PIPE,
-            stderr=asyncio.subprocess.PIPE,
-        )
-        await process.communicate()
-        return process.returncode
-    except Exception as e:
-        return repr(e)
+async def print_changelogs(xx, ac_br, changelog):
+    changelog_str = (
+        f"**Pembaruan** 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​:\n\n⚒️ **Change log:**\n`{changelog}`"
+    )
+    if len(changelog_str) > 4096:
+        await edit_or_reply(xx, "**Changelog terlalu besar, dikirim sebagai file.**")
+        with open("output.txt", "w+") as file:
+            file.write(changelog_str)
+        await xx.client.send_file(xx.chat_id, "output.txt")
+        remove("output.txt")
+    else:
+        await xx.client.send_message(xx.chat_id, changelog_str)
+    return True
 
 
-async def deploy(event, repo, ups_rem, ac_br, txt):
+async def deploy(xx, repo, ups_rem, ac_br, txt):
     if HEROKU_API_KEY is not None:
         import heroku3
 
@@ -56,10 +46,11 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
         heroku_app = None
         heroku_applications = heroku.apps()
         if HEROKU_APP_NAME is None:
-            await edit_or_reply(event,
-                                "**[HEROKU]:** `Harap Siapkan Variabel` **HEROKU_APP_NAME** `"
-                                " agar bisa memperbarui Fanda-Userbot.`"
-                                )
+            await edit_or_reply(
+                xx,
+                "**[HEROKU]: Harap Tambahkan Variabel** `HEROKU_APP_NAME` "
+                " **untuk deploy perubahan terbaru dari Userbot.**",
+            )
             repo.__del__()
             return
         for app in heroku_applications:
@@ -67,13 +58,19 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
                 heroku_app = app
                 break
         if heroku_app is None:
-            await edit_delete(event,
-                              f"{txt}\n`Kredensial Heroku tidak valid untuk deploy Fanda-Userbot dyno.`"
-                              )
+            await edit_or_reply(
+                xx,
+                f"{txt}\n"
+                "**Kredensial Heroku tidak valid untuk deploy Man-Userbot dyno.**",
+            )
             return repo.__del__()
-        await edit_or_reply(event,
-                            "**[Heroku]:** `Sedang memperbarui 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁 mohon tunggu...`"
-                            )
+        try:
+            from userbot.modules.sql_helper.globals import addgvar, delgvar
+
+            delgvar("restartstatus")
+            addgvar("restartstatus", f"{xx.chat_id}\n{xx.id}")
+        except AttributeError:
+            pass
         ups_rem.fetch(ac_br)
         repo.git.reset("--hard", "FETCH_HEAD")
         heroku_git_url = heroku_app.git_url.replace(
@@ -86,80 +83,72 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
             remote = repo.create_remote("heroku", heroku_git_url)
         try:
             remote.push(refspec="HEAD:refs/heads/master", force=True)
-        except GitCommandError as error:
-            await event.edit(f"{txt}\n`Terjadi Kesalahan Di Log:\n{error}`")
+        except Exception as error:
+            await edit_or_reply(xx, f"{txt}\n**Terjadi Kesalahan Di Log:**\n`{error}`")
             return repo.__del__()
-        build = app.builds(order_by="created_at", sort="desc")[0]
+        build = heroku_app.builds(order_by="created_at", sort="desc")[0]
         if build.status == "failed":
-            await edit_delete(event,
-                              "`Build Gagal!\n" "Dibatalkan atau ada beberapa kesalahan...`"
-                              )
-        else:
-            await edit_delete(event,
-                              "𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ **Berhasil di perbarui, Restarting tunggu sebentar...**"
-                              )
-
-        if BOTLOG:
-            await event.client.send_message(
-                BOTLOG_CHATID, "#UPDATER \n" "𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ Berhasil diperbarui."
+            await edit_delete(
+                xx, "**Build Gagal!** Dibatalkan karena ada beberapa error.`"
             )
+        await edit_or_reply(
+            xx, "`Fanda-Userbot Berhasil Di Deploy! Userbot bisa di gunakan kembali.`"
+        )
 
     else:
-        await edit_delete(event,
-                          "**[HEROKU]:**" "\n`Harap Siapkan Variabel` **HEROKU_API_KEY** `.`"
-                          )
-    return
+        return await edit_delete(
+            xx, "**[HEROKU]: Harap Tambahkan Variabel** `HEROKU_API_KEY`"
+        )
 
 
-async def update(event, repo, ups_rem, ac_br):
+async def update(xx, repo, ups_rem, ac_br):
     try:
         ups_rem.pull(ac_br)
     except GitCommandError:
         repo.git.reset("--hard", "FETCH_HEAD")
-    await update_requirements()
-    x = await edit_or_reply(event, "𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ Berhasil diperbarui.")
-    await asyncio.sleep(2)
-    await x.edit("'Sedang merestart....`")
-    await asyncio.sleep(1)
-    await x.edit("`Mohon tunggu beberapa detik.`")
-    await asyncio.sleep(10)
-    await x.delete()
+    await edit_or_reply(
+        xx, "`Fanda-Userbot Berhasil Diupdate! Userbot bisa di Gunakan Lagi.`"
+    )
 
-    if BOTLOG:
-        await event.client.send_message(
-            BOTLOG_CHATID, "#UPDATER \n" "𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ **Berhasil diperbarui.**"
-        )
-        await asyncio.sleep(100)
-        await x.delete()
+    try:
+        from userbot.modules.sql_helper.globals import addgvar, delgvar
+
+        delgvar("restartstatus")
+        addgvar("restartstatus", f"{xx.chat_id}\n{xx.id}")
+    except AttributeError:
+        pass
 
     # Spin a new instance of bot
     args = [sys.executable, "-m", "userbot"]
     execle(sys.executable, *args, environ)
-    return
 
 
-@fanda_cmd(pattern="update(?: |$)(now|deploy)?")
+@fanda_cmd(pattern="update( now| deploy|$)")
+@register(pattern=r"^\.cupdate( now| deploy|$)", sudo=True)
 async def upstream(event):
     "For .update command, check if the bot is up to date, update if specified"
-    xx = await edit_or_reply(event, "**Checking for updates...**")
-    conf = event.pattern_match.group(1)
-    off_repo = UPSTREAM_REPO_URL
+    xx = await edit_or_reply(event, "`Mengecek Pembaruan, Tunggu Sebentar...`")
+    conf = event.pattern_match.group(1).strip()
+    off_repo = b64decode(
+        "aHR0cHM6Ly9naXRodWIuY29tL0RJT1JyaW9zMjg1L0ZhbmRhLVVzZXJib3Q="
+    ).decode("utf-8")
     force_update = False
     try:
-        txt = "`Mohon maaf, Pembaruan tidak dapat di lanjutkan karena "
-        txt += "beberapa masalah terjadi`\n\n**LOGTRACE:**\n"
+        txt = (
+            "**Pembaruan Tidak Dapat Di Lanjutkan Karna "
+            + "Terjadi Beberapa ERROR**\n\n**LOGTRACE:**\n"
+        )
         repo = Repo()
     except NoSuchPathError as error:
-        await xx.edit(f"{txt}\n`Directory {error} Tidak Dapat Di Temukan`")
+        await xx.edit(f"{txt}\n**Directory** `{error}` **Tidak Dapat Di Temukan.**")
         return repo.__del__()
     except GitCommandError as error:
-        await xx.edit(f"{txt}\n`Gagal Awal! {error}`")
+        await xx.edit(f"{txt}\n**Kegagalan awal!** `{error}`")
         return repo.__del__()
     except InvalidGitRepositoryError as error:
         if conf is None:
             return await xx.edit(
-                f"`Sayangnya, Directory {error} Tampaknya Bukan Dari Repo."
-                "\nTapi Kita Bisa Memperbarui Paksa Userbot Menggunakan .update now.`"
+                f"**Sayangnya, Directory {error} Tampaknya Bukan Dari Repo. Tapi Kita Bisa Memperbarui Paksa Userbot Menggunakan** `{cmd}update deploy`"
             )
         repo = Repo.init()
         origin = repo.create_remote("upstream", off_repo)
@@ -170,15 +159,6 @@ async def upstream(event):
         repo.heads.master.checkout(True)
 
     ac_br = repo.active_branch.name
-    if ac_br != UPSTREAM_REPO_BRANCH:
-        await xx.edit(
-            "**[UPDATER]:**\n"
-            f"`Looks like you are using your own custom branch ({ac_br}). "
-            "in that case, Updater is unable to identify "
-            "which branch is to be merged. "
-            "please checkout to any official branch`"
-        )
-        return repo.__del__()
     try:
         repo.create_remote("upstream", off_repo)
     except BaseException:
@@ -188,84 +168,48 @@ async def upstream(event):
     ups_rem.fetch(ac_br)
 
     changelog = await gen_chlog(repo, f"HEAD..upstream/{ac_br}")
+    if conf == "deploy":
+        await xx.edit("`[HEROKU]: Update Deploy Fanda-Userbot Sedang Dalam Proses...`")
+        await deploy(xx, repo, ups_rem, ac_br, txt)
+        return
 
-    if changelog == "" and force_update is False:
-        await xx.edit(
-            f"\n𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ **Sudah Versi Terbaru Goblok! || Kunjungi @fandaproject untuk melihat berita terbaru tentang** 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​.\n"
-        )
-        await asyncio.sleep(50)
-        await xx.delete()
+    if changelog == "" and not force_update:
+        await edit_delete(xx, "𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ **Sudah Versi Terbaru Goblok! || Kunjungi** @fandaproject **untuk melihat berita terbaru tentang** 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​.")
         return repo.__del__()
 
-    if conf is None and force_update is False:
-        changelog_str = (
-            f"**Pembaruan Untuk** 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​:\n\n⚒️ **Change log:**\n`{changelog}`"
-        )
-        if len(changelog_str) > 4096:
-            await xx.edit("`Changelog Terlalu Besar, Lihat File Untuk Melihatnya.`")
-            file = open("output.txt", "w+")
-            file.write(changelog_str)
-            file.close()
-            await event.client.send_file(
-                event.chat_id,
-                "output.txt",
-                reply_to=event.id,
-            )
-            remove("output.txt")
-        else:
-            await xx.edit(changelog_str)
+    if conf == "" and not force_update:
+        await print_changelogs(xx, ac_br, changelog)
+        await xx.delete()
         return await event.respond(
-            f"**Perintah untuk memperbarui** 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​:\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{shutup}update now`\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{shutup}update deploy`"
+            f"**Perintah untuk memperbarui** 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​:\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{shutup}update deploy`"
         )
 
     if force_update:
-        await xx.edit(
-            "`Sinkronisasi Paksa Ke Kode Userbot Stabil Terbaru, Harap Tunggu .....`"
-        )
-    else:
-        await xx.edit("`Mulai memperbarui 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​...`")
-        await xx.edit("`Loading...0%`")
-        await xx.edit("`Loading...5%`")
-        await xx.edit("`Loading...10%`")
-        await xx.edit("`Loading...15%`")
-        await xx.edit("`Loading...20%`")
-        await xx.edit("`Loading...25%`")
-        await xx.edit("`Loading...30%`")
-        await xx.edit("`Loading...35%`")
-        await xx.edit("`Loading...40%`")
-        await xx.edit("`Loading...45%`")
-        await xx.edit("`Loading...50%`")
-        await xx.edit("`Loading...55%`")
-        await xx.edit("`Loading...60%`")
-        await xx.edit("`Loading...65%`")
-        await xx.edit("`Loading...70%`")
-        await xx.edit("`Loading...75%`")
-        await xx.edit("`Loading...80%`")
-        await xx.edit("`Loading...85%`")
-        await xx.edit("`Loading...90%`")
-        await xx.edit("`Loading...95%`")
-        await xx.edit("`Loading...100%`")
-        await xx.edit("`Berhasil memperbarui 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​, Mohon tunggu sebentar...`"
-        )
+        await xx.edit("**Sinkronisasi Paksa Ke Kode Userbot Terbaru, Harap Tunggu...**")
 
     if conf == "now":
-        await update(event, repo, ups_rem, ac_br)
-        await asyncio.sleep(10)
-        await xx.delete()
-    elif conf == "deploy":
-        await deploy(event, repo, ups_rem, ac_br, txt)
-        await asyncio.sleep(10)
-        await xx.delete()
+        for commit in changelog.splitlines():
+            if (
+                commit.startswith("- [NQ]")
+                and HEROKU_APP_NAME is not None
+                and HEROKU_API_KEY is not None
+            ):
+                return await xx.edit(
+                    f"**Quick update telah dinonaktifkan untuk pembaruan ini Gunakan** `{shutup}update deploy` **sebagai gantinya.**"
+                )
+        await xx.edit("**Perfoming a quick update, please wait...**")
+        await update(xx, repo, ups_rem, ac_br)
+
     return
 
 
 CMD_HELP.update(
     {
-        "update": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{shutup}update`"
-        "\n• : Untuk Melihat Pembaruan dari 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​."
-        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{shutup}update now`"
-        "\n• : Memperbarui 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​."
-        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{shutup}update deploy`"
-        "\n• : Memperbarui 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁​ Dengan Cara Men-Deploy Ulang."
+        "update": f"**Plugin : **`update`\
+        \n\n  •  **Syntax :** `{shutup}update`\
+        \n  •  **Function : **Untuk Melihat Pembaruan Terbaru 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁.\
+        \n\n  •  **Syntax :** `{shutup}update deploy`\
+        \n  •  **Function : **Untuk memperbarui fitur terbaru dari 𝗙𝗮𝗻𝗱𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁.\
+    "
     }
 )
