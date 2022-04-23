@@ -43,7 +43,7 @@ async def on_add_black_list(addbl):
     for trigger in to_blacklist:
         sql.add_to_blacklist(addbl.chat_id, trigger.lower())
     await addbl.edit(
-        "`Menambahkan Kata` **{}** `Ke Blacklist Untuk Obrolan Ini`".format(text)
+        "**Menambahkan Kata** `{}` **Ke Blacklist Untuk Obrolan Ini**".format(text)
     )
 
 
@@ -86,13 +86,12 @@ async def on_delete_blacklist(rmbl):
     if not successful:
         await rmbl.edit("**{}** `Tidak Ada Di Blacklist`".format(text))
     else:
-        await rmbl.edit("`Berhasil Menghapus` **{}** `Di Blacklist`".format(text))
+        await rmbl.edit("**Berhasil Menghapus** `{}` **Dari Blacklist**".format(text))
 
 
 CMD_HELP.update({"blacklist": f">`{cmd}listbl`"
                  "\nUsage: Melihat daftar blacklist yang aktif di obrolan."
-                 f"\n\n>`{cmd}addbl <kata>`"
-                 "\nUsage: Memasukan pesan ke blacklist 'kata blacklist'."
-                 "\nlord bot akan otomatis menghapus 'kata blacklist'."
-                 f"\n\n>`{cmd}rmbl <kata>`"
-                 "\nUsage: Menghapus kata blacklist."})
+                 f"\n\n>`{cmd}addbl <trigger>`"
+                 "\nUsage: Blacklist pesan tertentu."
+                 f"\n\n>`{cmd}rmbl <trigger>`"
+                 "\nUsage: Menghapus pesan tertentu dari blacklist."})
