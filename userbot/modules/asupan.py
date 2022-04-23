@@ -8,7 +8,7 @@ from secrets import choice
 
 from telethon.tl.types import InputMessagesFilterVideo, InputMessagesFilterVoice
 
-from userbot import CMD_HANDLER as cmd
+from userbot import CMD_HANDLER as asuh
 from userbot import CMD_HELP
 from userbot.utils import edit_or_reply, fanda_cmd
 
@@ -31,38 +31,11 @@ async def _(event):
         await xx.edit("**Tidak bisa menemukan video asupan.**")
 
 
-@fanda_cmd(pattern="favsong$")
-async def _(event):
-    xx = await edit_or_reply(event, "`Tunggu Sebentar...`")
-    try:
-        inilagunya = [
-            song
-            async for song in event.client.iter_messages(
-                "@uurfavsong", filter=InputMessagesFilterVoice
-            )
-        ]
-        await event.client.send_file(
-            event.chat_id, file=choice(inilagunya), reply_to=event.reply_to_msg_id
-        )
-        await xx.delete()
-    except Exception:
-        await xx.edit("**Tidak bisa menemukan fanda favorit song.**")
-
-
 CMD_HELP.update(
     {
         "asupan": f"**Plugin : **`asupan`\
-        \n\n  •  **Syntax :** `{cmd}asupan`\
+        \n\n  •  **Syntax :** `{asuh}asupan`\
         \n  •  **Function : **Untuk Mengirim video asupan secara random.\
-    "
-    }
-)
-
-CMD_HELP.update(
-    {
-        "favsongs": f"**Plugin : **`favsong`\
-        \n\n  •  **Syntax :** `{cmd}favsong`\
-        \n  •  **Function : **Kumpulan lagu favorit dari owner Fanda-Userbot.\
     "
     }
 )
