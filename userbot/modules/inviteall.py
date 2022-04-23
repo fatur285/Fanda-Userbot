@@ -71,14 +71,14 @@ async def get_users(event):
     async for user in event.client.iter_participants(geezteam.full_chat.id):
         try:
             if error.startswith("Too"):
-                return await kyy.edit(
+                return await ohsi.edit(
                     f"**Terminal Finished With Error**\n(`May Got Limit Error from telethon Please try agin Later`)\n**Error** : \n`{error}`\n\n• Invited `{s}` people \n• Failed to Invite `{f}` people"
                 )
             await event.client(
                 functions.channels.InviteToChannelRequest(channel=chat, users=[user.id])
             )
             s = s + 1
-            await kyy.edit(
+            await ohsi.edit(
                 f"**Terminal Running...**\n\n• Invited `{s}` people \n• Failed to Invite `{f}` people\n\n**× LastError:** `{error}`"
             )
         except Exception as e:
@@ -91,7 +91,7 @@ async def get_users(event):
 
 CMD_HELP.update(
     {
-        "inviteall": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}inviteall groups username`\
-          \n📌 : __Scrapes users from the given chat to your group__."
+        "inviteall": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}inviteall <@group username>`\
+          \nUsage : Menambahkan pengguna grup lain ke dalam grup tempat perintah ini dijalankan."
     }
 )
