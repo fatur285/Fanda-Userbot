@@ -1,79 +1,85 @@
-# Recode By @mrismanaziz
-# FROM Geez-Project
+# Credits: @mrismanaziz
+# FROM Man-Userbot <https://github.com/mrismanaziz/Man-Userbot>
+# t.me/SharingUserbot & t.me/Lunatic0de
 
-import importlib
-import logging
 import os
-import sys
 from pathlib import Path
 
-from userbot import CMD_HELP, LOGS, bot  # pylint:disable=E0602
-from userbot.events import register
-
-DELETE_TIMEOUT = 5
+from userbot import CMD_HELP, CMD_HANDLER as kntl
+from userbot.utils import edit_or_reply, load_module, fanda_cmd, remove_plugin, reply_id
 
 
-def load_module(shortname):
-    if shortname.startswith("__"):
-        pass
-    elif shortname.endswith("_"):
-        path = Path(f"userbot/modules/{shortname}.py")
-        name = "userbot.modules.{}".format(shortname)
-        spec = importlib.util.spec_from_file_location(name, path)
-        mod = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(mod)
-        LOGS.info("Successfully imported " + shortname)
-    else:
-
-        path = Path(f"userbot/modules/{shortname}.py")
-        name = "userbot.modules.{}".format(shortname)
-        spec = importlib.util.spec_from_file_location(name, path)
-        mod = importlib.util.module_from_spec(spec)
-        mod.bot = bot
-        mod.LOGS = LOGS
-        mod.CMD_HELP = CMD_HELP
-        mod.logger = logging.getLogger(shortname)
-        spec.loader.exec_module(mod)
-        # for imports
-        sys.modules["userbot.modules." + shortname] = mod
-        LOGS.info("Successfully imported " + shortname)
-
-
-@register(outgoing=True, pattern=r"^\.install$")
+@fanda_cmd(pattern="install$")
 async def _(event):
     if event.fwd_from:
         return
     if event.reply_to_msg_id:
         try:
-            await event.edit("`Installing Modules...`")
-            downloaded_file_name = (
-                await event.client.download_media(  # pylint:disable=E0602
-                    await event.get_reply_message(),
-                    "userbot/modules/",  # pylint:disable=E0602
-                )
+            xx = await edit_or_reply(event, "`Installing Modules...`")
+            downloaded_file_name = await event.client.download_media(
+                await event.get_reply_message(),
+                "userbot/modules/",
             )
             if "(" not in downloaded_file_name:
                 path1 = Path(downloaded_file_name)
                 shortname = path1.stem
                 load_module(shortname.replace(".py", ""))
-                await event.edit(
-                    "**Plugin** `{}` **Berhasil di install**".format(
-                        os.path.basename(downloaded_file_name)
-                    )
+                await xx.edit(
+                    f"**Plugin** `{os.path.basename(downloaded_file_name)}` **Berhasil di install**"
                 )
+
             else:
                 os.remove(downloaded_file_name)
-                await event.edit("**Error!** Plugin ini sudah terinstall di userbot.")
-        except Exception as e:  # pylint:disable=C0103,W0703
-            await event.edit(str(e))
+                await xx.edit("**Error!** Plugin ini sudah terinstall di userbot.")
+        except Exception as e:
+            await xx.edit(str(e))
             os.remove(downloaded_file_name)
+
+
+@fanda_cmd(pattern="psend ([\s\S]*)")
+async def send(event):
+    reply_to_id = await reply_id(event)
+    input_str = event.pattern_match.group(1)
+    the_plugin_file = f"./userbot/modules/{input_str}.py"
+    if os.path.exists(the_plugin_file):
+        await event.client.send_file(
+            event.chat_id,
+            the_plugin_file,
+            force_document=True,
+            thumb="userbot/resources/logo.jpg",
+            allow_cache=False,
+            reply_to=reply_to_id,
+            caption=f"➠ **Nama Plugin:** `{input_str}`",
+        )
+        await event.delete()
+    else:
+        await edit_or_reply(event, "**ERROR: Modules Tidak ditemukan**")
+
+
+@fanda_cmd(pattern="uninstall (?P<shortname>\w+)")
+async def uninstall(event):
+    if event.fwd_from:
+        return
+    shortname = event.pattern_match["shortname"]
+    dir_path = f"./userbot/modules/{shortname}.py"
+    xx = await edit_or_reply(event, "`Processing...`")
+    try:
+        remove_plugin(shortname)
+        os.remove(dir_path)
+        await xx.edit(f"**Berhasil Menghapus Modules** `{shortname}`")
+    except OSError as e:
+        await xx.edit(f"**ERROR:** `{dir_path}` : {e.strerror}")
 
 
 CMD_HELP.update(
     {
         "core": "**Plugin : **`core`\
-        \n\n  •  **Syntax :** `.install` <reply ke file plugins>\
-        \n  •  **Function : **Untuk Menginstall plugins userbot secara instan.\
+        \n\n  •  **Syntax :** `{kntl}install` <reply ke file module>\
+        \n  •  **Function : **Untuk Menginstall module userbot secara instan.\
+        \n\n  •  **Syntax :** `{kntl}uninstall` <nama module>\
+        \n  •  **Function : **Untuk Menguninstall / Menghapus module userbot secara instan.\
+        \n\n  •  **Syntax :** `{kntl}psend` <nama module>\
+        \n  •  **Function : **Untuk Mengirim module userbot secara instan.\
     "
     }
 )
