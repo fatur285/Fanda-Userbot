@@ -25,7 +25,7 @@ async def testing(event):
         except Exception as e:
             await edit_or_reply(event, str(e))
         await sleep(.5)
-    await edit_delete(event, "Tidak Ada yang Terjadi di sini🙃🙂")
+    await edit_delete(event, "Tidak Ada yang Terjadi di sini🙂")
 
 CMD_HELP.update(
     {
