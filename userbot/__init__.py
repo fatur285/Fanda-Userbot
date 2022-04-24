@@ -129,7 +129,6 @@ if CONFIG_CHECK:
 # Jangan diubah tanpa izin dari owner!
 DEVS = (
     1220829364, # gw
-    2113853612, # gw
     2116587637, # askar
     1663258664, # iki
     1738637033, # setan
@@ -141,14 +140,13 @@ DEVS = (
 # KHUSUS OWNER YA MONYET! JANGAN DIISI.
 OWNER = (
     1220829364,
-
 )
 
 # For blacklist group Support
-# Fanda chats - Sharing bot telegram - Nasty support - Skyzu Support - Pluvia music groups
+# Fanda chats - Sharing bot telegram - Tede support - Nasty support - Skyzu Support - Pluvia music groups
 BLACKLIST_CHAT = os.environ.get("BLACKLIST_CHAT", None)
 if not BLACKLIST_CHAT:
-    BLACKLIST_CHAT = [-1001774519942, -1001473548283, -1001380293847, -1001752592753, -1001572486389]
+    BLACKLIST_CHAT = [-1001774519942, -1001473548283, -1001433238829, -1001380293847, -1001752592753, -1001572486389]
 
 # Blacklist User for use Fanda-Userbot
 while 0 < 6:
