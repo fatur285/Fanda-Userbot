@@ -16,12 +16,15 @@ from userbot.events import register
 
 GCAST_BLACKLIST = [
     -1001774519942, # Fanda Chats
-    -1001380293847, # NastySupport
-    -1001473548283, # SharingUserbot
-    -1001578091827, # PrimeSupportGroup
-    -1001752592753, # SkyzuSupport
-    -1001430568914, # FlicksSupport
-    -1001267233272, # PocongUserbot
+    -1001327032795, # Ultroid Support
+    -1001419516987, # Veez support group
+    -1001380293847, # Nasty Support
+    -1001473548283, # Sharing Userbot
+    -1001433238829, # Tete support
+    -1001578091827, # Prime Support Group
+    -1001752592753, # Skyzu Support
+    -1001430568914, # Flicks Support
+    -1001267233272, # Pocong Userbot
 
 ]
 
