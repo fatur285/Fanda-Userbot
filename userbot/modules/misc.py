@@ -108,20 +108,13 @@ async def repeat(rep):
 async def repo_is_here(wannasee):
     """ For .repo command, just returns the repo URL. """
     await edit_or_reply(wannasee,
-                         "__Hi, saya menggunakan__ **Fanda-Userbot**\n\n"
-                         "**Channel :** [Channel](t.me/fandaproject)\n"
-                         "**Group :** [Group](t.me/fandasupport)\n"
-                         "**Owner :** [Fatur](t.me/uurfavboys)\n"
-                         "**Repo :** [Github](https://github.com/DIORrios285/Fanda-Userbot)"
-                        )
-
-
-@fanda_cmd(pattern="string$")
-async def repo_is_here(wannasee):
-    """For .repo command, just returns the repo URL."""
-    await edit_or_reply(wannasee,
-                        f"➣ **GET STRING SESSION VIA REPLIT :** [KLIK DISINI](https://replit.com/@rizkyhmdanii16/StringSession)\n"
-                        f"➣ **GET STRING SESSION VIA BOT    :** [KLIK DISINI](https://t.me/NastyStringbot)\n"
+                         "__Hey, i'm using__ **Fanda-Userbot**\n"
+                         "━━━━━━━━\n"
+                         "**⌬ ʀᴇᴘᴏ:** [ᴄʟɪᴄᴋ ʜᴇʀᴇ](https://github.com/DIORrios285/Fanda-Userbot)\n"
+                         "**⌬ ᴏᴡɴᴇʀ:** [ꜰᴀᴛᴜʀ​](https://t.me/uurfavboys)\n"
+                         "**⌬ sᴜᴘᴏʀᴛ:** [ᴄʟɪᴄᴋ ʜᴇʀᴇ](https://t.me/fandasupport)\n"
+                         "**⌬ ᴄʜᴀɴɴᴇʟ:** [ᴄʟɪᴄᴋ ʜᴇʀᴇ](https://t.me/fandaproject)\n"
+                         "━━━━━━━━"
                         )
 
 
