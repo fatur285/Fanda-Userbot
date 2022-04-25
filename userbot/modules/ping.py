@@ -114,7 +114,7 @@ async def _(ping):
         f"**✦҈͜͡Owner :** [{user.first_name}](tg://user?id={user.id})" % (duration)
     )
 
-@fanda_cmd(pattern="sinyal$")
+@fanda_cmd(pattern="forg$")
 async def redis(pong):
     """For .ping command, ping the userbot from any chat."""
     uptime = await get_readable_time((time.time() - StartTime))
@@ -227,7 +227,7 @@ async def pingme(pong):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     user = await pong.client.get_me()
-    await pepek.edit(f"**✦҈͜͡Owner:** [{user.first_name}](tg://user?id={user.id})\n📈 `%sms`" % (duration))
+    await pepek.edit(f"**✦҈͜͡Owner:** [{user.first_name}](tg://user?id={user.id})\n`%sms`" % (duration))
 
 
 CMD_HELP.update(
