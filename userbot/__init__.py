@@ -638,7 +638,7 @@ with bot:
                 current_page_number = int(looters)
                 buttons = paginate_help(
                     current_page_number, dugmeler, "helpme")
-                text = f"**ɪɴʟɪɴᴇ ᴍᴇɴᴜ**\n\n✣ **ᴏᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**"
+                text = f"**Bᴏᴛ Oғ** {owner}\n\n**Mᴀɪɴ Mᴇɴᴜ**\n\nPʟᴜɢɪɴs ~ `{len(dugmeler)}`"
                 await event.edit(
                     text,
                     file=fandalogo,
@@ -730,7 +730,7 @@ with bot:
                 result = builder.photo(
                     file=fandalogo,
                     link_preview=False,
-                    text=f"**ɪɴʟɪɴᴇ ᴍᴇɴᴜ**\n\n✣ **ᴏᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**",
+                    text=f"**Bᴏᴛ Oғ** {owner}\n\n**Mᴀɪɴ Mᴇɴᴜ**\n\nPʟᴜɢɪɴs ~ `{len(dugmeler)}`",
                     buttons=buttons,
                 )
             elif query.startswith("repo"):
@@ -829,7 +829,7 @@ with bot:
                 await event.edit(buttons=buttons)
             else:
                 reply_pop_up_alert = (
-                    f"Kamu Tidak diizinkan, ini Userbot Milik {ALIVE_NAME}"
+                    f"Kamu Tidak diizinkan, ini Userbot Milik {owner}"
                 )
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
@@ -837,7 +837,7 @@ with bot:
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid or event.query.user_id in DEVS and SUDO_USERS:
                 openlagi = custom.Button.inline(
-                    "• Open Menu •", data="reopen")
+                    "• Open Menu", data="reopen")
                 await event.edit(
                     "⚜️ **ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ᴅɪᴛᴜᴛᴜᴘ** ⚜️", buttons=openlagi
                 )
