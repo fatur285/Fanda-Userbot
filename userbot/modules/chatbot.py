@@ -43,7 +43,7 @@ async def chat_bot_toggle(event):
             return await edit_or_reply(event, "ChatBot Dinonaktifkan!")
         await event.edit("ChatBot Sudah Dinonaktifkan.")
     else:
-        await edit_or_reply(event, "**Usage:** `.chatbot` <on/off>")
+        await edit_or_reply(event, "**Usage:** `{cmd}`chatbot` <on/off>")
 
 
 @fanda_cmd(pattern="chatbot(?: |$)(.*)")
