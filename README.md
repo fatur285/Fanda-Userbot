@@ -46,7 +46,7 @@ src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/pyth
 
 <h2 align="left">Metode Deploy</h2>
 
-<p align="center"><a href="https://github.com/DIORrios285/Fanda-Userbot/three/Fanda-Userbot"><img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy to Heroku" target="_blank"/></a></p>
+<p align="center"><a href="https://github.com/DIORrios285/Fanda-Userbot"><img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy to Heroku" target="_blank"/></a></p>
 <h3 align="center">With bot telegram</h3>
 <p align="center"><a href="https://telegram.dog/XTZ_HerokuBot?start=RElPUnJpb3MyODUvRmFuZGEtVXNlcmJvdCBGYW5kYS1Vc2VyYm90"><img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy to bot Heroku" target="_blank"/></a></p>
 
