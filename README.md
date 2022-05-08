@@ -43,7 +43,7 @@ src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/pyth
 
 <p align="center"><a href="https://github.com/DIORrios285/Fanda-Userbot"><img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy to Heroku" target="_blank"/></a></p>
 <h3 align="center">With Heroku Bot</h3>
-<p align="center"><a href="https://telegram.dog/XTZ_HerokuBot?start=RElPUnJpb3MyODUvRmFuZGEtVXNlcmJvdCBGYW5kYS1Vc2VyYm90"><img src="https://img.shields.io/badge/Deploy%20Via%20Telegram-blue?style=for-the-badge&logo=telegram" width="215"/</a>  </p>
+<p align="center"><a href="https://telegram.dog/XTZ_HerokuBot?start=RElPUnJpb3MyODUvRmFuZGEtVXNlcmJvdCBGYW5kYS1Vc2VyYm90"><img src="https://img.shields.io/badge/Deploy%20Via%20Telegram-blue?style=for-the-badge&logo=telegram" width="215"/</a> </p>
 
 ## © Credits
 
