@@ -25,16 +25,11 @@ Sekian dan terimakasih!!!
 ```
 
 <h2 align="left">Support</h2>
-</p>
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
     <p align="center"> 
-Grup
     <a href="https://t.me/fandasupport" target="blank"><img src="https://img.icons8.com/nolan/55/telegram-app.png" /></a>
-Channel
     <a href="https://t.me/fandaproject" target="blank"><img src="https://img.icons8.com/nolan/55/telegram-app.png" /></a>
-Instagram
-    <a href="https://instagram.com/fatur.285" target="blank"><img src="https://img.icons8.com/nolan/55/instagram-new.png" /></a>
-</p>
+    <a href="https://instagram.com/fatur.285" target="blank"><img src="https://img.icons8.com/nolan/55/instagram-new.png" /></a> </p>
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
 ## Language
@@ -47,8 +42,8 @@ src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/pyth
 <h2 align="left">Metode Deploy</h2>
 
 <p align="center"><a href="https://github.com/DIORrios285/Fanda-Userbot"><img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy to Heroku" target="_blank"/></a></p>
-<h3 align="center">With bot telegram</h3>
-<p align="center"><a href="https://telegram.dog/XTZ_HerokuBot?start=RElPUnJpb3MyODUvRmFuZGEtVXNlcmJvdCBGYW5kYS1Vc2VyYm90"><img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy to bot Heroku" target="_blank"/></a></p>
+<h3 align="center">With Heroku Bot</h3>
+<p align="center"><a href="https://telegram.dog/XTZ_HerokuBot?start=RElPUnJpb3MyODUvRmFuZGEtVXNlcmJvdCBGYW5kYS1Vc2VyYm90"><img src="https://img.shields.io/badge/Deploy%20Via%20Telegram-blue?style=for-the-badge&logo=telegram" width="215"/</a>  </p>
 
 ## © Credits
 
