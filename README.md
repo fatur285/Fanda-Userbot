@@ -19,9 +19,7 @@ src="https://img.shields.io/pypi/v/telethon?color=important&label=telethon&logo=
 <h2 align="left">Disclaimer</h3>
 
 ```
-Gua sih engga bertanggung jawab atas penyalah gunaan userbot ini.
-Gunakan userbot ini dengan resiko lu sendiri, dan gunakan dengan bijak, oke?..
-Sekian dan terimakasih!!!
+Tidak ada tanggung jawab atas penyalahgunaan bot, gunakan bot dengan resiko anda sendiri.
 ```
 
 <h2 align="left">Support</h2>
