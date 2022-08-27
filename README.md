@@ -22,14 +22,6 @@ src="https://img.shields.io/pypi/v/telethon?color=important&label=telethon&logo=
 Tidak ada tanggung jawab atas penyalahgunaan bot, gunakan bot dengan resiko anda sendiri.
 ```
 
-<h2 align="left">Support</h2>
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
-    <p align="center"> 
-    <a href="https://t.me/fandasupport" target="blank"><img src="https://img.icons8.com/nolan/55/telegram-app.png" /></a>
-    <a href="https://t.me/fandaproject" target="blank"><img src="https://img.icons8.com/nolan/55/telegram-app.png" /></a>
-    <a href="https://instagram.com/fatur.285" target="blank"><img src="https://img.icons8.com/nolan/55/instagram-new.png" /></a> </p>
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
-
 ## Language
 <p align="center"> 
 <a 
